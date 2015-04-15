@@ -6,7 +6,7 @@ default:
       selenium2: ~
   suites:
     usuario:
-      feature: %paths.base%/features/usuario/LoginUsuario.feature
+      features: %paths.base%/features/usuario/
       contexts: [UsuarioContext]
     tarotdodia:
       features: %paths.base%/features/tarotdodia/
