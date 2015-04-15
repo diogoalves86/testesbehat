@@ -1,4 +1,5 @@
 <?php 
+namespace Behat\Behat\Context;
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
@@ -14,17 +15,76 @@ use Behat\Behat\Context\Step;
  */
 class UsuarioContext extends MinkContext
 {    
-    // /**
-    //  * @Given /^Estou no contexto "([^"]*)"$/
-    //  */
-    // public function getSubcontextByClassName($className)
-    // {
-    //     $className.= "Context";
-    //     // if($className === get_class($this))
-    //     //     return;
-    //     // else if (class_exists($className))
-    //     //     $this->useContext($className, new $className($this));
-    //     // else
-    //     //     throw new Exception("O contexto escolhido não existe! Tente novamente.");
-    // }
+    /**
+     * @Given /^Eu vou para “\/cadastro"$/
+     */
+    public function euVouParaCadastro()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^eu seleciono “(\d+)” de "([^"]*)"$/
+     */
+    public function euSelecionoDe($arg1, $arg2)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^eu seleciono  "([^"]*)" de “Gender”$/
+     */
+    public function euSelecionoDeGender($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^preencho "([^"]*)" com “Rio de Janeiro”$/
+     */
+    public function preenchoComRioDeJaneiro($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^preencho “E-Mail” com "([^"]*)"$/
+     */
+    public function preenchoEMailCom($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^preencho “Password” com "([^"]*)"$/
+     */
+    public function preenchoPasswordCom($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^submeto o formulário "([^"]*)"$/
+     */
+    public function submetoOFormulario($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^marco “cbReceiveAlerts_(\d+)”$/
+     */
+    public function marcoCbreceivealerts($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^marco “cbReceiveNews_(\d+)”$/
+     */
+    public function marcoCbreceivenews($arg1)
+    {
+        throw new PendingException();
+    }
+
 }

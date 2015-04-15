@@ -1,20 +1,18 @@
-tarotdodia:
-  paths:
-    features: features/tarot-do-dia
-    bootstrap: features/tarot-do-dia/bootstrap
+default:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: 'http://www.personare.com.br/'
       goutte: ~
       selenium2: ~
+tarotdodia:
+  paths:
+    features: features/tarotdodia
+    bootstrap: features/tarotdodia/bootstrap
+  context: 
+    class: Behat\Behat\Context\TarotDoDiaContext
 usuario:
   paths:
     features: features/usuario
     bootstrap: features/usuario/bootstrap
   context: 
-    class: UsuarioContext
-  extensions:
-    Behat\MinkExtension\Extension:
-      base_url: 'http://www.personare.com.br/'
-      goutte: ~
-      selenium2: ~
+    class: Behat\Behat\Context\UsuarioContext
