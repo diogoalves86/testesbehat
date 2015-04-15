@@ -27,9 +27,8 @@ class UsuarioContext extends MinkContext implements Context
             $this->getSession()->getDriver()->executeScript("
                     Login.efetuaLogin('FormPOPLogin');
             ");
-         
         } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao efetuar o login.\nInformações detalhadas do erro: ".$e->getMessage());
+            throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
         }
     }
 
@@ -41,12 +40,10 @@ class UsuarioContext extends MinkContext implements Context
     {
         try {
             $this->visit("/astrologia/horoscopo");    
-            $estaLogado = $this->assertPageContainsText("Não é Cadastro? Desconectar");
-            if (!$estaLogado)
-                throw new Exception("O usuário não está logado. \n O teste será interrompido.");
+            $this->assertResponseContains('<a href="/logout">Desconectar</a>');
                 
         } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage());   
+            throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
         }
     }
 
