@@ -47,6 +47,19 @@ class UsuarioContext extends MinkContext implements Context
     }
 
     /**
+     * @Given seleciono a opção :arg1 da combo :arg2
+     */
+    public function selectOptionFromCombo($select, $value)
+    {
+        try {
+            $this->selectFieldOption($select, $value);
+            
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro fatal ao selecionar o valor da comboBox.\nInformações detalhadas do erro: ".$e->getMessage()."\n");      
+        }
+    }
+
+    /**
      * @Given preencho com :arg1 o campo :arg2
      */
     public function fillFieldWithSelector($valor, $campo)

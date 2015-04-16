@@ -2,19 +2,18 @@
 Funcionalidade: Cadastrar usuário
 @javascript
 Cenário: Usuário não possui cadastro
-	Dados Eu estou na página de entrada
-	Quando vou para “/cadastro"	
-	E preencho com "TesteNome" o campo "Name" 
-	E eu seleciono “01” de "DateDay"
-	E eu seleciono “01” de "DateMonth"
-	E eu seleciono “1996” de "DateYear"
-	E eu seleciono  "2" de “Gender”
+	Dado Eu estou em "/cadastro"
+	Quando preencho com "TesteNome" o campo "Name" 
+	E seleciono "Masculino" de “ddGender”
+	E seleciono “01” de "DateDay"
+	E seleciono “01” de "DateMonth"
+	E seleciono “1996” de "DateYear"
 	E preencho com “Rio de Janeiro” o campo "txCityName" 
 	E preencho com "testecadastro@personare.com.br" o campo “E-Mail” 
 	E preencho com "123testecadastro" o campo “Password”  
 	E preencho com "123testecadastro" o campo "Password_Confirm" 
-	Quando cadastro o usuário
-	Então vou para "cadastro/obrigado?FeedbackRegister=1&ReturnToURL=Lw=="
+	Então cadastro o usuário
+	E vou para "cadastro/obrigado?FeedbackRegister=1&ReturnToURL=Lw=="
 	E marco “cbReceiveAlerts_1”
 	E marco “cbReceiveNews_1” 
 	
