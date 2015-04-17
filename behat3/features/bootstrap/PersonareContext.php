@@ -67,17 +67,17 @@ class PersonareContext extends MinkContext implements Context
     }
 
     /**
-    * @When checar a opção de texto :arg1
+    * @When checo a opção de texto :arg1
     */
- 	public function iCheckTheRadioButton($labelText)
+ 	public function checkTheRadioButton($labelText)
     {
-	    foreach ($this->getMainContext()->getSession()->getPage()->findAll('css', 'label') as $label) {
+	    foreach ($this->getMainContext()->getSession()->getPage()->findAll('css', 'p') as $label) {
 	        if ($labelText === $label->getText() && $label->has('css', 'input[type="radio"]')) {
 	            $this->getMainContext()->fillField($label->find('css', 'input[type="radio"]')->getAttribute('name'), $label->find('css', 'input[type="radio"]')->getAttribute('value'));
 	            return;
 	        }
 	    }
-	    throw new \Exception('Radio button not found');
+	    throw new \Exception('Radio button não encontrado. \n');
 	}
 
 
