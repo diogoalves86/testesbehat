@@ -1,0 +1,10 @@
+LISTA DE TESTES PARA FAZER.
+- Funcionalidade: Usuário jogar Tarot (FINALIZADO)
+
+- Funcionalidade: Cadastro (PARA FAZER)
+
+- Funcionalidade: Login (FINALIZADO)
+
+- Funcionalidade: Fazer o mini do TA (PARA FAZER)
+
+- Funcionalidade: Comprar produto completo  (PARA FAZER)
