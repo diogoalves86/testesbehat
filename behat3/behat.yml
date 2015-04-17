@@ -11,3 +11,6 @@ default:
     tarotdodia:
       features: %paths.base%/features/tarotdodia/
       contexts: [TarotDoDiaContext]
+    carrinho:
+      features: %paths.base%/features/carrinho/
+      contexts: [CarrinhoContext]
