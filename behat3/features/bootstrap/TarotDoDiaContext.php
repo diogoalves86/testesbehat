@@ -13,16 +13,42 @@ use Behat\Behat\Context\Step;
  * TarotDoDia context.
  */
 class TarotDoDiaContext extends MinkContext
-{    
+{
     /**
+    * Embaralha as cartas para o jogo
+    * @Then embaralho as cartas do jogo
+    */
+    public function prepareGame()
+    {
+        try {
+            $this->clickLink("daily-tarot-start-game");
+            //Aguarda a animação do deck para finalizar o processo de embaralhamento.
+            $this->getSession()->wait(20000,"");
+        } catch (Exception $e) {
+            throw new Exception("Erro ao embaralhar as cartas.\n ".$e->getMessage());
+        }
+    }
+
+    /**
+    * Joga o Tarot propriamente dito.
     * @Then jogo o tarot
     */
     public function startDailyTarot()
     {
         try {
+            /*
+            $this->getSession()->wait(
+                "setTimeout(function(){
+                    objTarot.saveGame();
+                }, 100000);"
+            );
+            */
             $this->getSession()->getDriver()->executeScript("
-                objTarot.saveGame();
+                window.onbeforeunload = null;
+                DailyTarotGame.saveGame()
             ");
+            //Aguarda até que os dados sejam postados e seja trazida a resposta.
+            $this->getSession()->wait(10000,"");
             
         } catch (Exception $e) {
             throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());
@@ -34,11 +60,11 @@ class TarotDoDiaContext extends MinkContext
     * Verifica se o usuário jogou o tarot com sucesso.
     * @Then vejo o jogo de :arg1 
     */
-    public function seeResultGame($player)
+    public function seeResultGame($playerName)
     {
         try {
-            $this->visit("/tarot/jogar");
-            $this->assertResponseContains('<a href="/logout-tarot-do-dia">Saia aqui</a>');
+            $this->visit("/tarot/tarot-do-dia/jogar");
+            $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
             
         } catch (Exception $e) {
             throw new Exception("Erro ao verificar o jogo de tarot.\n ".$e->getMessage());
