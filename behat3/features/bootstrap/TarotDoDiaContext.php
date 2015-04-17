@@ -14,17 +14,34 @@ use Behat\Behat\Context\Step;
  */
 class TarotDoDiaContext extends MinkContext
 {    
-    // 
-    //   @Given /^Estou no contexto "([^"]*)"$/
-    //  
-    // public function getSubcontextByClassName($className)
-    // {
-    //     $className.= "Context";
-    //     // if($className === get_class($this))
-    //     //     return;
-    //     // else if (class_exists($className))
-    //     //     $this->useContext($className, new $className($this));
-    //     // else
-    //     //     throw new Exception("O contexto escolhido não existe! Tente novamente.");
-    // }
+    /**
+    * @Then jogo o tarot
+    */
+    public function startDailyTarot()
+    {
+        try {
+            $this->getSession()->getDriver()->executeScript("
+                objTarot.saveGame();
+            ");
+            
+        } catch (Exception $e) {
+            throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());
+            
+        }
+    }
+
+    /**
+    * Verifica se o usuário jogou o tarot com sucesso.
+    * @Then vejo o jogo de :arg1 
+    */
+    public function seeResultGame($player)
+    {
+        try {
+            $this->visit("/tarot/jogar");
+            $this->assertResponseContains('<a href="/logout-tarot-do-dia">Saia aqui</a>');
+            
+        } catch (Exception $e) {
+            throw new Exception("Erro ao verificar o jogo de tarot.\n ".$e->getMessage());
+        }
+    }
 }

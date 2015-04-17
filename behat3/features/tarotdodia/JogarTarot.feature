@@ -4,10 +4,10 @@ Funcionalidade: Usuário jogar Tarot
 Cenário: Usuário deslogado 
 	Dados Eu vou para "/tarot/tarot-do-dia/jogar"
 	E devo estar em "/tarot/tarot-do-dia/jogar"
-	E preencho "tarot-nome-jogador" com "TesteTarotDoDia"
+	Quando preencho "tarot-nome-jogador" com "TesteTarotDoDia"
 	E sigo o link "daily-tarot-start-game"
 	E sigo o link "carta-41"
-	Então sigo o link "daily-tarot-close-game"
-	Então devo ver "TesteTarotDoDia"
+	Quando jogo o tarot
+	Então vejo o jogo de "Jogo de TesteTarotDoDia"
 
 
