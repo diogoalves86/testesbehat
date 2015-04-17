@@ -15,6 +15,39 @@ use Behat\Behat\Context\Context;
 */
 class PersonareContext extends MinkContext implements Context
 {
+	/**
+	* @Given clico no link :arg1
+	*/
+	public function followLink($link)
+	{
+		try {
+			$this->clickLink($link);
+		} catch (Exception $e) {
+			throw new Exception("Não foi clicar no link ".$link.".\nInformações detalhadas do erro: ".$e->getMessage());   
+		}
+	}
+
+	/**
+	* @Given clico no link :arg1 com intervalo de :arg2 segundos
+	*/
+	public function followLinkWithTimeout($link, $timeout)
+	{
+		try {
+			$timeoutMiliSecond = $timeout * 0.001; 
+			$this->getSession()->wait($timeoutMiliSecond);
+			$this->clickLink($link);
+		} catch (Exception $e) {
+			throw new Exception("Não foi clicar no link ".$link.".\nInformações detalhadas do erro: ".$e->getMessage());   
+		}
+	}
+
+	/**
+	* @Given estou logado no sistema com o usuário :arg1 e a senha :arg2
+	*/
+	public function doLoginForTest($username, $password)
+	{
+		$this->userLogged($username, $password);
+	}
 	
     /*
     * Este método tem o papel de logar o usuário no caso de testes que precisem do usuário logado.
@@ -46,6 +79,19 @@ class PersonareContext extends MinkContext implements Context
         }
     }
 
+    /**
+    * @When checar a opção de texto :arg1
+    */
+ 	public function iCheckTheRadioButton($labelText)
+    {
+	    foreach ($this->getMainContext()->getSession()->getPage()->findAll('css', 'label') as $label) {
+	        if ($labelText === $label->getText() && $label->has('css', 'input[type="radio"]')) {
+	            $this->getMainContext()->fillField($label->find('css', 'input[type="radio"]')->getAttribute('name'), $label->find('css', 'input[type="radio"]')->getAttribute('value'));
+	            return;
+	        }
+	    }
+	    throw new \Exception('Radio button not found');
+	}
 
 
     /**
