@@ -24,7 +24,7 @@ class TarotDoDiaContext extends PersonareContext implements Context
         try {
             $this->clickLink("daily-tarot-start-game");
             //Aguarda a animação do deck para finalizar o processo de embaralhamento.
-            $this->getSession()->wait(15000,"");
+            $this->waitForAct(15);
 
         } catch (Exception $e) {
             throw new Exception("Erro ao embaralhar as cartas.\n ".$e->getMessage());
@@ -44,7 +44,7 @@ class TarotDoDiaContext extends PersonareContext implements Context
             ");
             
             //Aguarda até que os dados sejam postados e seja trazida a resposta.
-            $this->getSession()->wait(10000,"");
+            $this->waitForAct(15);
             
         } catch (Exception $e) {
             throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());

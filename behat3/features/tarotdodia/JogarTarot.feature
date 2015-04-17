@@ -6,7 +6,7 @@ Funcionalidade: Usuário jogar Tarot
 		E devo estar em "/tarot/tarot-do-dia/jogar"
 		Quando preencho "tarot-nome-jogador" com "TesteTarotDoDia"
 		E embaralho as cartas do jogo
-		E clico no link "carta-41"
+		E sigo o link "carta-41"
 		Quando jogo o tarot
 		Então vou para o jogo de "TesteTarotDoDia"
 

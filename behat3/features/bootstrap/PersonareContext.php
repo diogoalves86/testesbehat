@@ -16,28 +16,15 @@ use Behat\Behat\Context\Context;
 class PersonareContext extends MinkContext implements Context
 {
 	/**
-	* @Given clico no link :arg1
+	* @Given aguardo :arg1 segundos
 	*/
-	public function followLink($link)
+	public function waitForAct($secondsToWait)
 	{
 		try {
-			$this->clickLink($link);
+			$milisecondsToWait = $secondsToWait * 1000;
+			$this->getSession()->wait($milisecondsToWait);
 		} catch (Exception $e) {
-			throw new Exception("Não foi clicar no link ".$link.".\nInformações detalhadas do erro: ".$e->getMessage());   
-		}
-	}
-
-	/**
-	* @Given clico no link :arg1 com intervalo de :arg2 segundos
-	*/
-	public function followLinkWithTimeout($link, $timeout)
-	{
-		try {
-			$timeoutMiliSecond = $timeout * 0.001; 
-			$this->getSession()->wait($timeoutMiliSecond);
-			$this->clickLink($link);
-		} catch (Exception $e) {
-			throw new Exception("Não foi clicar no link ".$link.".\nInformações detalhadas do erro: ".$e->getMessage());   
+			throw new Exception($e->getMessage());
 		}
 	}
 
