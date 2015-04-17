@@ -4,10 +4,9 @@ Funcionalidade: Comprar produto completo
 Cenário: Usuário logado quer comprar completo
 	Dados estou logado no sistema com o usuário "behattestedecadastro@hotmail.com" e a senha "1234"
 	E vou para "/carrinho"
-	Quando Eu sigo o link “bt_comprar”
-	E eu seleciono a forma de pagamento
-	E eu seleciono bandeira
-	E eu seleciono número de parcelas
+	Quando avanço para o passo "2" da compra
+	E escolho a forma de pagamento de identificação "2"
+	E seleciono "À VISTA R$ 129,40" de "rbPaymentTimes"
 	E eu digito “testecompletota”
 	E eu digito “4393540263560197”
 	E eu digito “123”

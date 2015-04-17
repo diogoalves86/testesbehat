@@ -15,13 +15,48 @@ use Behat\Behat\Context\Context;
  */
 class CarrinhoContext extends PersonareContext implements Context
 {
-
 	/**
 	* @Given estou logado no sistema com o usuário :arg1 e a senha :arg2
 	*/
 	public function doLoginForTest($username, $password)
 	{
 		$this->userLogged($username, $password);
+	}
+
+	/**
+	* @Given avanço para o passo :arg1 da compra
+	*/
+	public function cartNextStep($cartStep)
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				Cart.goToStep(".$cartStep.");
+			");
+		} catch (Exception $e) {
+			throw new Exception('Erro ao avançar para o passo '.$cartStep.' do carrinho. \n '.$e->getMessage());
+		}
+	}
+
+	/**
+	* @Given escolho o número de parcelas de identificação :arg1
+	*/
+	public function setPaymentTimes($paymentTimesOption)
+	{
+		# code...
+	}
+
+	/**
+	* @Given escolho a forma de pagamento de identificação :arg1
+	*/
+	public function setPaymentOption($paymentOption)
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				SetPaymentOption(".$paymentOption.")
+			");
+		} catch (Exception $e) {
+			throw new Exception('Erro ao selecionar o tipo de pagamento.'.$e->getMessage());	
+		}
 	}
 }
 
