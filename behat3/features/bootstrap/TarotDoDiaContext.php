@@ -58,16 +58,15 @@ class TarotDoDiaContext extends MinkContext
 
     /**
     * Verifica se o usuário jogou o tarot com sucesso.
-    * @Then vejo o jogo de :arg1 
+    * @Then vou para o jogo de :arg1 
     */
     public function seeResultGame($playerName)
     {
         try {
-            $this->visit("/tarot/tarot-do-dia/jogar");
             $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
             
         } catch (Exception $e) {
-            throw new Exception("Erro ao verificar o jogo de tarot.\n ".$e->getMessage());
+            throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
         }
     }
 }

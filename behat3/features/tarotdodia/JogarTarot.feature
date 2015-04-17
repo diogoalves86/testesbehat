@@ -8,6 +8,6 @@ Cenário: Usuário deslogado
 	E embaralho as cartas do jogo
 	E sigo o link "carta-41"
 	Quando jogo o tarot
-	Então devo ver "Jogo de TesteTarotDoDia"
+	Então vou para o jogo de "TesteTarotDoDia"
 
 
