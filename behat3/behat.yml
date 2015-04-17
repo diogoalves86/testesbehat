@@ -14,3 +14,6 @@ default:
     carrinho:
       features: %paths.base%/features/carrinho/
       contexts: [CarrinhoContext]
+    tarotamor:
+      features: %paths.base%/features/tarotamor/
+      contexts: [TarotAmorContext]
