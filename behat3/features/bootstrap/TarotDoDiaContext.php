@@ -36,17 +36,11 @@ class TarotDoDiaContext extends MinkContext
     public function startDailyTarot()
     {
         try {
-            /*
-            $this->getSession()->wait(
-                "setTimeout(function(){
-                    objTarot.saveGame();
-                }, 100000);"
-            );
-            */
             $this->getSession()->getDriver()->executeScript("
                 window.onbeforeunload = null;
                 DailyTarotGame.saveGame()
             ");
+            
             //Aguarda até que os dados sejam postados e seja trazida a resposta.
             $this->getSession()->wait(10000,"");
             
