@@ -1,4 +1,5 @@
 <?php
+use Behat\Behat\Context\Context;
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
@@ -12,7 +13,7 @@ use Behat\Behat\Context\Step;
 /**
  * TarotDoDia context.
  */
-class TarotDoDiaContext extends MinkContext
+class TarotDoDiaContext extends PersonareContext implements Context
 {
     /**
     * Embaralha as cartas para o jogo

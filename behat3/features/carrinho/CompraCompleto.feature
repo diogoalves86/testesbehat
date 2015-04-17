@@ -1,8 +1,10 @@
 #language: pt
 Funcionalidade: Comprar produto completo
+@javascript
 Cenário: Usuário logado quer comprar completo
-	Dados Estou em "/carrinho"
-	E eu sigo o link “bt_comprar”
+	Dados estou logado no sistema com o usuário "behattestedecadastro@hotmail.com" e a senha "1234"
+	E vou para "/carrinho"
+	Quando Eu sigo o link “bt_comprar”
 	E eu seleciono a forma de pagamento
 	E eu seleciono bandeira
 	E eu seleciono número de parcelas

@@ -14,7 +14,7 @@ use Behat\Behat\Context\Step;
 /**
  * Usuario context.
  */
-class UsuarioContext extends MinkContext implements Context
+class UsuarioContext extends PersonareContext implements Context
 {
     /**
      * Efetua login do usuário.

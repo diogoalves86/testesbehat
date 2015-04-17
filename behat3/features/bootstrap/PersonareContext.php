@@ -20,16 +20,15 @@ class PersonareContext extends MinkContext
     * Este método tem o papel de logar o usuário no caso de testes que precisem do usuário logado.
     * Por exemplo, os testes de carrinho. 
     */
-    public function doLoginByUserAndPassword($username, $password)
+    public function userLogged($username, $password)
     {
         try {
             $this->visit("/login");
-            $this->fillField("txEmail");
-            $this->fillField("pwPassword");
+            $this->fillField("txEmail", $username);
+            $this->fillField("pwPassword", $password);
             $this->getSession()->getDriver()->executeScript("
                     Login.efetuaLogin('FormPOPLogin');
             ");
-            
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
