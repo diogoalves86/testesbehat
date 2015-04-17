@@ -24,7 +24,8 @@ class TarotDoDiaContext extends PersonareContext implements Context
         try {
             $this->clickLink("daily-tarot-start-game");
             //Aguarda a animação do deck para finalizar o processo de embaralhamento.
-            $this->getSession()->wait(20000,"");
+            $this->getSession()->wait(15000,"");
+
         } catch (Exception $e) {
             throw new Exception("Erro ao embaralhar as cartas.\n ".$e->getMessage());
         }
@@ -34,7 +35,7 @@ class TarotDoDiaContext extends PersonareContext implements Context
     * Joga o Tarot propriamente dito.
     * @Then jogo o tarot
     */
-    public function startDailyTarot()
+    public function startGame()
     {
         try {
             $this->getSession()->getDriver()->executeScript("
@@ -47,7 +48,6 @@ class TarotDoDiaContext extends PersonareContext implements Context
             
         } catch (Exception $e) {
             throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());
-            
         }
     }
 
@@ -55,7 +55,7 @@ class TarotDoDiaContext extends PersonareContext implements Context
     * Verifica se o usuário jogou o tarot com sucesso.
     * @Then vou para o jogo de :arg1 
     */
-    public function seeResultGame($playerName)
+    public function seeGameResult($playerName)
     {
         try {
             $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
