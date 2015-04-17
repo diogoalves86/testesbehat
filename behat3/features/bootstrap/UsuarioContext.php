@@ -1,6 +1,5 @@
 <?php
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
@@ -43,32 +42,6 @@ class UsuarioContext extends PersonareContext implements Context
                 
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
-        }
-    }
-
-    /**
-     * Seleciona uma das opções da combobox passado por parâmetro
-     * @And seleciono a opção :arg1 de :arg2
-     */
-    public function selectOptionFromCombo($select, $value)
-    {
-        try {
-            $this->selectOption($select, $value);
-            
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao selecionar o valor da comboBox.\nInformações detalhadas do erro: ".$e->getMessage()."\n");      
-        }
-    }
-
-    /**
-     * @Given preencho com :arg1 o campo :arg2
-     */
-    public function fillFieldWithSelector($valor, $campo)
-    {
-        try {
-            $this->fillField($campo, $valor);
-        } catch (Exception $e) {
-            throw new Exception("Não foi possível preencher o campo ".$campo.".\nInformações detalhadas do erro: ".$e->getMessage());
         }
     }
 }

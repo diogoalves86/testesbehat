@@ -4,7 +4,7 @@ Funcionalidade: Cadastrar usuário
 Cenário: Usuário não possui cadastro
 	Dado Eu estou em "/cadastro"
 	Quando preencho com "TesteNome" o campo "Name" 
-	E seleciono "01" de “ddGender”
+	E seleciono "2" de “Gender”
 	E seleciono “01” de "DateDay"
 	E seleciono “01” de "DateMonth"
 	E seleciono “1996” de "DateYear"

@@ -13,7 +13,7 @@ use Behat\Behat\Context\Context;
 /**
 * Classe responsável pelo contexto geral do Personare
 */
-class PersonareContext extends MinkContext
+class PersonareContext extends MinkContext implements Context
 {
 	
     /*
@@ -31,6 +31,34 @@ class PersonareContext extends MinkContext
             ");
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
+        }
+    }
+
+    /**
+     * @Given preencho com :arg1 o campo :arg2
+     */
+    public function fillFieldWithSelector($valor, $campo)
+    {
+        try {
+            $this->fillField($campo, $valor);
+        } catch (Exception $e) {
+            throw new Exception("Não foi possível preencher o campo ".$campo.".\nInformações detalhadas do erro: ".$e->getMessage());
+        }
+    }
+
+
+
+    /**
+     * Seleciona uma das opções da combobox passado por parâmetro
+     * @And seleciono a opção :arg1 de :arg2
+     */
+    public function selectOptionFromCombo($select, $value)
+    {
+        try {
+            $this->selectOption($select, $value);
+            
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro fatal ao selecionar o valor da comboBox.\nInformações detalhadas do erro: ".$e->getMessage()."\n");      
         }
     }
 }
