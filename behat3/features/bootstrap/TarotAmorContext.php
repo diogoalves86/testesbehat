@@ -16,6 +16,17 @@ use Behat\Behat\Context\Context;
 class TarotAmorContext extends PersonareContext implements Context
 {
 	/**
+	* @When inicio o jogo
+	*/
+	public function startGame()
+	{
+		$this->getSession()->getDriver()->executeScript("
+			objTarot.changeStep(1,'#ta-parte-');
+		");
+		$this->waitForAct(10);
+	}
+
+	/**
 	* @When clico em ler uma amostra grátis
 	*/
 	public function selectProfile()
