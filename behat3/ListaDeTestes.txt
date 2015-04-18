@@ -3,8 +3,8 @@ LISTA DE TESTES PARA FAZER.
 - Funcionalidade: Login (FINALIZADO)
 
 
-- Funcionalidade: Cadastro (PARA FAZER)
+- Funcionalidade: Cadastro (INCOMPLETO)
 
-- Funcionalidade: Fazer o mini do TA (PARA FAZER)
+- Funcionalidade: Fazer o mini do TA (FAZENDO)
 
-- Funcionalidade: Comprar produto completo  (PARA FAZER)
+- Funcionalidade: Comprar produto completo  (INCOMPLETO)
