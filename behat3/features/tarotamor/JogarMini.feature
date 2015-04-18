@@ -6,7 +6,7 @@ Funcionalidade: Fazer o mini do TA
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando vou para "/tarot/tarot-e-o-amor/mini/jogar"
 		E inicio o jogo
-		E checo a opção de texto “ Revele meu futuro afetivo”
+		E checo a opção de texto “Revele meu futuro afetivo”
 		E eu clico em "continuar"
 		E eu clico em “embaralhar”
 		E eu sorteio as cartas

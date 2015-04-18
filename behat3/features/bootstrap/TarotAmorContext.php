@@ -16,6 +16,13 @@ use Behat\Behat\Context\Context;
 class TarotAmorContext extends PersonareContext implements Context
 {
 	/**
+	* @And checo a opção de texto 
+	*/
+	public function checkTAPhrases()
+	{
+		$this->checkRadioButtonByCssSelector("#ta-escolha .selecao-ta .texto-colorido input'");
+	}
+	/**
 	* @When inicio o jogo
 	*/
 	public function startGame()
