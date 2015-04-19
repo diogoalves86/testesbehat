@@ -16,21 +16,52 @@ use Behat\Behat\Context\Context;
 class TarotAmorContext extends PersonareContext implements Context
 {
 	/**
-	* @And checo a opção de texto 
+	* @And sorteio as cartas
 	*/
-	public function checkTAPhrases()
+	public function sortCards()
 	{
-		$this->checkRadioButtonByCssSelector("#ta-escolha .selecao-ta .texto-colorido input'");
+		try {
+			for ($i=0; $i < 6; $i++) { 
+				$this->clickLink('carta-2'.$i);
+				// Aguarda a animação carregar
+				$this->waitForAct(3);
+			}
+		} catch (Exception $e) {
+			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
+		}
 	}
+
 	/**
-	* @When inicio o jogo
+	* @And embaralho as cartas
 	*/
-	public function startGame()
+	public function prepareGame($value='')
 	{
-		$this->getSession()->getDriver()->executeScript("
-			objTarot.changeStep(1,'#ta-parte-');
-		");
-		$this->waitForAct(10);
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				objTarot.loadGame(3,'#ta-parte-',$(this));
+			");
+			// Aguarda até a animação do embaralhar das cartas
+			$this->waitForAct(15);
+		} catch (Exception $e) {
+			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
+		}
+	}
+
+	/**
+	* @And seleciono revelar meu futuro afetivo com :arg1
+	*/
+	public function checkTAPhrases($personName)
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				objTarot.changeStep(2,'#ta-parte-');
+				objTarot.animationCompressionGame(1, '.frases-pt', 5300, 3, '.ta-start-game');
+			");
+			// Aguarda carregar a animação
+			$this->waitForAct(6);
+		} catch (Exception $e) {
+			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());
+		}
 	}
 
 	/**

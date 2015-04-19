@@ -5,14 +5,12 @@ Funcionalidade: Fazer o mini do TA
 		Dados estou logado no sistema com o usuário "behattestedecadastro@hotmail.com" e a senha "1234"
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando vou para "/tarot/tarot-e-o-amor/mini/jogar"
-		E inicio o jogo
-		E checo a opção de texto “Revele meu futuro afetivo”
-		E eu clico em "continuar"
-		E eu clico em “embaralhar”
-		E eu sorteio as cartas
-		Quando eu clico em "leia o resultado"
-		E vou para o "resultado"
-		Então devo visualizar meu nome: 
-		"""
-		Jogo de: “testetaroteoamor”
-		"""
+		Então o campo "tarot-nome-jogador" deve conter "testetarotamor"
+		Quando sigo o link "ta-avancar-pt1"
+		E aguardo "6" segundos
+		E seleciono revelar meu futuro afetivo
+		E embaralho as cartas
+		E sorteio as cartas
+		Quando sigo o link "ta-close-game"
+		E aguardo "6" segundos
+		Então devo ver "Jogo de: testetarotamor”
