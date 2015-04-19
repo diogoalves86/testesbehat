@@ -16,12 +16,56 @@ use Behat\Behat\Context\Context;
 class TarotAmorContext extends PersonareContext implements Context
 {
 	/**
-	* @And sorteio as cartas
+	* @When clico em "Leia o resultado"
+	*/
+	public function saveGame()
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				window.onbeforeunload = null;
+				LoveTarotGame.save();
+			");
+		} catch (Exception $e) {
+			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
+		}
+	}
+
+	/**
+	* @When clico em "Continuar"
+	*/
+	public function loadPhrases()
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				objTarot.changeStep(2,'#ta-parte-');
+				objTarot.animationCompressionGame(1, '.frases-pt', 5300, 3, '.ta-start-game');
+			");
+		} catch (Exception $e) {
+			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
+		}
+	}
+
+	/**
+	* @When clico em "ler uma amostra grátis"
+	*/
+	public function profileSelect()
+	{
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				Profile.select(10);
+			");
+		} catch (Exception $e) {
+			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
+		}
+	}
+
+	/**
+	* @When sorteio as cartas
 	*/
 	public function sortCards()
 	{
 		try {
-			for ($i=0; $i < 6; $i++) { 
+			for ($i=1; $i <= 6; $i++) { 
 				$this->clickLink('carta-2'.$i);
 				// Aguarda a animação carregar
 				$this->waitForAct(3);
@@ -32,9 +76,9 @@ class TarotAmorContext extends PersonareContext implements Context
 	}
 
 	/**
-	* @And embaralho as cartas
+	* @When embaralho as cartas
 	*/
-	public function prepareGame($value='')
+	public function prepareGame()
 	{
 		try {
 			$this->getSession()->getDriver()->executeScript("
@@ -48,33 +92,17 @@ class TarotAmorContext extends PersonareContext implements Context
 	}
 
 	/**
-	* @And seleciono revelar meu futuro afetivo com :arg1
+	* @Given seleciono revelar meu futuro afetivo
 	*/
-	public function checkTAPhrases($personName)
+	public function checkTAPhrases()
 	{
 		try {
 			$this->getSession()->getDriver()->executeScript("
-				objTarot.changeStep(2,'#ta-parte-');
-				objTarot.animationCompressionGame(1, '.frases-pt', 5300, 3, '.ta-start-game');
+				document.getElementsByName('ta-choice')[0].setAttribute('checked','true');
 			");
-			// Aguarda carregar a animação
-			$this->waitForAct(6);
-		} catch (Exception $e) {
-			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());
 		}
-	}
-
-	/**
-	* @When clico em ler uma amostra grátis
-	*/
-	public function selectProfile()
-	{
-		try {
-			$this->getSession()->getDriver()->executeScript("
-				Profile.select(10);
-			");
-		} catch (Exception $e) {
-			throw new Exception("Não foi realizar o selecionar o perfil para jogar o TarotAmor .\nInformações detalhadas do erro: ".$e->getMessage());   
+		catch (Exception $e) {
+			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());
 		}
 	}
 }
