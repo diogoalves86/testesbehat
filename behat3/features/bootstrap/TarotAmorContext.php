@@ -16,7 +16,7 @@ use Behat\Behat\Context\Context;
 class TarotAmorContext extends PersonareContext implements Context
 {
 	/**
-	* @When clico em "Leia o resultado"
+	* @Then clico em "Leia o resultado"
 	*/
 	public function saveGame()
 	{
@@ -92,7 +92,7 @@ class TarotAmorContext extends PersonareContext implements Context
 	}
 
 	/**
-	* @Given seleciono revelar meu futuro afetivo
+	* @Then seleciono revelar meu futuro afetivo
 	*/
 	public function checkTAPhrases()
 	{

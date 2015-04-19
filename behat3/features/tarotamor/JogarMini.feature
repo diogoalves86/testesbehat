@@ -8,10 +8,10 @@ Funcionalidade: Fazer o mini do TA
 		Então o campo "tarot-nome-jogador" deve conter "testetarotamor"
 		Quando sigo o link "ta-avancar-pt1"
 		E aguardo "6" segundos
-		E seleciono revelar meu futuro afetivo
+		Então seleciono revelar meu futuro afetivo
 		E clico em "Continuar"
 		E aguardo "22" segundos
-		E embaralho as cartas
+		Quando embaralho as cartas
 		E sorteio as cartas
-		E clico em "Leia o resultado"
-		Então devo ver "Jogo de: testetarotamor”
+		Então clico em "Leia o resultado"
+		E devo ver "Jogo de: testetarotamor”
