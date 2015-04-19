@@ -72,7 +72,7 @@ class PersonareContext extends MinkContext implements Context
  	public function checkRadioButtonByCssSelector($cssSelector)
     {
 	    try {
-            $this->getSession()->getDriver()->executeSCript("
+            $this->getSession()->getDriver()->executeScript("
                     $('".$cssSelector."').attr('checked','true');
             ");
         } catch (Exception $e) {
