@@ -15,6 +15,21 @@ use Behat\Behat\Context\Context;
  */
 class TarotAmorContext extends PersonareContext implements Context
 {
+
+	/**
+    * Verifica se o usuário jogou o tarot com sucesso.
+    * @Then vou para o jogo de :arg1 
+    */
+    public function seeGameResult($playerName)
+    {
+        try {
+            $this->assertPageContainsText("Jogo de: ".$playerName);
+            
+        } catch (Exception $e) {
+            throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
+        }
+    }
+
 	/**
 	* @Then clico em "Leia o resultado"
 	*/
@@ -25,6 +40,8 @@ class TarotAmorContext extends PersonareContext implements Context
 				window.onbeforeunload = null;
 				LoveTarotGame.save();
 			");
+			//Aguarda até que os dados sejam postados e seja trazida a resposta.
+            $this->waitForAct(15);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
 		}

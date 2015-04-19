@@ -14,4 +14,4 @@ Funcionalidade: Fazer o mini do TA
 		Quando embaralho as cartas
 		E sorteio as cartas
 		Então clico em "Leia o resultado"
-		E devo ver "Jogo de: testetarotamor”
+		E vou para o jogo de "testetarotamor”

@@ -35,7 +35,7 @@ class TarotDoDiaContext extends PersonareContext implements Context
     * Joga o Tarot propriamente dito.
     * @Then jogo o tarot
     */
-    public function startGame()
+    public function saveGame()
     {
         try {
             $this->getSession()->getDriver()->executeScript("
