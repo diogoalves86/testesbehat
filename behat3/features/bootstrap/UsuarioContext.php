@@ -77,14 +77,18 @@ class UsuarioContext extends PersonareContext implements Context
 
     /**
      * Efetua login do usuário.
-     * @Then faço login 
+     * @Then faço login com os seguintes dados:
     */
-    public function doLogin()
+    public function doLogin(TableNode $table)
     {
         try {
-            $this->getSession()->getDriver()->executeScript("
-                    Login.efetuaLogin('FormPOPLogin');
-            ");
+            foreach ($table as $row) {
+                $this->fillField("txEmail", $row["email"]);
+                $this->fillField("pwPassword", $row["senha"]);
+                $this->getSession()->getDriver()->executeScript("
+                        Login.efetuaLogin('FormPOPLogin');
+                ");
+            }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
         }
@@ -99,7 +103,6 @@ class UsuarioContext extends PersonareContext implements Context
         try {
             $this->visit("/astrologia/horoscopo");    
             $this->assertResponseContains('<a href="/logout">Desconectar</a>');
-                
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
         }
