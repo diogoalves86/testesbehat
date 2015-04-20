@@ -4,17 +4,17 @@ Funcionalidade: Comprar produto completo
 Cenário: Usuário logado quer comprar completo
 	Dados estou logado no sistema com o usuário "behattestedecadastro@hotmail.com" e a senha "1234"
 	E vou para "/carrinho"
-	Quando avanço para o passo "2" da compra
-	E escolho a forma de pagamento de identificação "2"
-	E seleciono "À VISTA R$ 129,40" de "rbPaymentTimes"
-	E eu digito “testecompletota”
-	E eu digito “4393540263560197”
-	E eu digito “123”
-	E eu seleciono “data de validade”
-	E eu confirmo o meu e-mail
-	Quando eu clico em "finalizar compra"
-	E vou para “/seu-perfil/analises/completas?FeedbackPayment=1”
-	Então devo visualizar o meu jogo: 
-	"""
-	“Tarot e o amor”
-	"""
+	E clico em "PROSSEGUIR COM A COMPRA"
+	Quando escolho a forma de pagamento de identificação "2"
+	E aguardo "5" segundos
+	E seleciono "1" de "rbPaymentTimes"
+	E preencho com “testecompletota” o campo "nome_cartao"
+	E preencho com “4393540263560197” o campo "numero_cartao" 
+	E preencho com “123” o campo "codico_seguranca"
+	E seleciono "01" de “ddValidityMonth”
+	E seleciono "2025" de "ddValidityYear"
+	E marco "cbDataIsOK"
+	Então clico em "FINALIZAR COMPRA"
+	E aguardo "5" segundos
+	Então devo estar em “/seu-perfil/analises/completas?FeedbackPayment=1”
+	E devo ver “Tarot e o amor”

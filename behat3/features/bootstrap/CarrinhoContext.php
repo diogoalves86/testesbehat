@@ -16,27 +16,32 @@ use Behat\Behat\Context\Context;
 class CarrinhoContext extends PersonareContext implements Context
 {
 	/**
-	* @Given avanço para o passo :arg1 da compra
+	* @Then clico em "FINALIZAR COMPRA"
 	*/
-	public function cartNextStep($cartStep)
+	public function saveCreditCard()
 	{
 		try {
 			$this->getSession()->getDriver()->executeScript("
-				Cart.goToStep(".$cartStep.");
+				SaveCreditCard();
 			");
 		} catch (Exception $e) {
-			throw new Exception('Erro ao avançar para o passo '.$cartStep.' do carrinho. \n '.$e->getMessage());
+			throw new Exception('Erro ao finalizar a compra. \n '.$e->getMessage());
 		}
 	}
 
 	/**
-	* @Given escolho o número de parcelas de identificação :arg1
+	* @Given clico em "PROSSEGUIR COM A COMPRA"
 	*/
-	public function setPaymentTimes($paymentTimesOption)
+	public function cartNextStep()
 	{
-		# code...
+		try {
+			$this->getSession()->getDriver()->executeScript("
+				Cart.goToStep(2);
+			");
+		} catch (Exception $e) {
+			throw new Exception('Erro ao avançar para o passo 2 do carrinho. \n '.$e->getMessage());
+		}
 	}
-
 	/**
 	* @Given escolho a forma de pagamento de identificação :arg1
 	*/
@@ -44,7 +49,7 @@ class CarrinhoContext extends PersonareContext implements Context
 	{
 		try {
 			$this->getSession()->getDriver()->executeScript("
-				SetPaymentOption(".$paymentOption.")
+				SetPaymentOption(".$paymentOption.");
 			");
 		} catch (Exception $e) {
 			throw new Exception('Erro ao selecionar o tipo de pagamento.'.$e->getMessage());	
