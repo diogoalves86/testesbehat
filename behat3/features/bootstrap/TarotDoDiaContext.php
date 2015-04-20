@@ -64,4 +64,16 @@ class TarotDoDiaContext extends PersonareContext implements Context
             throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
         }
     }
+
+    /**
+    * @Then preencho o nome do jogador com :arg1
+    */
+    public function setPlayerName($playerName)
+    {
+        try {
+            $this->fillField("tarot-nome-jogador", $playerName);
+        } catch (Exception $e) {
+            throw new Exception('Erro ao alterar o nome do jogador para iniciar o jogo.\n '.$e->getMessage());   
+        }
+    }
 }
