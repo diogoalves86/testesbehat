@@ -15,6 +15,44 @@ use Behat\Behat\Context\Step;
  */
 class UsuarioContext extends PersonareContext implements Context
 {
+
+    /**
+    * @Then envio o formulário de cadastro
+    */
+    public function submitNewUserForm()
+    {
+        try {
+            $this->getSession()->getDriver()->executeScript("
+                Register.addUser('FormRegister');
+            ");
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao cadastrar o usuário. \n".$e->getMessage());
+        }
+    }
+
+    /**
+    * @When preencho o formulário de cadastro com os seguintes dados:
+    */
+    public function insertNewUser(TableNode $table)
+    {
+        try {
+            foreach($table as $row){
+                $this->fillField("txName", $row["nome"]);
+                $this->selectOption("ddGender", $row["sexoValor"]);
+                $this->selectOption("ddBirthDateDay", $row["dia"]);
+                $this->selectOption("ddBirthDateMonth", $row["mês"]);
+                $this->selectOption("ddBirthDateYear", $row["ano"]);
+                $this->selectOption("ddBirthTimeHour", $row["hora"]);
+                $this->selectOption("ddBirthTimeMinute", $row["minuto"]);
+                $this->fillField("txCityName", $row["cidade"]);
+                $this->fillField("txEmail", $row["email"]);
+                $this->fillField("pwPassword", $row["senha"]);
+                $this->fillField("Confirm_pwPassword", $row["confirmacaoSenha"]);
+            }
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao preencher o formulário de cadastro do usuário. \n".$e->getMessage());
+        }
+    }
     /**
      * Efetua login do usuário.
      * @Then faço login 
