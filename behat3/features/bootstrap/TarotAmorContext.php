@@ -15,18 +15,34 @@ use Behat\Behat\Context\Context;
  */
 class TarotAmorContext extends PersonareContext implements Context
 {
+	/**
+	* @Then o nome preenchido no formulário deverá ser :arg1
+	*/
+	public function checkPlayerName($playerName)
+	{
+		try {
+            $this->assertFieldContains("tarot-nome-jogador", $playerName);
+        } catch (Exception $e) {
+            throw new Exception('Erro ao verificar o nome do jogador.\n '.$e->getMessage());
+        }
+	}
 
 	/**
     * Verifica se o usuário jogou o tarot com sucesso.
-    * @Then vou para o jogo de :arg1 
+    * @Then vou para meu jogo 
     */
-    public function seeGameResult($playerName)
+    public function seeGameResult()
     {
         try {
-            $this->assertPageContainsText("Jogo de: ".$playerName);
+            $this->assertResponseContains('
+            	<div class="texto-e-titulo">
+				<span class="texto-breadcrumb maior">Tarot</span>
+				<h1>Tarot e o Amor <img class="mini" src="https://www.personare.com.br/img/pt_BR/st_tag_mini_l.gif" alt="MINI"></h1>
+				</div>
+			');
             
         } catch (Exception $e) {
-            throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
+            throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
         }
     }
 
@@ -41,12 +57,24 @@ class TarotAmorContext extends PersonareContext implements Context
 				LoveTarotGame.save();
 			");
 			//Aguarda até que os dados sejam postados e seja trazida a resposta.
-            $this->waitForAct(15);
+            //$this->waitForAct(15);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
 		}
 	}
 
+	/**
+	* @When clico em "Iniciar"
+	*/
+	public function startGame()
+	{
+		try {
+            $this->clickLink("ta-avancar-pt1");
+            
+        } catch (Exception $e) {
+            throw new Exception('Erro ao iniciar o jogo.\n'.$e->getMessage());
+        }
+	}
 	/**
 	* @When clico em "Continuar"
 	*/
