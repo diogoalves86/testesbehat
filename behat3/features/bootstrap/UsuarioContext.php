@@ -43,16 +43,38 @@ class UsuarioContext extends PersonareContext implements Context
                 $this->selectOption("ddBirthDateMonth", $row["mês"]);
                 $this->selectOption("ddBirthDateYear", $row["ano"]);
                 $this->selectOption("ddBirthTimeHour", $row["hora"]);
+                
                 $this->selectOption("ddBirthTimeMinute", $row["minuto"]);
-                $this->fillField("txCityName", $row["cidade"]);
                 $this->fillField("txEmail", $row["email"]);
                 $this->fillField("pwPassword", $row["senha"]);
                 $this->fillField("Confirm_pwPassword", $row["confirmacaoSenha"]);
+                
+                $this->prepareCity("txCityName", $row["cidade"]);
+                $this->waitForAct(6);
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao preencher o formulário de cadastro do usuário. \n".$e->getMessage());
         }
     }
+
+    public function prepareCity($cityField, $cityName)
+    {
+        try {
+            $this->fillField($cityField, $cityName);
+            $this->getSession()->getDriver()->executeScript("
+                var cityObject = PatternForm.autocompleteOfCities.loadList(".$cityName.",'txCityName','');
+            ");
+            $this->waitForAct(6);
+            // Aguarda até que seja retornado o JSON com a cidade digitada
+            $this->getSession()->getDriver()->executeScript("
+                PatternForm.autocompleteOfCities.setCityData('',cityObject.CityID,cityObject.EstateID,cityObject.CountryID);
+            ");
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
+        }
+    }
+
+
     /**
      * Efetua login do usuário.
      * @Then faço login 
