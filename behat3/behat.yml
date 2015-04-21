@@ -6,14 +6,14 @@ default:
       selenium2: ~
   suites:
     usuario:
-      features: %paths.base%/features/usuario/
-      contexts: [UsuarioContext]
+      features: %paths.base%/features/user/
+      contexts: [UserContext]
     tarotdodia:
-      features: %paths.base%/features/tarotdodia/
-      contexts: [TarotDoDiaContext]
+      features: %paths.base%/features/dailyTarot/
+      contexts: [DailyTarotContext]
     carrinho:
-      features: %paths.base%/features/carrinho/
-      contexts: [CarrinhoContext]
+      features: %paths.base%/features/cart/
+      contexts: [CartContext]
     tarotamor:
-      features: %paths.base%/features/tarotamor/
-      contexts: [TarotAmorContext]
+      features: %paths.base%/features/loveTarot/
+      contexts: [LoveTarotContext]
