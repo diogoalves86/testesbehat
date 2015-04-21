@@ -34,12 +34,7 @@ class TarotAmorContext extends PersonareContext implements Context
     public function seeGameResult()
     {
         try {
-            $this->assertResponseContains('
-            	<div class="texto-e-titulo">
-				<span class="texto-breadcrumb maior">Tarot</span>
-				<h1>Tarot e o Amor <img class="mini" src="https://www.personare.com.br/img/pt_BR/st_tag_mini_l.gif" alt="MINI"></h1>
-				</div>
-			');
+            $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">20/04/2015 a 20/05/2015</span></p>');
             
         } catch (Exception $e) {
             throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
