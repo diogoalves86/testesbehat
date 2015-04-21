@@ -34,7 +34,7 @@ class LoveTarotContext extends PersonareContext implements Context
     public function seeGameResult()
     {
         try {
-            $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">20/04/2015 a 20/05/2015</span></p>');
+            $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
             
         } catch (Exception $e) {
             throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
