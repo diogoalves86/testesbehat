@@ -5,15 +5,15 @@ default:
       goutte: ~
       selenium2: ~
   suites:
-    usuario:
+    user:
       features: %paths.base%/features/user/
       contexts: [UserContext]
-    tarotdodia:
+    dailyTarot:
       features: %paths.base%/features/dailyTarot/
       contexts: [DailyTarotContext]
-    carrinho:
+    cart:
       features: %paths.base%/features/cart/
       contexts: [CartContext]
-    tarotamor:
+    loveTarot:
       features: %paths.base%/features/loveTarot/
       contexts: [LoveTarotContext]
