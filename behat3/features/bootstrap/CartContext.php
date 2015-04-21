@@ -15,6 +15,44 @@ use Behat\Behat\Context\Context;
  */
 class CartContext extends PersonareContext implements Context
 {
+
+	/**
+	* @When compro este produto com os seguintes dados: 
+	*/
+	public function buyNewProduct(TableNode $table)
+	{
+		try {
+			foreach ($table as $row) {
+				$this->visit("/carrinho");
+				$this->getSession()->getDriver()->executeScript("Cart.goToStep(2);");
+				$this->getSession()->getDriver()->executeScript("SetPaymentOption(".$row['codigoTipoPagamento'].");");
+				// Aguarda 5 segundos para carregar o formulário correspondente.
+				$this->waitForAct(5);
+				$this->selectOption("rbPaymentTimes", $row['codigoNumeroParcelas']);
+				$this->fillField("nome_cartao", $row['nome']);
+				$this->fillField("numero_cartao", $row['numeroCartao']);
+				$this->fillField("codico_seguranca", $row['numeroCartao']);
+				$this->selectOption("ddValidityMonth", $row['mesValidadeCartao']);
+				$this->selectOption("ddValidityYear", $row['anoValidadeCartao']);
+				$this->checkOption("cbDataIsOK");
+				$this->pressButton("save-credit-cart-button");
+			}
+		} catch (Exception $e) {
+			throw new Exception('Erro ao comprar o produto. \n '.$e->getMessage());
+		}	
+	}
+
+	/**
+	* @When adiciono o produto de código :arg1 ao carrinho
+	*/
+	public function addProductToCart($productCode)
+	{
+		try {
+			$this->visit("/carrinho/adicionar/".$productCode);
+		} catch (Exception $e) {
+			throw new Exception('Erro ao adicionar produto ao carrinho. \n '.$e->getMessage());
+		}
+	}
 	/**
 	* @Then clico em "FINALIZAR COMPRA"
 	*/
@@ -28,32 +66,4 @@ class CartContext extends PersonareContext implements Context
 			throw new Exception('Erro ao finalizar a compra. \n '.$e->getMessage());
 		}
 	}
-
-	/**
-	* @Given clico em "PROSSEGUIR COM A COMPRA"
-	*/
-	public function cartNextStep()
-	{
-		try {
-			$this->getSession()->getDriver()->executeScript("
-				Cart.goToStep(2);
-			");
-		} catch (Exception $e) {
-			throw new Exception('Erro ao avançar para o passo 2 do carrinho. \n '.$e->getMessage());
-		}
-	}
-	/**
-	* @Given escolho a forma de pagamento de identificação :arg1
-	*/
-	public function setPaymentOption($paymentOption)
-	{
-		try {
-			$this->getSession()->getDriver()->executeScript("
-				SetPaymentOption(".$paymentOption.");
-			");
-		} catch (Exception $e) {
-			throw new Exception('Erro ao selecionar o tipo de pagamento.'.$e->getMessage());	
-		}
-	}
 }
-
