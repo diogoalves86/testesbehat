@@ -17,6 +17,33 @@ class UserContext extends PersonareContext implements Context
 {
 
     /**
+    * @Then marco para receber dicas e horóscopo via e-mail
+    */
+    public function checkUserReceiveEmail()
+    {
+        try {
+            $this->checkOption("cbReceiveAlerts_1");
+            $this->checkOption("cbReceiveNews_1");
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao marcar para receber dicas e horóscopo via e-mail. \n".$e->getMessage());
+        }
+    }
+
+    /**
+    * @Then finalizo meu cadastro
+    */
+    public function doneNewUser()
+    {
+        try {
+            $this->getSession()->getDriver()->executeScript("
+                Register.setUserReceiveEmail();
+            ");
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
+        }
+    }
+
+    /**
     * @Then envio o formulário de cadastro
     */
     public function submitNewUserForm()
@@ -44,8 +71,6 @@ class UserContext extends PersonareContext implements Context
                 $this->selectOption("ddBirthDateYear", $row["ano"]);
                 $this->selectOption("ddBirthTimeHour", $row["hora"]);
                 $this->selectOption("ddBirthTimeMinute", $row["minuto"]);
-
-                
                 $this->fillField("txEmail", $row["email"]);
                 $this->fillField("pwPassword", $row["senha"]);
                 $this->fillField("Confirm_pwPassword", $row["confirmacaoSenha"]);
