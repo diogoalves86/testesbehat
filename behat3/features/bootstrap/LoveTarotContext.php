@@ -47,7 +47,8 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function saveGame()
 	{
 		try {
-			$this->pressButton('ta-close-game');
+			if ($this->isVisibleElement("#ta-close-game"))
+				$this->pressButton('ta-close-game');
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
 		}
@@ -100,10 +101,11 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function sortCards()
 	{
 		try {
-			for ($i=1; $i <= 6; $i++) { 
-				$this->clickLink('carta-2'.$i);
-				// Aguarda a animação carregar
-				$this->waitForAct(3);
+			if ($this->isVisibleElement("#ta-parte-4 > .col-md-9 > #tarot-deck a")){
+				for ($i=1; $i <= 6; $i++){
+					if ($this->isVisibleElement("#carta-2".$i))
+						$this->clickLink("carta-2".$i);
+				}
 			}
 		} catch (Exception $e) {
 			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());

@@ -33,19 +33,23 @@ class PersonareContext extends MinkContext implements Context
         }
     }
 
+
+    // Verifica se o elemento está visível para então poder interagir com ele.
     public function isVisibleElement($cssSelector)
     {
         try {
-            $isVisible = false;
-            while($isVisible === false){
-                 $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
-                 //var_dump($element[0]); exit;
-                 foreach ($elements as $element) {
-                     if ($element->isVisible())
-                        $isVisible = true;
-                 }
+            while (true)
+            {
+                try {
+                    if ($lambda($this)) {
+                        return true;
+                    }
+                } catch (Exception $e) {
+                    // do nothing
+                }
+
+                sleep(1);
             }
-            return $isVisible;
         } catch (Exception $e) {
             throw new Exception("Erro ao verificar se o elemento de seletor ".$cssSelector." é visível. \n".$e->getMessage());
         }
