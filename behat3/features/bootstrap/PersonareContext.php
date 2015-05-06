@@ -15,6 +15,21 @@ use Behat\Behat\Context\Context;
 */
 class PersonareContext extends MinkContext implements Context
 {
+    public $cssID;
+
+    public function setIdForDOMElement($cssSelector, $newId)
+    {
+        try {
+            //Atribui um ID ao elemento que ainda não possui identificação e posteriormente poder acessá-lo.
+             $this->getSession()->getDriver()->executeScript("
+                var element = document.querySelector('".$cssSelector."');
+                element.setAttribute('id','".$newId."');
+            ");
+        } catch (Exception $e) {
+            throw new Exception("Erro ao alterar o id para o elemento. \n".$e->getMessage());
+        }
+    }
+
 	/**
 	* @Given aguardo :arg1 segundos
 	*/

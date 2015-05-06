@@ -47,12 +47,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function saveGame()
 	{
 		try {
-			$this->getSession()->getDriver()->executeScript("
-				window.onbeforeunload = null;
-				LoveTarotGame.save();
-			");
-			//Aguarda até que os dados sejam postados e seja trazida a resposta.
-            //$this->waitForAct(15);
+			$this->pressButton('ta-close-game');
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
 		}
@@ -76,10 +71,9 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			$this->getSession()->getDriver()->executeScript("
-				objTarot.changeStep(2,'#ta-parte-');
-				objTarot.animationCompressionGame(1, '.frases-pt', 5300, 3, '.ta-start-game');
-			");
+			$this->cssID = "btnContinuar";
+			$this->setIdForDOMElement("#ta-parte-2 > .col-md-12 > #ta-escolha > .selecao-ta a", $this->cssID);
+			$this->clickLink($this->cssID);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
 		}
@@ -91,14 +85,10 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function profileSelect()
 	{
 		try {
-			$cssID = "btnLerAmostraGratis";
-			//Atribui um ID ao botão para posteriormente poder clicar nele.
-			 $this->getSession()->getDriver()->executeScript("
-			 	var element = document.querySelector('#content > .A1 .fL > a:first-child');
-			 	element.setAttribute('id','".$cssID."');
-			");
+			$this->cssID = "btnLerAmostraGratis";
+			$this->setIdForDOMElement("#content > .A1 .fL > a:first-child", $this->cssID);
 
-			 $this->clickLink($cssID);
+			 $this->clickLink($this->cssID);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
 		}
@@ -126,11 +116,9 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function prepareGame()
 	{
 		try {
-			$this->getSession()->getDriver()->executeScript("
-				objTarot.loadGame(3,'#ta-parte-',$(this));
-			");
-			// Aguarda até a animação do embaralhar das cartas
-			$this->waitForAct(15);
+			$this->cssID = "btnEmbaralharCartas";
+			$this->setIdForDOMElement(".bl-circulos > .concentration-messages > .frases-pt3 a", $this->cssID);
+			$this->clickLink($this->cssID);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
 		}
