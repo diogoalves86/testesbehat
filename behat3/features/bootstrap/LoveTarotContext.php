@@ -91,9 +91,14 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function profileSelect()
 	{
 		try {
-			$this->getSession()->getDriver()->executeScript("
-				Profile.select(10);
+			$cssID = "btnLerAmostraGratis";
+			//Atribui um ID ao botão para posteriormente poder clicar nele.
+			 $this->getSession()->getDriver()->executeScript("
+			 	var element = document.querySelector('#content > .A1 .fL > a:first-child');
+			 	element.setAttribute('id','".$cssID."');
 			");
+
+			 $this->clickLink($cssID);
 		} catch (Exception $e) {
 			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
 		}
