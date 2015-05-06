@@ -46,9 +46,8 @@ class LoveTarotContext extends PersonareContext implements Context
 	*/
 	public function saveGame()
 	{
-		try {
-			if ($this->isVisibleElement("#ta-close-game"))
-				$this->pressButton('ta-close-game');
+		try {	
+			$this->pressButton('ta-close-game');
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
 		}
@@ -60,7 +59,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function startGame()
 	{
 		try {
-            $this->clickLink("ta-avancar-pt1");
+            $this->waitForVisibleElement($this->clickLink("ta-avancar-pt1"));
             
         } catch (Exception $e) {
             throw new Exception('Erro ao iniciar o jogo.\n'.$e->getMessage());
@@ -74,7 +73,7 @@ class LoveTarotContext extends PersonareContext implements Context
 		try {
 			$this->cssID = "btnContinuar";
 			$this->setIdForDOMElement("#ta-parte-2 > .col-md-12 > #ta-escolha > .selecao-ta a", $this->cssID);
-			$this->clickLink($this->cssID);
+			$this->waitForVisibleElement($this->clickLink($this->cssID));
 		} catch (Exception $e) {
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
 		}
@@ -88,8 +87,7 @@ class LoveTarotContext extends PersonareContext implements Context
 		try {
 			$this->cssID = "btnLerAmostraGratis";
 			$this->setIdForDOMElement("#content > .A1 .fL > a", $this->cssID);
-
-			 $this->clickLink($this->cssID);
+			$this->waitForVisibleElement($this->clickLink($this->cssID));
 		} catch (Exception $e) {
 			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
 		}
@@ -101,11 +99,8 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function sortCards()
 	{
 		try {
-			if ($this->isVisibleElement("#ta-parte-4 > .col-md-9 > #tarot-deck a")){
-				for ($i=1; $i <= 6; $i++){
-					if ($this->isVisibleElement("#carta-2".$i))
-						$this->clickLink("carta-2".$i);
-				}
+			for ($i=1; $i <= 6; $i++){
+				$this->waitForVisibleElement($this->clickLink("carta-2".$i));
 			}
 		} catch (Exception $e) {
 			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
@@ -120,7 +115,7 @@ class LoveTarotContext extends PersonareContext implements Context
 		try {
 			$this->cssID = "btnEmbaralharCartas";
 			$this->setIdForDOMElement(".bl-circulos > .concentration-messages > .frases-pt3 a", $this->cssID);
-			$this->clickLink($this->cssID);
+			$this->waitForVisibleElement($this->clickLink($this->cssID));
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
 		}

@@ -7,6 +7,7 @@ use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
  
 use Behat\MinkExtension\Context\MinkContext;
+use Behat\Behat\Hook\Scope\BeforeStepScope;
 use Behat\Behat\Context\Step;
 use Behat\Behat\Context\Context;
 
@@ -25,8 +26,8 @@ class PersonareContext extends MinkContext implements Context
                 var element = document.querySelector('".$cssSelector."');
                 element.setAttribute('id','".$newId."');
             ");
-             if (!$this->isVisibleElement($cssSelector))
-                throw new Exception("O elemento de seletor ".$cssSelector." não está visível na página. \n".$e->getMessage());
+             //if (!$this->isVisibleElement($cssSelector))
+               // throw new Exception("O elemento de seletor ".$cssSelector." não está visível na página. \n".$e->getMessage());
         } catch (Exception $e) {
             throw new Exception("Erro ao alterar o id para o elemento ".$cssSelector.". \n".$e->getMessage());
             
@@ -34,24 +35,21 @@ class PersonareContext extends MinkContext implements Context
     }
 
 
-    // Verifica se o elemento está visível para então poder interagir com ele.
-    public function isVisibleElement($cssSelector)
+    // Espera o elemento estar visível para então poder interagir com ele.
+    public function waitForVisibleElement($function)
     {
-        try {
-            while (true)
-            {
-                try {
-                    if ($lambda($this)) {
-                        return true;
-                    }
-                } catch (Exception $e) {
-                    // do nothing
+        var_dump($function); exit;
+        while (true)
+        {
+            try {
+                if ($function($this)) {
+                    return true;
                 }
-
-                sleep(1);
+            } catch (Exception $e) {
+                throw new Exception("Erro ao verificar se o elemento de seletor é visível. \n".$e->getMessage());                
             }
-        } catch (Exception $e) {
-            throw new Exception("Erro ao verificar se o elemento de seletor ".$cssSelector." é visível. \n".$e->getMessage());
+
+            sleep(1);
         }
     }   
 
