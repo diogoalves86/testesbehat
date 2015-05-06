@@ -17,18 +17,39 @@ class PersonareContext extends MinkContext implements Context
 {
     public $cssID;
 
+    //Atribui um ID ao elemento que ainda não possui identificação e posteriormente poder acessá-lo.
     public function setIdForDOMElement($cssSelector, $newId)
     {
         try {
-            //Atribui um ID ao elemento que ainda não possui identificação e posteriormente poder acessá-lo.
              $this->getSession()->getDriver()->executeScript("
                 var element = document.querySelector('".$cssSelector."');
                 element.setAttribute('id','".$newId."');
             ");
+             if (!$this->isVisibleElement($cssSelector))
+                throw new Exception("O elemento de seletor ".$cssSelector." não está visível na página. \n".$e->getMessage());
         } catch (Exception $e) {
-            throw new Exception("Erro ao alterar o id para o elemento. \n".$e->getMessage());
+            throw new Exception("Erro ao alterar o id para o elemento ".$cssSelector.". \n".$e->getMessage());
+            
         }
     }
+
+    public function isVisibleElement($cssSelector)
+    {
+        try {
+            $isVisible = false;
+            while($isVisible === false){
+                 $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
+                 //var_dump($element[0]); exit;
+                 foreach ($elements as $element) {
+                     if ($element->isVisible())
+                        $isVisible = true;
+                 }
+            }
+            return $isVisible;
+        } catch (Exception $e) {
+            throw new Exception("Erro ao verificar se o elemento de seletor ".$cssSelector." é visível. \n".$e->getMessage());
+        }
+    }   
 
 	/**
 	* @Given aguardo :arg1 segundos

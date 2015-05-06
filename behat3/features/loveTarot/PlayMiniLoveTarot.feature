@@ -7,10 +7,8 @@ Funcionalidade: Fazer o mini do TA
 		Quando clico em "ler uma amostra grátis"
 		Então o nome preenchido no formulário deverá ser "testetarotamor"
 		Quando clico em "Iniciar"
-		E aguardo "6" segundos
 		Então seleciono revelar meu futuro afetivo
 		E clico em "Continuar"
-		E aguardo "22" segundos
 		Quando embaralho as cartas
 		E sorteio as cartas
 		E clico em "Leia o resultado"

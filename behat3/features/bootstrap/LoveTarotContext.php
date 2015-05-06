@@ -86,7 +86,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	{
 		try {
 			$this->cssID = "btnLerAmostraGratis";
-			$this->setIdForDOMElement("#content > .A1 .fL > a:first-child", $this->cssID);
+			$this->setIdForDOMElement("#content > .A1 .fL > a", $this->cssID);
 
 			 $this->clickLink($this->cssID);
 		} catch (Exception $e) {
