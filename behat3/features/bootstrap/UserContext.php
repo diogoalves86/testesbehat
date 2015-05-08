@@ -93,6 +93,7 @@ class UserContext extends PersonareContext implements Context
                 $this->fillField("txEmail", $row["email"]);
                 $this->fillField("pwPassword", $row["senha"]);
                 $this->pressButton("psr-user-login");
+                $this->waitForAct(6);
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
@@ -107,7 +108,7 @@ class UserContext extends PersonareContext implements Context
     {
         try {
             $this->visit("/astrologia/horoscopo");    
-            $this->assertResponseContains('<a href="/logout">Desconectar</a>');
+            $this->assertResponseContains('<a href="/logout">Sair</a>');
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
         }

@@ -93,9 +93,7 @@ class PersonareContext extends MinkContext implements Context
             $this->visit("/login");
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
-            $this->getSession()->getDriver()->executeScript("
-                    Login.efetuaLogin('FormPOPLogin');
-            ");
+            $this->pressButton("psr-user-login");
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
