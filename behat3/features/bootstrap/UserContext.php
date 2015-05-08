@@ -30,28 +30,14 @@ class UserContext extends PersonareContext implements Context
     }
 
     /**
-    * @Then finalizo meu cadastro
+    * @Then clico em "Finalizar"
     */
-    public function doneNewUser()
+    public function submitFormUser()
     {
         try {
             $this->pressButton("psr-form-submit");
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
-        }
-    }
-
-    /**
-    * @Then envio o formulário de cadastro
-    */
-    public function submitNewUserForm()
-    {
-        try {
-            $this->getSession()->getDriver()->executeScript("
-                Register.addUser('FormRegister');
-            ");
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao cadastrar o usuário. \n".$e->getMessage());
         }
     }
 
