@@ -36,7 +36,7 @@ class PersonareContext extends MinkContext implements Context
 
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForVisibleElement($function)
+    public function waitForLoad($function)
     {
         while (true)
         {
@@ -53,10 +53,26 @@ class PersonareContext extends MinkContext implements Context
     }   
 
 
+    public function waitPageLoadByClick($pageUri)
+    {
+         $this->waitForLoad(function($pageUri) {
+            $this->clickLink($pageUri);
+            return true;
+        });
+    }
+
+    public function waitPageLoadByButton($pageUri)
+    {
+         $this->waitForLoad(function($pageUri) {
+            $this->pessButton($pageUri);
+            return true;
+        });
+    }
+
     public function isVisibleElement($cssSelector)
     {
         var_dump($cssSelector); exit;
-        $this->waitForVisibleElement(function($cssSelector) {
+        $this->waitForLoad(function($cssSelector) {
             $element = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
             return $element == true ? true:false;
         });
