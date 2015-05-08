@@ -108,9 +108,7 @@ class UserContext extends PersonareContext implements Context
             foreach ($table as $row) {
                 $this->fillField("txEmail", $row["email"]);
                 $this->fillField("pwPassword", $row["senha"]);
-                $this->getSession()->getDriver()->executeScript("
-                        Login.efetuaLogin('FormPOPLogin');
-                ");
+                $this->pressButton("psr-user-login");
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
