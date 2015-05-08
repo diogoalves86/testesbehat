@@ -35,9 +35,7 @@ class UserContext extends PersonareContext implements Context
     public function doneNewUser()
     {
         try {
-            $this->getSession()->getDriver()->executeScript("
-                Register.setUserReceiveEmail();
-            ");
+            $this->pressButton("psr-form-submit");
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
         }
