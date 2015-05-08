@@ -4,12 +4,16 @@
 		"selected_items":
 		[
 			[
-				"Persona",
-				"PersonareContext"
+				"css",
+				"cssSelector"
 			],
 			[
-				"new",
-				"newId"
+				"cs",
+				"cssSelectorParameter"
+			],
+			[
+				"wair",
+				"waitForVisibleElement"
 			],
 			[
 				"cit",
@@ -76,54 +80,48 @@
 	"buffers":
 	[
 		{
-			"file": "features/bootstrap/PersonareContext.php",
+			"file": "/home/dalves/devel/personare/portal/workcopy/nef/WebSite/Default/Config.inc",
 			"settings":
 			{
-				"buffer_size": 3464,
+				"buffer_size": 292575,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/loveTarot/PlayMiniLoveTarot.feature",
+			"file": "/home/dalves/devel/personare/portal/workcopy/yii/protected/models/product/Product.php",
 			"settings":
 			{
-				"buffer_size": 640,
+				"buffer_size": 4290,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/bootstrap/LoveTarotContext.php",
+			"file": "/home/dalves/devel/personare/portal/workcopy/nef/WebSite/Default/Templates/Pages/Product/Product.tpl",
 			"settings":
 			{
-				"buffer_size": 3546,
+				"buffer_size": 547,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+			"contents": "Searching 1 file for \"A\"\n\nUnable to open /home/administrator/Documents/testesPersonare\n0 matches across 0 files\n",
 			"settings":
 			{
-				"buffer_size": 14588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/bootstrap/DailyTarotContext.php",
-			"settings":
-			{
-				"buffer_size": 2287,
-				"line_ending": "Unix"
+				"buffer_size": 112,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 0.0,
 		"selected_items":
 		[
 		],
-		"width": 440.0
+		"width": 0.0
 	},
 	"console":
 	{
@@ -140,23 +138,35 @@
 	},
 	"file_history":
 	[
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
+		"/home/dalves/devel/personare/portal/workcopy/nef/Deprecated/SitePersonare/config.inc",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/behat.yml",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/composer.json",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/symfony/dependency-injection/Symfony/Component/DependencyInjection/Container.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/behat/mink/src/Mink.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/bin/behat",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/autoload.php",
+		"/home/dalves/Documentos/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/CadastroUsuarioAntigo.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProductAntigo.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/usuario/CadastroUsuario.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/tarotamor/JogarMini.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/TarotAmorContext.php",
@@ -168,6 +178,7 @@
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/usuario/CadastroUsuarioAntigo.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/carrinho/CompraCompleto.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CarrinhoContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrapReserva/FeatureContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/behat/src/Behat/Behat/Context/SnippetAcceptingContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/tarotdodia/bootstrap/TarotDoDiaContext.php",
@@ -181,6 +192,7 @@
 		"/home/administrator/Documents/testesPersonare/vendor/behat/behat/src/Behat/Behat/Context/Argument/ArgumentResolver.php",
 		"/home/administrator/Documents/testesPersonare/vendor/behat/behat/src/Behat/Behat/Context/ContextClass/ClassGenerator.php",
 		"/home/administrator/Documents/testesPersonare/vendor/behat/behat/src/Behat/Behat/Context/Context.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/composer.json",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/usuario/bootstrap/UsuarioContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/FeatureContext.php",
@@ -203,7 +215,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 102.0,
+		"height": 108.0,
 		"where_history":
 		[
 			"/home/administrator/Documents/testesPersonare"
@@ -214,8 +226,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"$cssID",
-			"xpath",
+			"A",
+			"DÚVIDAS NA VIDA AMOROSA? VEJA AS SUAS CARTAS",
+			"<a href=\"javascript:Profile.select(10);\" title=\"VERSÃO MINI - Gratuita\">\n					<img class=\"bt-centralizado\" src=\"http://static.personare.com.br/img/pt_BR/bt_create_mini_7.gif\" alt=\"VERSÃO MINI - Gratuita\">\n				</a>",
+			"<a href=\"javascript:Profile.select(10);\" title=\"VERSÃO MINI - Gratuita\">",
+			"<a href=\"javascript:Profile.select(10);\" title=\"VERSÃO MINI - Gratuita\">\n					<img class=\"bt-centralizado\" src=\"http://static.personare.com.br/img/pt_BR/bt_create_mini_7.gif\" alt=\"VERSÃO MINI - Gratuita\">\n				</a>",
+			";\n",
+			"$this->waitForVisibleElement",
+			"<?",
+			"Maximum function nesting level of '100' reached, aborti",
 			"checo",
 			"marco",
 			"ui.item.",
@@ -267,7 +286,7 @@
 		"regex": false,
 		"replace_history":
 		[
-			"$this->cssID",
+			"//$this->waitForVisibleElement",
 			"cityObject[0].",
 			"cityObject.",
 			"seleciono a opção",
@@ -286,125 +305,42 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "features/bootstrap/PersonareContext.php",
+					"file": "/home/dalves/devel/personare/portal/workcopy/nef/WebSite/Default/Config.inc",
 					"settings":
 					{
-						"buffer_size": 3464,
+						"buffer_size": 292575,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								508,
-								508
+								89751,
+								89751
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 59340.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
+					"file": "/home/dalves/devel/personare/portal/workcopy/yii/protected/models/product/Product.php",
 					"settings":
 					{
-						"buffer_size": 640,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								505,
-								505
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "features/bootstrap/LoveTarotContext.php",
-					"settings":
-					{
-						"buffer_size": 3546,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1967,
-								1967
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1264.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-					"settings":
-					{
-						"buffer_size": 14588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								307,
-								307
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "features/bootstrap/DailyTarotContext.php",
-					"settings":
-					{
-						"buffer_size": 2287,
+						"buffer_size": 4290,
 						"regions":
 						{
 						},
@@ -418,8 +354,64 @@
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 288.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/dalves/devel/personare/portal/workcopy/nef/WebSite/Default/Templates/Pages/Product/Product.tpl",
+					"settings":
+					{
+						"buffer_size": 547,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -463,7 +455,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 78.0
+		"height": 74.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -472,12 +464,32 @@
 		"selected_items":
 		[
 			[
-				"mincon",
+				"product/product",
+				"nef/WebSite/Default/Templates/Pages/Product/Product.tpl"
+			],
+			[
+				"config.inc",
+				"nef/Deprecated/SitePersonare/config.inc"
+			],
+			[
+				"mink",
 				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
 			],
 			[
-				"persona",
-				"features/bootstrap/PersonareContext.php"
+				"minkcon",
+				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
+			],
+			[
+				"/vendor/symfony/dependency-injection/symfony/component/dependencyinjection/container.php",
+				"behat3/vendor/symfony/dependency-injection/Symfony/Component/DependencyInjection/Container.php"
+			],
+			[
+				"autoload.",
+				"behat3/vendor/autoload.php"
+			],
+			[
+				"behat",
+				"behat3/vendor/bin/behat"
 			],
 			[
 				"snippetacceptingcontext",
@@ -490,10 +502,6 @@
 			[
 				"minkcontext",
 				"behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
-			],
-			[
-				"minkcon",
-				"behat2/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
 			],
 			[
 				"pt.xliff",

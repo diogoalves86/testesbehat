@@ -16,7 +16,7 @@ use Behat\Behat\Context\Context;
 */
 class PersonareContext extends MinkContext implements Context
 {
-    public $cssID;
+    public $cssID, $cssSelector;
 
     //Atribui um ID ao elemento que ainda não possui identificação e posteriormente poder acessá-lo.
     public function setIdForDOMElement($cssSelector, $newId)
@@ -38,11 +38,10 @@ class PersonareContext extends MinkContext implements Context
     // Espera o elemento estar visível para então poder interagir com ele.
     public function waitForVisibleElement($function)
     {
-        var_dump($function); exit;
         while (true)
         {
             try {
-                if ($function($this)) {
+                if ($function($this) == true) {
                     return true;
                 }
             } catch (Exception $e) {
@@ -52,6 +51,16 @@ class PersonareContext extends MinkContext implements Context
             sleep(1);
         }
     }   
+
+
+    public function isVisibleElement($cssSelector)
+    {
+        var_dump($cssSelector); exit;
+        $this->waitForVisibleElement(function($cssSelector) {
+            $element = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
+            return $element == true ? true:false;
+        });
+    }
 
 	/**
 	* @Given aguardo :arg1 segundos
