@@ -24,10 +24,9 @@ class CartContext extends PersonareContext implements Context
 		try {
 			foreach ($table as $row) {
 				$this->visit("/carrinho");
-				$this->getSession()->getDriver()->executeScript("Cart.goToStep(2);");
-				$this->getSession()->getDriver()->executeScript("SetPaymentOption(".$row['codigoTipoPagamento'].");");
-				// Aguarda 5 segundos para carregar o formulário correspondente.
+				$this->clickLink("psr-cart-step-2");
 				$this->waitForAct(5);
+				$this->clickLink("psr-cart-payment-option-".$row['codigoTipoPagamento']);
 				$this->selectOption("rbPaymentTimes", $row['codigoNumeroParcelas']);
 				$this->fillField("nome_cartao", $row['nome']);
 				$this->fillField("numero_cartao", $row['numeroCartao']);
@@ -49,6 +48,8 @@ class CartContext extends PersonareContext implements Context
 	{
 		try {
 			$this->visit("/carrinho/adicionar/".$productCode);
+			// Aguarda 5 segundos para carregar o formulário correspondente.
+			$this->waitForAct(5);
 		} catch (Exception $e) {
 			throw new Exception('Erro ao adicionar produto ao carrinho. \n '.$e->getMessage());
 		}

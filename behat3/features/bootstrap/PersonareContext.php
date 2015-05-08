@@ -94,6 +94,7 @@ class PersonareContext extends MinkContext implements Context
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
             $this->pressButton("psr-user-login");
+            $this->waitForAct(6);
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
