@@ -38,10 +38,7 @@ class DailyTarotContext extends PersonareContext implements Context
     public function saveGame()
     {
         try {
-            $this->getSession()->getDriver()->executeScript("
-                window.onbeforeunload = null;
-                DailyTarotGame.saveGame()
-            ");
+            $this->clickLink("daily-tarot-close-game");
             
             //Aguarda até que os dados sejam postados e seja trazida a resposta.
             $this->waitForAct(15);
