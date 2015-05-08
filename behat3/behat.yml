@@ -1,7 +1,7 @@
 default:
   extensions:
     Behat\MinkExtension:
-      base_url: 'http://www.personare.com.br/'
+      base_url: 'http://workcopy.personare.com.br/'
       goutte: ~
       selenium2: ~
   suites:
