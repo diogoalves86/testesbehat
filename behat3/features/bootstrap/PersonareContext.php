@@ -55,7 +55,7 @@ class PersonareContext extends MinkContext implements Context
 
     public function waitPageLoadByClick($pageUri)
     {
-         $this->waitForLoad(function($pageUri) {
+         $this->waitForLoad(function() use (&$pageUri) {
             $this->clickLink($pageUri);
             return true;
         });
@@ -63,7 +63,7 @@ class PersonareContext extends MinkContext implements Context
 
     public function waitPageLoadByButton($pageUri)
     {
-         $this->waitForLoad(function($pageUri) {
+         $this->waitForLoad(function() use(&$pageUri) {
             $this->pessButton($pageUri);
             return true;
         });
@@ -71,8 +71,7 @@ class PersonareContext extends MinkContext implements Context
 
     public function isVisibleElement($cssSelector)
     {
-        var_dump($cssSelector); exit;
-        $this->waitForLoad(function($cssSelector) {
+        $this->waitForLoad(function() use (&$cssSelector) {
             $element = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
             return $element == true ? true:false;
         });
