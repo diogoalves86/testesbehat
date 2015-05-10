@@ -16,65 +16,54 @@ use Behat\Behat\Context\Context;
 */
 class PersonareContext extends MinkContext implements Context
 {
-    public $cssID, $cssSelector;
-
-    //Atribui um ID ao elemento que ainda não possui identificação e posteriormente poder acessá-lo.
-    public function setIdForDOMElement($cssSelector, $newId)
-    {
-        try {
-             $this->getSession()->getDriver()->executeScript("
-                var element = document.querySelector('".$cssSelector."');
-                element.setAttribute('id','".$newId."');
-            ");
-             //if (!$this->isVisibleElement($cssSelector))
-               // throw new Exception("O elemento de seletor ".$cssSelector." não está visível na página. \n".$e->getMessage());
-        } catch (Exception $e) {
-            throw new Exception("Erro ao alterar o id para o elemento ".$cssSelector.". \n".$e->getMessage());
-            
-        }
-    }
+    public $cssID, $currentElement;
 
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function, $callbackLimit)
+    public function waitForLoad($function, $callBackValue, $callBackLimit)
     {
+        $callBackCounter = 0;
         while (true)
         {
             try {
+                $callBackCounter++;    
                 if ($function($this) == true) {
                     return true;
                 }
+                if ($callBackCounter == $callBackLimit)
+                    throw new Exception("A requesição solicitada demorou mais tempo que o tempo de callback definido. \n", 1);
+                
             } catch (Exception $e) {
                 throw new Exception("Erro ao verificar se o elemento de seletor é visível. \n".$e->getMessage());                
             }
 
-            sleep($callbackLimit);
+            sleep($callBackValue);
         }
     }   
 
 
-    public function isPageLoadedByClickLink($pageUri)
+    public function isPageLoadedByClickLink($pageUri, $callBackValue, $callBackLimit)
     {
          $this->waitForLoad(function() use (&$pageUri) {
             $this->clickLink($pageUri);
             return true;
-        }, 4);
+        }, $callBackValue, $callBackLimit);
     }
 
-    public function isPageLoadedByButtonClick($pageUri)
+    public function isPageLoadedByButtonClick($pageUri, $callBackValue, $callBackLimit)
     {
          $this->waitForLoad(function() use(&$pageUri) {
-            $this->pessButton($pageUri);
+            $this->pressButton($pageUri);
             return true;
-        }, 4);
+        }, $callBackValue, $callBackLimit);
     }
 
-    public function isVisibleElement($cssSelector)
+    public function isVisibleElement($cssSelector, $callBackValue, $callBackLimit)
     {
         $this->waitForLoad(function() use (&$cssSelector) {
-            $element = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
-            return $element == true ? true:false;
-        }, 4);
+            $this->currentElement = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
+            return $this->currentElement->isVisible() == true ? true:false;
+        }, $callBackValue, $callBackLimit);
     }
 
 	/**
@@ -112,47 +101,6 @@ class PersonareContext extends MinkContext implements Context
             $this->waitForAct(6);
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
-        }
-    }
-
-    /**
-     * @Given preencho com :arg1 o campo :arg2
-     */
-    public function fillFieldWithSelector($valor, $campo)
-    {
-        try {
-            $this->fillField($campo, $valor);
-        } catch (Exception $e) {
-            throw new Exception("Não foi possível preencher o campo ".$campo.".\nInformações detalhadas do erro: ".$e->getMessage());
-        }
-    }
-
-    /**
-    * @When checo a opção de identificação :arg1
-    */
- 	public function checkRadioButtonByCssSelector($cssSelector)
-    {
-	    try {
-            $this->getSession()->getDriver()->executeScript("
-                    $('".$cssSelector."').attr('checked','true');
-            ");
-        } catch (Exception $e) {
-           throw new Exception('Radio button não encontrado. \n');
-        }
-	}
-
-
-    /**
-     * Seleciona uma das opções da combobox passado por parâmetro
-     * @And seleciono a opção :arg1 de :arg2
-     */
-    public function selectOptionFromCombo($select, $value)
-    {
-        try {
-            $this->selectOption($select, $value);
-            
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao selecionar o valor da comboBox.\nInformações detalhadas do erro: ".$e->getMessage()."\n");      
         }
     }
 }

@@ -69,13 +69,16 @@ class UserContext extends PersonareContext implements Context
     public function prepareCity($cityField, $cityName)
     {
         try {
-            $this->getSession()->getDriver()->executeScript("
+            /*$this->getSession()->getDriver()->executeScript("
                 var cityObject = PatternForm.autocompleteOfCities.loadList('".$cityName."','txCityName','');
                 setTimeout(function(){
                     PatternForm.autocompleteOfCities.setCityData('".$cityName."',cityObject[0].CityID,cityObject[0].EstateID,cityObject[0].CountryID);
                 }, 9000);
-            ");
+            ");*/
+            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li";
             $this->fillField($cityField, $cityName);
+            if($this->isVisibleElement($cssSelector, 0.5, 4))
+                $this->currentElement->clickLink();
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
         }

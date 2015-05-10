@@ -73,10 +73,8 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			$this->cssID = "btnContinuar";
-			$this->setIdForDOMElement("#ta-parte-2 > .col-md-12 > #ta-escolha > .selecao-ta a", $this->cssID);
-			if ($this->isVisibleElement($this->cssID))
-				$this->clickLink($this->cssID);
+			if ($this->isVisibleElement("psr-ta-load-phrases", 4))
+				$this->clickLink("psr-ta-load-phrases");
 			
 		} catch (Exception $e) {
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
@@ -89,9 +87,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function profileSelect()
 	{
 		try {
-			//$this->clickLink("VERSÃO MINI - Gratuita");
-			if ($this->isVisibleElement($this->cssID))
-				$this->clickLink("VERSÃO MINI - Gratuita");
+			$this->clickLink("psr-product-new-mini");
 
 		} catch (Exception $e) {
 			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
@@ -105,7 +101,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	{
 		try {
 			for ($i=1; $i <= 6; $i++){
-				if ($this->isVisibleElement($this->cssID))
+				if ($this->isVisibleElement($this->cssID, 4))
 					$this->clickLink("carta-2".$i);
 				
 			}
@@ -120,10 +116,8 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function prepareGame()
 	{
 		try {
-			$this->cssID = "btnEmbaralharCartas";
-			$this->setIdForDOMElement(".bl-circulos > .concentration-messages > .frases-pt3 a", $this->cssID);
-			if ($this->isVisibleElement($this->cssID))
-				$this->clickLink($this->cssID);
+			if ($this->isVisibleElement("psr-ta-sort-cards", 4))
+				$this->clickLink("psr-ta-sort-cards");
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
 		}
@@ -135,9 +129,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function checkTAPhrases()
 	{
 		try {
-			$this->getSession()->getDriver()->executeScript("
-				document.getElementsByName('ta-choice')[0].setAttribute('checked','true');
-			");
+			$this->checkOption("psr-ta-choice-option-1");
 		}
 		catch (Exception $e) {
 			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());
