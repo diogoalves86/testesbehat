@@ -36,7 +36,7 @@ class PersonareContext extends MinkContext implements Context
 
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function)
+    public function waitForLoad($function, $callbackLimit)
     {
         while (true)
         {
@@ -48,25 +48,25 @@ class PersonareContext extends MinkContext implements Context
                 throw new Exception("Erro ao verificar se o elemento de seletor é visível. \n".$e->getMessage());                
             }
 
-            sleep(1);
+            sleep($callbackLimit);
         }
     }   
 
 
-    public function waitPageLoadByClick($pageUri)
+    public function isPageLoadedByClickLink($pageUri)
     {
          $this->waitForLoad(function() use (&$pageUri) {
             $this->clickLink($pageUri);
             return true;
-        });
+        }, 4);
     }
 
-    public function waitPageLoadByButton($pageUri)
+    public function isPageLoadedByButtonClick($pageUri)
     {
          $this->waitForLoad(function() use(&$pageUri) {
             $this->pessButton($pageUri);
             return true;
-        });
+        }, 4);
     }
 
     public function isVisibleElement($cssSelector)
@@ -74,7 +74,7 @@ class PersonareContext extends MinkContext implements Context
         $this->waitForLoad(function() use (&$cssSelector) {
             $element = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
             return $element == true ? true:false;
-        });
+        }, 4);
     }
 
 	/**
