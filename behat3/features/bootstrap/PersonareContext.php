@@ -61,7 +61,7 @@ class PersonareContext extends MinkContext implements Context
     public function isVisibleElement($cssSelector, $callBackValue, $callBackLimit)
     {
         $this->waitForLoad(function() use (&$cssSelector) {
-            $this->currentElement = $this->getSession()->getPage()->find('css', $cssSelectorParameter);
+            $this->currentElement = $this->getSession()->getPage()->find('css', $cssSelector);
             return $this->currentElement->isVisible() == true ? true:false;
         }, $callBackValue, $callBackLimit);
     }
