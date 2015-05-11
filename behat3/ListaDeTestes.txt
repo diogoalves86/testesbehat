@@ -1,11 +1,14 @@
 LISTA DE TESTES FEITOS.
-- Funcionalidade: Usuário jogar Tarot do Dia(FINALIZADO)
-- Funcionalidade: Login (ATUALIZADO)
-- Funcionalidade: Cadastro (FINALIZADO)
-- Funcionalidade: Fazer o mini do TA (FINALIZADO)
-- Funcionalidade: Comprar produto completo  (FINALIZADO)
+	- Funcionalidade: Usuário jogar Tarot do Dia(FINALIZADO)
+	- Funcionalidade: Login (ATUALIZADO)
+	- Funcionalidade: Cadastro (FINALIZADO)
+	- Funcionalidade: Fazer o mini do TA (FINALIZADO)
+	- Funcionalidade: Comprar produto completo  (FINALIZADO)
 
-Refatorar chamadas dos botões.
 
-Olhar o PhantomJS
-LISTA DE TESTES PARA FAZER.
+TÓPICOS A SEREM REFATORADOS
+	Refatorar chamadas dos botões.(FAZENDO)
+	Olhar o PhantomJS (FINALIZADO)
+
+OBSERVAÇÕES SOBRE O DESENVOLVIMENTO DOS TESTES
+	Autocomplete de cidades: Devido ao meu não conhecimento sobre a complexidade da lógica desta funcionalidade, foi utilizado o seletor CSS para pegar o elemento
