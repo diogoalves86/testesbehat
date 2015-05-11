@@ -75,7 +75,7 @@ class UserContext extends PersonareContext implements Context
                     PatternForm.autocompleteOfCities.setCityData('".$cityName."',cityObject[0].CityID,cityObject[0].EstateID,cityObject[0].CountryID);
                 }, 9000);
             ");*/
-            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li";
+            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1)";
             $this->fillField($cityField, $cityName);
             if($this->isVisibleElement($cssSelector, 0.5, 4))
                 $this->currentElement->clickLink();

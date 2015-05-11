@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"call",
+				"callBackLimit"
+			],
+			[
+				"cal",
+				"callBackLimit"
+			],
+			[
 				"wait",
 				"waitForAct"
 			],
@@ -92,18 +100,34 @@
 	"buffers":
 	[
 		{
-			"file": "behat.yml",
+			"file": "features/bootstrap/UserContext.php",
 			"settings":
 			{
-				"buffer_size": 555,
+				"buffer_size": 4345,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/bootstrap/UserContext.php",
+			"file": "features/bootstrap/PersonareContext.php",
 			"settings":
 			{
-				"buffer_size": 4125,
+				"buffer_size": 3402,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+			"settings":
+			{
+				"buffer_size": 14588,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/behat/mink-extension/i18n/pt.xliff",
+			"settings":
+			{
+				"buffer_size": 10685,
 				"line_ending": "Unix"
 			}
 		}
@@ -132,17 +156,17 @@
 	},
 	"file_history":
 	[
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/CadastroUsuarioAntigo.feature",
@@ -195,9 +219,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
+			"",
 			"/home/administrator/Documents/testesPersonare"
 		]
 	},
@@ -206,6 +231,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"selectOptionFromCombo",
+			"checkRadioButtonByCssSelector",
+			"fillFieldWithSelector",
+			"setIdForDOMElement",
+			"$this->cssSelector",
+			"$this->cssID",
+			"$this->cssSelector",
+			"$this->cssID",
+			"$this->cssSelector",
+			"callbackLimit",
+			"option",
+			"checkbo",
+			"check",
+			"radio",
+			"select",
+			"pess",
+			"isVisi",
+			"setIdForDOMElement",
 			"__call(",
 			"isVisibleElement",
 			"wait",
@@ -263,6 +306,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"callBackValue",
 			"$isVisible",
 			"$this->cssID",
 			"cityObject[0].",
@@ -283,51 +327,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "behat.yml",
-					"settings":
-					{
-						"buffer_size": 555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								128
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "features/bootstrap/UserContext.php",
 					"settings":
 					{
-						"buffer_size": 4125,
+						"buffer_size": 4345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4345,
+								4345
 							]
 						],
 						"settings":
@@ -337,7 +353,91 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 726.0,
+						"translation.y": 1330.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "features/bootstrap/PersonareContext.php",
+					"settings":
+					{
+						"buffer_size": 3402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2166,
+								2166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+					"settings":
+					{
+						"buffer_size": 14588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4126,
+								4126
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2354.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vendor/behat/mink-extension/i18n/pt.xliff",
+					"settings":
+					{
+						"buffer_size": 10685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3721,
+								3721
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -387,6 +487,14 @@
 		"selected_items":
 		[
 			[
+				"pt.xl",
+				"vendor/behat/mink-extension/i18n/pt.xliff"
+			],
+			[
+				"minkcon",
+				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
+			],
+			[
 				"userco",
 				"features/bootstrap/UserContext.php"
 			],
@@ -409,10 +517,6 @@
 			[
 				"minkcontext",
 				"behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
-			],
-			[
-				"minkcon",
-				"behat2/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
 			],
 			[
 				"pt.xliff",
