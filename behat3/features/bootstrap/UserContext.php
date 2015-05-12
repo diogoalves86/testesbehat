@@ -77,8 +77,12 @@ class UserContext extends PersonareContext implements Context
             ");*/
             $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1)";
             $this->fillField($cityField, $cityName);
-            if($this->isVisibleElement($cssSelector, 0.5, 4))
-                $this->currentElement->clickLink();
+            $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
+            if($this->isVisibleElement($cssSelector, 0.5, 4)){
+                foreach ($elements as $element) {
+                    $element->clickLink();
+                }
+            }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
         }
@@ -95,8 +99,9 @@ class UserContext extends PersonareContext implements Context
             foreach ($table as $row) {
                 $this->fillField("txEmail", $row["email"]);
                 $this->fillField("pwPassword", $row["senha"]);
-                $this->pressButton("psr-user-login");
-                $this->waitForAct(6);
+                // $this->pressButton("psr-user-login");
+                $this->waitLoadToPressButton("psr-user-login", 2000, 'document.getElementById("psr-user-navbar-logged") != null');
+
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");

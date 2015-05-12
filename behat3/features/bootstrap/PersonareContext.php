@@ -20,24 +20,19 @@ class PersonareContext extends MinkContext implements Context
 
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function, $callBackValue, $callBackLimit)
+    public function waitForLoad($function)
     {
-        $callBackCounter = 0;
         while (true)
         {
             try {
-                $callBackCounter++;    
                 if ($function($this) == true) {
                     return true;
                 }
-                if ($callBackCounter == $callBackLimit)
-                    throw new Exception("A requesição solicitada demorou mais tempo que o tempo de callback definido. \n", 1);
                 
             } catch (Exception $e) {
                 throw new Exception("Erro ao verificar se o elemento de seletor é visível. \n".$e->getMessage());                
             }
-
-            sleep($callBackValue);
+            sleep(1);
         }
     }   
 
@@ -50,19 +45,22 @@ class PersonareContext extends MinkContext implements Context
         }, $callBackValue, $callBackLimit);
     }
 
-    public function isPageLoadedByButtonClick($pageUri, $callBackValue, $callBackLimit)
+    public function waitLoadToPressButton($elementID, $callBackValue, $conditionToLoad)
     {
-         $this->waitForLoad(function() use(&$pageUri) {
-            $this->pressButton($pageUri);
+         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
+            $this->pressButton($elementID);
+            $this->getSession()->wait($callBackValue, $conditionToLoad);
             return true;
-        }, $callBackValue, $callBackLimit);
+        });
     }
 
     public function isVisibleElement($cssSelector, $callBackValue, $callBackLimit)
     {
         $this->waitForLoad(function() use (&$cssSelector) {
-            $this->currentElement = $this->getSession()->getPage()->find('css', $cssSelector);
-            return $this->currentElement->isVisible() == true ? true:false;
+            $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
+            foreach ($elements as $element) {
+                return $element->isVisible() == true ? true:false;
+            }
         }, $callBackValue, $callBackLimit);
     }
 
