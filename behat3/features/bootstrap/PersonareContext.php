@@ -37,12 +37,13 @@ class PersonareContext extends MinkContext implements Context
     }   
 
 
-    public function isPageLoadedByClickLink($pageUri, $callBackValue, $callBackLimit)
+    public function waitLoadToClickLink($elementID, $callBackValue, $conditionToLoad)
     {
-         $this->waitForLoad(function() use (&$pageUri) {
-            $this->clickLink($pageUri);
+         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
+            $this->clickLink($elementID);
+            $this->getSession()->wait($callBackValue, $conditionToLoad);
             return true;
-        }, $callBackValue, $callBackLimit);
+        });
     }
 
     public function waitLoadToPressButton($elementID, $callBackValue, $conditionToLoad)
@@ -54,6 +55,14 @@ class PersonareContext extends MinkContext implements Context
         });
     }
 
+    public function waitElementBeVisible($elementID, $callBackValue, $conditionToLoad)
+    {
+         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
+            $this->getSession()->wait($callBackValue, 'document.getElementById('.$elementID.') !== null');
+            return true;
+        });
+    }
+
     public function isVisibleElement($cssSelector, $callBackValue, $callBackLimit)
     {
         $this->waitForLoad(function() use (&$cssSelector) {
@@ -61,7 +70,7 @@ class PersonareContext extends MinkContext implements Context
             foreach ($elements as $element) {
                 return $element->isVisible() == true ? true:false;
             }
-        }, $callBackValue, $callBackLimit);
+        });
     }
 
 	/**
