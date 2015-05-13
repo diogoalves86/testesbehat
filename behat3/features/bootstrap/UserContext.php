@@ -96,13 +96,10 @@ class UserContext extends PersonareContext implements Context
     public function doLogin(TableNode $table)
     {
         try {
-            foreach ($table as $row) {
-                $this->fillField("txEmail", $row["email"]);
-                $this->fillField("pwPassword", $row["senha"]);
-                // $this->pressButton("psr-user-login");
-                $this->waitLoadToPressButton("psr-user-login", 2000, 'document.getElementById("psr-user-navbar-logged") != null');
+            
+            foreach ($table as $row) 
+                $this->userLogged($row['email'], $row['senha']);
 
-            }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
         }

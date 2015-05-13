@@ -103,7 +103,7 @@
 			"file": "features/bootstrap/UserContext.php",
 			"settings":
 			{
-				"buffer_size": 4345,
+				"buffer_size": 4358,
 				"line_ending": "Unix"
 			}
 		},
@@ -128,6 +128,14 @@
 			"settings":
 			{
 				"buffer_size": 10685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ListaDeTestes.txt",
+			"settings":
+			{
+				"buffer_size": 580,
 				"line_ending": "Unix"
 			}
 		}
@@ -219,7 +227,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 102.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -327,7 +335,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -335,15 +343,15 @@
 					"file": "features/bootstrap/UserContext.php",
 					"settings":
 					{
-						"buffer_size": 4345,
+						"buffer_size": 4358,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4345,
-								4345
+								2991,
+								2991
 							]
 						],
 						"settings":
@@ -352,7 +360,7 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
+						"translation.x": 165.0,
 						"translation.y": 1330.0,
 						"zoom_level": 1.0
 					},
@@ -381,7 +389,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 792.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -409,7 +417,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2354.0,
+						"translation.y": 1958.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -438,6 +446,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 1180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "ListaDeTestes.txt",
+					"settings":
+					{
+						"buffer_size": 580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								580,
+								580
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -486,6 +520,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"lis",
+				"ListaDeTestes.txt"
+			],
+			[
+				"lovet",
+				"features/bootstrap/LoveTarotContext.php"
+			],
 			[
 				"pt.xl",
 				"vendor/behat/mink-extension/i18n/pt.xliff"

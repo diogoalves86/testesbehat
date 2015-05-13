@@ -36,34 +36,15 @@ class PersonareContext extends MinkContext implements Context
         }
     }   
 
-
-    public function waitLoadToClickLink($elementID, $callBackValue, $conditionToLoad)
+    public function isReadyElement($elementID, $callBackValue)
     {
-         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
-            $this->clickLink($elementID);
-            $this->getSession()->wait($callBackValue, $conditionToLoad);
-            return true;
-        });
-    }
-
-    public function waitLoadToPressButton($elementID, $callBackValue, $conditionToLoad)
-    {
-         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
-            $this->pressButton($elementID);
-            $this->getSession()->wait($callBackValue, $conditionToLoad);
-            return true;
-        });
-    }
-
-    public function waitElementBeVisible($elementID, $callBackValue, $conditionToLoad)
-    {
-         $this->waitForLoad(function() use(&$elementID, &$callBackValue, &$conditionToLoad) {
+         $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
             $this->getSession()->wait($callBackValue, 'document.getElementById('.$elementID.') !== null');
             return true;
         });
     }
 
-    public function isVisibleElement($cssSelector, $callBackValue, $callBackLimit)
+    public function isVisibleElement($cssSelector)
     {
         $this->waitForLoad(function() use (&$cssSelector) {
             $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
@@ -85,18 +66,9 @@ class PersonareContext extends MinkContext implements Context
 			throw new Exception($e->getMessage());
 		}
 	}
-
-	/**
-	* @Given estou logado no sistema com o usuário :arg1 e a senha :arg2
-	*/
-	public function doLoginForScenario($username, $password)
-	{
-		$this->userLogged($username, $password);
-	}
 	
-    /*
-    * Este método tem o papel de logar o usuário no caso de testes que precisem do usuário logado.
-    * Por exemplo, os testes de carrinho. 
+    /**
+    * @Given estou logado no sistema com o usuário :arg1 e a senha :arg2
     */
     public function userLogged($username, $password)
     {
@@ -104,8 +76,7 @@ class PersonareContext extends MinkContext implements Context
             $this->visit("/login");
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
-            $this->pressButton("psr-user-login");
-            $this->waitForAct(6);
+            $this->waitLoadToPressButton("psr-user-login", 2000, 'document.getElementById("psr-user-navbar-logged") != null');
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
