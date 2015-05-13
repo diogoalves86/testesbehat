@@ -8,7 +8,9 @@ LISTA DE TESTES FEITOS.
 
 TÓPICOS A SEREM REFATORADOS
 	Refatorar chamadas dos botões.(FAZENDO)
-	Olhar o PhantomJS (FINALIZADO)
+	Olhar o PhantomJS (FAZENDO)
 
 OBSERVAÇÕES SOBRE O DESENVOLVIMENTO DOS TESTES
 	Autocomplete de cidades: Devido ao meu não conhecimento sobre a complexidade da lógica desta funcionalidade, foi utilizado o seletor CSS para pegar o elemento
+
+	PhantomJS: O phantomjs por padrão mantém as sessões entre os testes executados, portanto é preciso finalizar manualmente a sessão ao final de cada teste executado. http://stackoverflow.com/questions/17279478/when-running-a-behat-login-test-through-phantomjs-it-only-passes-on-the-first-ru

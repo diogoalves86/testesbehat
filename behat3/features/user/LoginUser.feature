@@ -7,3 +7,4 @@ Cenário: Usuário possui cadastro e está na página inicial
 		|     email                                              |  senha       |
 		|     aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com              |   1234       |
 	Então verifico se estou logado
+	E o teste está finalizado

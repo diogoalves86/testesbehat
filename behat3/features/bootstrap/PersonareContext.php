@@ -87,9 +87,16 @@ class PersonareContext extends MinkContext implements Context
             $this->pressButton("psr-user-login");
             if($this->isReadyElementById("psr-user-navbar-logged", 2000))
                 return true;
-            
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
+    }
+
+    /**
+    *@Then o teste está finalizado
+    */
+    public function resetSession()
+    {
+        $this->getSession()->reset();
     }
 }
