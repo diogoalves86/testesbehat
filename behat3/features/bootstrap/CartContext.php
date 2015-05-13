@@ -25,16 +25,20 @@ class CartContext extends PersonareContext implements Context
 			foreach ($table as $row) {
 				$this->visit("/carrinho");
 				$this->clickLink("psr-cart-step-2");
-				$this->waitForAct(5);
 				$this->clickLink("psr-cart-payment-option-".$row['codigoTipoPagamento']);
-				$this->selectOption("rbPaymentTimes", $row['codigoNumeroParcelas']);
-				$this->fillField("nome_cartao", $row['nome']);
-				$this->fillField("numero_cartao", $row['numeroCartao']);
-				$this->fillField("codico_seguranca", $row['numeroCartao']);
-				$this->selectOption("ddValidityMonth", $row['mesValidadeCartao']);
-				$this->selectOption("ddValidityYear", $row['anoValidadeCartao']);
-				$this->checkOption("cbDataIsOK");
-				$this->pressButton("save-credit-cart-button");
+				
+				if($this->isReadyElementById('psr-cart-form-credit-card-payment', 2000)){
+					$this->selectOption("rbPaymentTimes", $row['codigoNumeroParcelas']);
+					$this->fillField("nome_cartao", $row['nome']);
+					$this->fillField("numero_cartao", $row['numeroCartao']);
+					$this->fillField("codico_seguranca", $row['numeroCartao']);
+					$this->selectOption("ddValidityMonth", $row['mesValidadeCartao']);
+					$this->selectOption("ddValidityYear", $row['anoValidadeCartao']);
+					$this->checkOption("cbDataIsOK");
+					$this->pressButton("save-credit-cart-button");
+					if ($this->isReadyElementById("psr-cart-feedback-payment", 2000))
+						return true;
+				}
 			}
 		} catch (Exception $e) {
 			throw new Exception('Erro ao comprar o produto. \n '.$e->getMessage());
@@ -48,23 +52,8 @@ class CartContext extends PersonareContext implements Context
 	{
 		try {
 			$this->visit("/carrinho/adicionar/".$productCode);
-			// Aguarda 5 segundos para carregar o formulário correspondente.
-			$this->waitForAct(5);
 		} catch (Exception $e) {
 			throw new Exception('Erro ao adicionar produto ao carrinho. \n '.$e->getMessage());
-		}
-	}
-	/**
-	* @Then clico em "FINALIZAR COMPRA"
-	*/
-	public function saveCreditCard()
-	{
-		try {
-			$this->getSession()->getDriver()->executeScript("
-				SaveCreditCard();
-			");
-		} catch (Exception $e) {
-			throw new Exception('Erro ao finalizar a compra. \n '.$e->getMessage());
 		}
 	}
 }

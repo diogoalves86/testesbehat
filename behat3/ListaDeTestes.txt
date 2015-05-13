@@ -6,6 +6,12 @@ LISTA DE TESTES FEITOS.
 	- Funcionalidade: Comprar produto completo  (FINALIZADO)
 
 
+IDS A SEREM ACRESCENTADOS EM PRODUÇÃO
+	- Acrescentar o id "psr-cart-form-credit-card-payment" ao formulário de compra de produto completo. Trecho HTML para indentificá-lo "<form name="FormCreditCardPayment">"
+
+	- Acrescentar id "psr-cart-feedback-payment" a DIV que sinaliza que a compra foi efetuada com sucesso. Trecho HTML para identificá-lo "<div class="success">", acessar "seu-perfil/analises/completas?FeedbackPayment=1"
+
+
 TÓPICOS A SEREM REFATORADOS
 	Refatorar chamadas dos botões.(FAZENDO)
 	Olhar o PhantomJS (FAZENDO)

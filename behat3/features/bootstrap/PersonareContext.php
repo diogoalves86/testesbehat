@@ -36,7 +36,7 @@ class PersonareContext extends MinkContext implements Context
         }
     }   
 
-    public function isReadyElementById($elementID, $callBackValue)
+    public function isReadyElementById($elementID, $callBackValue = 1000)
     {
          $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
             $this->getSession()->wait($callBackValue, 'document.getElementById("'.$elementID.'") != null');
