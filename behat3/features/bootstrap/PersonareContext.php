@@ -36,10 +36,18 @@ class PersonareContext extends MinkContext implements Context
         }
     }   
 
-    public function isReadyElement($elementID, $callBackValue)
+    public function isReadyElementById($elementID, $callBackValue)
     {
          $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
             $this->getSession()->wait($callBackValue, 'document.getElementById('.$elementID.') !== null');
+            return true;
+        });
+    }
+
+    public function isReadyElementByCssSelector($cssSelector, $callBackValue)
+    {
+         $this->waitForLoad(function() use(&$cssSelector, &$callBackValue) {
+            $this->getSession()->wait($callBackValue, 'document.querySelector('.$cssSelector.') !== null');
             return true;
         });
     }
