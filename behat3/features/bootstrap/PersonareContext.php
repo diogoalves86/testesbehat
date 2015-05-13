@@ -47,7 +47,7 @@ class PersonareContext extends MinkContext implements Context
     public function isReadyElementByCssSelector($cssSelector, $callBackValue)
     {
          $this->waitForLoad(function() use(&$cssSelector, &$callBackValue) {
-            $this->getSession()->wait($callBackValue, 'document.querySelector("'.$cssSelector.'") != null');
+            $this->getSession()->wait($callBackValue, 'document.querySelector("'.$cssSelector.'") !== null');
             return true;
         });
     }
@@ -81,15 +81,13 @@ class PersonareContext extends MinkContext implements Context
     public function userLogged($username, $password)
     {
         try {
-            $this->visit("/login");
+            $this->visit("/login?ReturnToURL=L2FzdHJvbG9naWEvaG9yb3Njb3Bv");
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
+            $this->pressButton("psr-user-login");
+            if($this->isReadyElementById("psr-user-navbar-logged", 2000))
+                return true;
             
-            if($this->isReadyElementById("psr-user-login", 2000)){
-                $this->pressButton("psr-user-login");
-                if(!$this->isReadyElementById("psr-user-navbar-logged"))
-                    throw new Exception("Erro ao autenticar usuário: ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());          
-            }
         } catch (Exception $e) {
             throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
