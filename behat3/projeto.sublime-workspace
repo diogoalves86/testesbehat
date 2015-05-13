@@ -103,7 +103,7 @@
 			"file": "features/bootstrap/UserContext.php",
 			"settings":
 			{
-				"buffer_size": 4358,
+				"buffer_size": 4377,
 				"line_ending": "Unix"
 			}
 		},
@@ -111,15 +111,7 @@
 			"file": "features/bootstrap/PersonareContext.php",
 			"settings":
 			{
-				"buffer_size": 3402,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-			"settings":
-			{
-				"buffer_size": 14588,
+				"buffer_size": 2947,
 				"line_ending": "Unix"
 			}
 		},
@@ -164,12 +156,12 @@
 	},
 	"file_history":
 	[
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
@@ -227,7 +219,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
 			"",
@@ -239,6 +231,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"elementSelector",
+			"isReadyElement",
+			"waitElementBeVisible",
 			"selectOptionFromCombo",
 			"checkRadioButtonByCssSelector",
 			"fillFieldWithSelector",
@@ -335,7 +330,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -343,15 +338,15 @@
 					"file": "features/bootstrap/UserContext.php",
 					"settings":
 					{
-						"buffer_size": 4358,
+						"buffer_size": 4377,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2991,
-								2991
+								2905,
+								2905
 							]
 						],
 						"settings":
@@ -360,8 +355,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 165.0,
-						"translation.y": 1330.0,
+						"translation.x": 130.0,
+						"translation.y": 1276.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -371,15 +366,15 @@
 					"file": "features/bootstrap/PersonareContext.php",
 					"settings":
 					{
-						"buffer_size": 3402,
+						"buffer_size": 2947,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2166,
-								2166
+								1438,
+								1438
 							]
 						],
 						"settings":
@@ -388,42 +383,14 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 792.0,
+						"translation.x": 90.0,
+						"translation.y": 802.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-					"settings":
-					{
-						"buffer_size": 14588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4126,
-								4126
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1958.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "vendor/behat/mink-extension/i18n/pt.xliff",
 					"settings":
 					{
@@ -451,7 +418,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "ListaDeTestes.txt",
 					"settings":
 					{
