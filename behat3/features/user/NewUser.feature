@@ -11,3 +11,4 @@ Funcionalidade: Cadastrar usuário
 		E devo estar em "/cadastro/obrigado?FeedbackRegister=1&ReturnToURL=Lw=="
 		E marco para receber dicas e horóscopo via e-mail
 		E clico em "Finalizar"
+		E o teste está finalizado

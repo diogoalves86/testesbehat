@@ -47,7 +47,7 @@ class PersonareContext extends MinkContext implements Context
     public function isReadyElementByCssSelector($cssSelector, $callBackValue)
     {
          $this->waitForLoad(function() use(&$cssSelector, &$callBackValue) {
-            $this->getSession()->wait($callBackValue, 'document.querySelector("'.$cssSelector.'") !== null');
+            $this->getSession()->wait($callBackValue, 'document.querySelector("'.$cssSelector.'") != null');
             return true;
         });
     }

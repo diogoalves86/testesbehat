@@ -35,6 +35,7 @@ class UserContext extends PersonareContext implements Context
     public function submitFormUser()
     {
         try {
+            $this->waitForAct(5);
             $this->pressButton("psr-form-submit");
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
@@ -75,10 +76,9 @@ class UserContext extends PersonareContext implements Context
                     PatternForm.autocompleteOfCities.setCityData('".$cityName."',cityObject[0].CityID,cityObject[0].EstateID,cityObject[0].CountryID);
                 }, 9000);
             ");*/
-            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1)";
+            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1) > a";
             $this->fillField($cityField, $cityName);
-            if($this->isReadyElementByCssSelector($cssSelector, 5)){
-                exit;
+            if($this->isReadyElementByCssSelector($cssSelector, 4000)){
                 $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
                 foreach ($elements as $element) {
                     $element->clickLink();
