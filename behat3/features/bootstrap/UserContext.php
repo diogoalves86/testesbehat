@@ -35,7 +35,6 @@ class UserContext extends PersonareContext implements Context
     public function submitFormUser()
     {
         try {
-            $this->waitForAct(5);
             $this->pressButton("psr-form-submit");
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
