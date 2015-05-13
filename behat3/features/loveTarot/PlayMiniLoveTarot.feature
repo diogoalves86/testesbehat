@@ -12,5 +12,5 @@ Funcionalidade: Fazer o mini do TA
 		Quando embaralho as cartas
 		E sorteio as cartas
 		E clico em "Leia o resultado"
-		E aguardo "10" segundos
 		Então vou para meu jogo
+		E o teste está finalizado

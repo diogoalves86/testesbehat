@@ -52,13 +52,11 @@ class PersonareContext extends MinkContext implements Context
         });
     }
 
-    public function isVisibleElement($cssSelector)
+    public function isVisibleElement($elementID, $callBackValue = 1000)
     {
-        $this->waitForLoad(function() use (&$cssSelector) {
-            $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
-            foreach ($elements as $element) {
-                return $element->isVisible() == true ? true:false;
-            }
+        $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
+            $isVisible = $this->getSession()->wait($callBackValue, 'document.getElementById("'.$elementID.'").offsetParent != null');
+            return $isVisible == true ? true:false;
         });
     }
 
@@ -88,7 +86,17 @@ class PersonareContext extends MinkContext implements Context
             if($this->isReadyElementById("psr-user-navbar-logged", 2000))
                 return true;
         } catch (Exception $e) {
-            throw new Exception("Não foi realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
+            throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
+        }
+    }
+
+    public function checkRadioButton($elementID)
+    {
+        try {
+            $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
+            $radioButton->click();
+        } catch (Exception $e) {
+            throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());   
         }
     }
 

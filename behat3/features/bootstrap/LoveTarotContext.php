@@ -59,10 +59,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function startGame()
 	{
 		try {
-            $this->waitForVisibleElement(function(){
-            	$this->clickLink("ta-avancar-pt1");
-            	return true;
-        	});
+           	$this->clickLink("ta-avancar-pt1");
         } catch (Exception $e) {
             throw new Exception('Erro ao iniciar o jogo.\n'.$e->getMessage());
         }
@@ -73,7 +70,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			if ($this->isVisibleElement("psr-ta-load-phrases", 4))
+			if ($this->isVisibleElement("psr-ta-load-phrases", 3000))
 				$this->clickLink("psr-ta-load-phrases");
 			
 		} catch (Exception $e) {
@@ -101,7 +98,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	{
 		try {
 			for ($i=1; $i <= 6; $i++){
-				if ($this->isVisibleElement($this->cssID, 4))
+				if ($this->isVisibleElement($this->cssID, 3000))
 					$this->clickLink("carta-2".$i);
 				
 			}
@@ -116,7 +113,7 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function prepareGame()
 	{
 		try {
-			if ($this->isVisibleElement("psr-ta-sort-cards", 4))
+			if ($this->isVisibleElement("psr-ta-sort-cards", 3000))
 				$this->clickLink("psr-ta-sort-cards");
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
@@ -129,11 +126,11 @@ class LoveTarotContext extends PersonareContext implements Context
 	public function checkTAPhrases()
 	{
 		try {
-			$this->checkOption("psr-ta-choice-option-1");
+			if ($this->isVisibleElement("psr-ta-choice-option-1", 2000))
+				$this->checkRadioButton("psr-ta-choice-option-1");
 		}
 		catch (Exception $e) {
 			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());
 		}
 	}
 }
-
