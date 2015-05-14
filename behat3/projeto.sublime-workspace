@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"userProfile"
+			],
+			[
 				"isV",
 				"isVisible"
 			],
@@ -116,18 +120,27 @@
 			}
 		},
 		{
-			"file": "ListaDeTestes.txt",
+			"file": "features/bootstrap/NumerologyMapOfYearContext.php",
 			"settings":
 			{
-				"buffer_size": 1298,
+				"buffer_size": 1083,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/bootstrap/LoveTarotContext.php",
+			"file": "features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
 			"settings":
 			{
-				"buffer_size": 3257,
+				"buffer_size": 674,
+				"line_ending": "Unix",
+				"name": "#language: pt"
+			}
+		},
+		{
+			"file": "features/bootstrap/UserContext.php",
+			"settings":
+			{
+				"buffer_size": 4384,
 				"line_ending": "Unix"
 			}
 		},
@@ -140,10 +153,34 @@
 			}
 		},
 		{
-			"file": "features/bootstrap/UserContext.php",
+			"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 			"settings":
 			{
-				"buffer_size": 4384,
+				"buffer_size": 14588,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ListaDeTestes.txt",
+			"settings":
+			{
+				"buffer_size": 1298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "behat.yml",
+			"settings":
+			{
+				"buffer_size": 511,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/bootstrap/LoveTarotContext.php",
+			"settings":
+			{
+				"buffer_size": 3258,
 				"line_ending": "Unix"
 			}
 		}
@@ -151,11 +188,11 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 33.0,
 		"selected_items":
 		[
 		],
-		"width": 440.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -172,20 +209,20 @@
 	},
 	"file_history":
 	[
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/CadastroUsuarioAntigo.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProductAntigo.feature",
@@ -235,7 +272,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 102.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -365,8 +402,8 @@
 						"selection":
 						[
 							[
-								2049,
-								2049
+								1307,
+								1307
 							]
 						],
 						"settings":
@@ -375,94 +412,70 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 868.0,
+						"translation.x": 50.0,
+						"translation.y": 516.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "ListaDeTestes.txt",
+					"file": "features/bootstrap/NumerologyMapOfYearContext.php",
 					"settings":
 					{
-						"buffer_size": 1298,
+						"buffer_size": 1083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								191,
-								191
+								879,
+								879
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 208.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "features/bootstrap/LoveTarotContext.php",
+					"file": "features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
 					"settings":
 					{
-						"buffer_size": 3257,
+						"buffer_size": 674,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3060,
-								3060
+								402,
+								402
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"auto_name": "#language: pt",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2244.0,
+						"translation.y": 44.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
-					"settings":
-					{
-						"buffer_size": 591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								537,
-								537
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "features/bootstrap/UserContext.php",
 					"settings":
 					{
@@ -473,8 +486,8 @@
 						"selection":
 						[
 							[
-								987,
-								987
+								442,
+								442
 							]
 						],
 						"settings":
@@ -484,7 +497,143 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2310.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
+					"settings":
+					{
+						"buffer_size": 591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+					"settings":
+					{
+						"buffer_size": 14588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3131,
+								3131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2552.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "ListaDeTestes.txt",
+					"settings":
+					{
+						"buffer_size": 1298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								364,
+								364
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "behat.yml",
+					"settings":
+					{
+						"buffer_size": 511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								132,
+								132
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "features/bootstrap/LoveTarotContext.php",
+					"settings":
+					{
+						"buffer_size": 3258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2025,
+								2025
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -535,11 +684,23 @@
 		[
 			[
 				"lovet",
-				"features/loveTarot/PlayMiniLoveTarot.feature"
+				"features/bootstrap/LoveTarotContext.php"
+			],
+			[
+				"mink",
+				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
+			],
+			[
+				"lis",
+				"ListaDeTestes.txt"
 			],
 			[
 				"love",
-				"features/bootstrap/LoveTarotContext.php"
+				"features/loveTarot/PlayMiniLoveTarot.feature"
+			],
+			[
+				"us",
+				"features/bootstrap/UserContext.php"
 			],
 			[
 				"login",
@@ -592,10 +753,6 @@
 			[
 				"user",
 				"features/bootstrap/UserContext.php"
-			],
-			[
-				"lis",
-				"ListaDeTestes.txt"
 			],
 			[
 				"pt.xl",

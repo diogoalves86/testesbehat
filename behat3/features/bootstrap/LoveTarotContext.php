@@ -77,7 +77,7 @@ class LoveTarotContext extends PersonareContext implements Context
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
 		}
 	}
-
+	
 	/**
 	* @When clico em "ler uma amostra grátis"
 	*/

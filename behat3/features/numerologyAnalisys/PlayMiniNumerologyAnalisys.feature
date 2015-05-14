@@ -8,9 +8,10 @@ Funcionalidade: Fazer o mini do MNA
 		Então seleciono o perfil com os seguintes dados: 
 		| nome        | dia | mes | ano  |
 		| Novo Teste  | 25  | 03  | 1996 | 
-		Então abre a pop “selecione a pessoa a ser analisada” 
-		E preencho com os dados: 
-		| nome  | dia | mês | ano  | ano a ser analisado   
-		| Novo Teste | 25  | 03  | 1996 | 1  
-		E clico em "selecionar" 
+		E clico em "Selecionar"
+		Quando preencho a pessoa ser analisada com os seguintes dados:
+		| nome       | dia | mês | ano       | anoAnalisado   
+		| Novo Teste | 25  | 03  | 1996      | 2015  
+		E clico em "Selecionar" 
 		Então vou para meu mapa 
+		E o teste está finalizado
