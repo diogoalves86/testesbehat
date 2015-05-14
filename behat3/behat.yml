@@ -17,3 +17,9 @@ default:
     loveTarot:
       features: %paths.base%/features/loveTarot/
       contexts: [LoveTarotContext]
+    numerologyAnalisys:
+      features: %paths.base%/features/numerologyAnalisys/
+      contexts: [NumerologyAnalisysTarotContext]
+    astrologyChart:
+      features: %paths.base%/features/astrologyChart/
+      contexts: [AstrologyChartTarotContext]
