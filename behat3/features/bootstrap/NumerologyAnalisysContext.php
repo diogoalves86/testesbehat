@@ -23,17 +23,4 @@ class NumerologyAnalisysContext extends MiniProductContext implements Context
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
-
-	/**
-	*@Then vou para meu mapa
-	*/
-	public function checkGameResult()
-	{
-		try {
-			if($this->isReadyElementById("psr-mini-mna-game-username", 2000))
-				return true;
-		} catch (Exception $e) {
-			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
 }

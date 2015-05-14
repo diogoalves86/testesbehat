@@ -6,8 +6,9 @@ Funcionalidade: Fazer o mini do MA
     	E vou para "/astrologia/mapa-astral"
     	Quando clico em "ler uma amostra grátis da análise"
     	Então abre a pop “selecione a pessoa a ser analisada” 
-    	E seleciono o perfil:
-        |Novo Teste  | 25  | 03  | 1996 |
-     	E clico em "selecionar"
+    	Então seleciono o perfil com os seguintes dados: 
+        | nome        | dia | mes | ano  |
+        | Novo Teste  | 25  | 03  | 1996 | 
+     	E clico em "Selecionar"
      	Então vou para meu mapa
         E o teste está finalizado

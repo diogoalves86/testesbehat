@@ -60,4 +60,17 @@ class MiniProductContext extends PersonareContext implements Context
 			}
 		}
 	}
+
+	/**
+	*@Then vou para meu mapa
+	*/
+	public function checkGameResult()
+	{
+		try {
+			if($this->isReadyElementById("psr-widget-pr-header", 2000))
+				return true;
+		} catch (Exception $e) {
+			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
+	}
 }

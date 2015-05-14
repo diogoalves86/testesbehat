@@ -13,8 +13,15 @@ use Behat\Behat\Context\Context;
 class AstrologyChartContext extends MiniProductContext implements Context
 {
 	
-	function __construct(argument)
+	/**
+	*@When clico em "Selecionar"
+	*/
+	public function selectProfileClick()
 	{
-		# code...
+		try {
+			$this->clickLink("psr-mini-mna-select-profile-yii");
+		} catch (Exception $e) {
+			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
 	}
 }

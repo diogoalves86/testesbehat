@@ -10,13 +10,10 @@ IDS A SEREM ACRESCENTADOS EM PRODUÇÃO
 	- TESTE COMPRA CARRINHO: Acrescentar o id "psr-cart-form-credit-card-payment" ao formulário de compra de produto completo. Trecho HTML para indentificá-lo "<form name="FormCreditCardPayment">"
 
 	- TESTE COMPRA CARRINHO: Acrescentar id "psr-cart-feedback-payment" a DIV que sinaliza que a compra foi efetuada com sucesso. Trecho HTML para identificá-lo "<div class="success">", acessar "seu-perfil/analises/completas?FeedbackPayment=1"
-
-
+	
 	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile" ao link "Selecionar", na pop de seleção de perfil para jogar o Mapa do Ano 2015. Trecho HTML para identificá-lo "<a class="clearfix button" href="javascript:RefreshNumerologyAnalisysForm('')"><span></span>SELECIONAR</a>"
 
-	- TESTE MNA : Acrescentar id "psr-mini-mna-selec-profile-yii" ao link "Selecionar" na pop de seleção do perfil Yii. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:SaveProfileNumerologyAnalisysYearYii('')"><span></span>SELECIONAR</a>"
-
-	- TESTE MNA: Acrescentar id "psr-mini-mna-game-username" ao "P" onde é exibido o nome do usuário ao concluir o Mapa do Ano 2015.
+	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile-yii" ao link "Selecionar" na pop de seleção do perfil Yii. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:SaveProfileNumerologyAnalisysYearYii('')"><span></span>SELECIONAR</a>"
  
 
 TÓPICOS A SEREM REFATORADOS
