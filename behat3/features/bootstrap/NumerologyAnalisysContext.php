@@ -12,13 +12,6 @@ use Behat\Behat\Context\Step;
 class NumerologyAnalisysContext extends PersonareContext implements Context
 {
 	/**
-	*@When clico em "ler uma amostra grátis da análise" 
-	*/
-	public function newMini()
-	{
-		$this->clickLink("psr-product-new-mini");
-	}
-	/**
 	*@Then seleciono o perfil com os seguintes dados:
 	*/
 	public function selectProfile(TableNode $table)

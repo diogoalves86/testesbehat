@@ -18,6 +18,18 @@ class PersonareContext extends MinkContext implements Context
 {
     public $cssID, $currentElement;
 
+    /**
+    *@When clico em "ler uma amostra grátis da análise"
+    */
+    public function generateNewMini()
+    {
+        try {
+            $this->clickLink("psr-product-new-mini");
+        } catch (Exception $e) {
+            throw new Exception("Erro ao clicar para ler análise Mini. \n".$e->getMessage());
+            
+        }
+    }
 
     // Espera o elemento estar visível para então poder interagir com ele.
     public function waitForLoad($function)

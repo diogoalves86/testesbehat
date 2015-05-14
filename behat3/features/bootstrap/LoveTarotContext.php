@@ -77,19 +77,6 @@ class LoveTarotContext extends PersonareContext implements Context
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
 		}
 	}
-	
-	/**
-	* @When clico em "ler uma amostra grátis"
-	*/
-	public function profileSelect()
-	{
-		try {
-			$this->clickLink("psr-product-new-mini");
-
-		} catch (Exception $e) {
-			throw new Exception("Erro ao Clicar em ler uma amostra grátis. \n".$e->getMessage());
-		}
-	}
 
 	/**
 	* @When sorteio as cartas
