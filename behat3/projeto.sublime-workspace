@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"isV",
+				"isVisible"
+			],
+			[
+				"element",
+				"elementID"
+			],
+			[
 				"call",
 				"callBackLimit"
 			],
@@ -100,18 +108,10 @@
 	"buffers":
 	[
 		{
-			"file": "features/bootstrap/UserContext.php",
-			"settings":
-			{
-				"buffer_size": 4377,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "features/bootstrap/PersonareContext.php",
 			"settings":
 			{
-				"buffer_size": 3191,
+				"buffer_size": 3556,
 				"line_ending": "Unix"
 			}
 		},
@@ -119,23 +119,31 @@
 			"file": "ListaDeTestes.txt",
 			"settings":
 			{
-				"buffer_size": 580,
+				"buffer_size": 1298,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "behat.yml",
+			"file": "features/bootstrap/LoveTarotContext.php",
 			"settings":
 			{
-				"buffer_size": 511,
+				"buffer_size": 3257,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/user/LoginUser.feature",
+			"file": "features/loveTarot/PlayMiniLoveTarot.feature",
 			"settings":
 			{
-				"buffer_size": 350,
+				"buffer_size": 591,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/bootstrap/UserContext.php",
+			"settings":
+			{
+				"buffer_size": 4384,
 				"line_ending": "Unix"
 			}
 		}
@@ -164,24 +172,24 @@
 	},
 	"file_history":
 	[
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/CadastroUsuarioAntigo.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProductAntigo.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/usuario/CadastroUsuario.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/tarotamor/JogarMini.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/TarotAmorContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/tarotamor/JogarMiniAntigo.feature",
@@ -227,7 +235,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
 			"",
@@ -239,6 +247,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"isReadyElementById",
+			"isVisible",
+			"E aguardo",
+			"cssSelector",
 			"elementSelector",
 			"isReadyElement",
 			"waitElementBeVisible",
@@ -338,23 +350,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "features/bootstrap/UserContext.php",
+					"file": "features/bootstrap/PersonareContext.php",
 					"settings":
 					{
-						"buffer_size": 4377,
+						"buffer_size": 3556,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3712,
-								3712
+								2049,
+								2049
 							]
 						],
 						"settings":
@@ -364,32 +376,31 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1738.0,
+						"translation.y": 868.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "features/bootstrap/PersonareContext.php",
+					"file": "ListaDeTestes.txt",
 					"settings":
 					{
-						"buffer_size": 3191,
+						"buffer_size": 1298,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								191,
+								191
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -399,51 +410,50 @@
 				},
 				{
 					"buffer": 2,
-					"file": "ListaDeTestes.txt",
+					"file": "features/bootstrap/LoveTarotContext.php",
 					"settings":
 					{
-						"buffer_size": 580,
+						"buffer_size": 3257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								580,
-								580
+								3060,
+								3060
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2244.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "behat.yml",
+					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
 					"settings":
 					{
-						"buffer_size": 511,
+						"buffer_size": 591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								78,
-								78
+								537,
+								537
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -453,26 +463,28 @@
 				},
 				{
 					"buffer": 4,
-					"file": "features/user/LoginUser.feature",
+					"file": "features/bootstrap/UserContext.php",
 					"settings":
 					{
-						"buffer_size": 350,
+						"buffer_size": 4384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								987,
+								987
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2310.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -522,6 +534,54 @@
 		"selected_items":
 		[
 			[
+				"lovet",
+				"features/loveTarot/PlayMiniLoveTarot.feature"
+			],
+			[
+				"love",
+				"features/bootstrap/LoveTarotContext.php"
+			],
+			[
+				"login",
+				"features/user/LoginUser.feature"
+			],
+			[
+				"bu",
+				"features/cart/BuyNewProduct.feature"
+			],
+			[
+				"cart",
+				"features/bootstrap/CartContext.php"
+			],
+			[
+				"b",
+				"behat.yml"
+			],
+			[
+				"beh",
+				"behat.yml"
+			],
+			[
+				"new",
+				"features/user/NewUser.feature"
+			],
+			[
+				"li",
+				"ListaDeTestes.txt"
+			],
+			[
+				"pla",
+				"features/dailyTarot/PlayDailyTarot.feature"
+			],
+			[
+				"dail",
+				"features/bootstrap/DailyTarotContext.php"
+			],
+			[
+				"buy",
+				"features/cart/BuyNewProduct.feature"
+			],
+			[
 				"per",
 				"features/bootstrap/PersonareContext.php"
 			],
@@ -536,10 +596,6 @@
 			[
 				"lis",
 				"ListaDeTestes.txt"
-			],
-			[
-				"lovet",
-				"features/bootstrap/LoveTarotContext.php"
 			],
 			[
 				"pt.xl",
