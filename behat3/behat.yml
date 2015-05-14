@@ -18,8 +18,8 @@ default:
       features: %paths.base%/features/loveTarot/
       contexts: [LoveTarotContext]
     numerologyAnalisys:
-      features: %paths.base%/features/numerologyAnalisys/
+      features: %paths.base%/features/numerology/numerologyAnalisys/
       contexts: [NumerologyAnalisysTarotContext]
     astrologyChart:
-      features: %paths.base%/features/astrologyChart/
+      features: %paths.base%/features/astrology/astrologyChart/
       contexts: [AstrologyChartTarotContext]
