@@ -10,7 +10,7 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
 use Behat\Behat\Context\Context;
 
-class AstrologyChartContext extends PersonareContext implements Context
+class AstrologyChartContext extends MiniProductContext implements Context
 {
 	
 	function __construct(argument)

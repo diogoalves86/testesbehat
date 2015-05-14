@@ -13,7 +13,7 @@ use Behat\Behat\Context\Context;
 /**
  * TarotAmor context.
  */
-class LoveTarotContext extends PersonareContext implements Context
+class LoveTarotContext extends MiniProductContext implements Context
 {
 	/**
 	* @Then o nome preenchido no formulário deverá ser :arg1
