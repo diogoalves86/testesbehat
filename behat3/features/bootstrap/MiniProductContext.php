@@ -73,4 +73,27 @@ class MiniProductContext extends PersonareContext implements Context
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
+
+	public function addNewProfile(TableNode $table)
+	{
+		try {
+			if($this->isReadyElementById("Name", 2000)){
+				foreach ($table as $row) {
+					$this->fillField("Name", $row['nome']);
+					$this->selectOption("DateDay", $row['dia']);
+					$this->fillField("DateMonth", $row['mes']);
+					$this->fillField("DateYear", $row['ano']);
+					$this->fillField("Gender", $row['sexo']);
+					if(!$row['possuiHoraNascimento']){
+						$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
+						$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
+					}
+					else
+						$this->checkOption("cbDontKnowBirthTime");
+				}
+			}
+		} catch (Exception $e) {
+			throw new Exception("Error ao adicionar o perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
+	}
 }
