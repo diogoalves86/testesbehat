@@ -11,9 +11,27 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
 class NumerologyMapOfYearContext extends PersonareContext implements Context
 {
-	
-	function __construct(argument)
+	/**
+	*@When clico em "ler uma amostra grátis da análise" 
+	*/
+	public function newMini()
 	{
-		# code...
+		$this->clickLink("psr-product-new-mini");
+	}
+	/**
+	*@Then seleciono o perfil com os seguintes dados:
+	*/
+	public function selectProfile(TableNode $table)
+	{
+		try {
+			$userDescription = "%s - %s/%s/%s";
+			foreach ($table as $row) {
+				$userProfile = sprintf($userDescription, $row['nome'], $row['dia'], $row['mes'], $row['ano']);
+				$this->selectOption($userProfile);
+			}
+		} catch (Exception $e) {
+			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+			
+		}
 	}
 }
