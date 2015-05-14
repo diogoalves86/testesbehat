@@ -9,7 +9,7 @@ use Behat\Gherkin\Node\PyStringNode,
  
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
-class NumerologyMapOfYearContext extends PersonareContext implements Context
+class NumerologyAnalisysContext extends PersonareContext implements Context
 {
 	/**
 	*@When clico em "ler uma amostra grátis da análise" 
