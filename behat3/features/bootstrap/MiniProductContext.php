@@ -30,6 +30,19 @@ class MiniProductContext extends PersonareContext implements Context
     }
 
     /**
+	*@When seleciono a opção “Adicionar novo perfil”
+	*/
+	public function selectAddNewProfile()
+	{
+		try {
+			$this->selectOption("ddProfile", "AddProfile");
+		} catch (Exception $e) {
+			throw new Exception("Error ao adicionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
+	}
+
+
+	/**
 	*@Then seleciono o perfil com os seguintes dados:
 	*/
 	public function selectProfile(TableNode $table)
@@ -74,6 +87,21 @@ class MiniProductContext extends PersonareContext implements Context
 		}
 	}
 
+	/**
+	*@Then clico em “Salvar”
+	*/
+	public function saveNewProfile()
+	{
+		try {
+			$this->clickLink("psr-mini-add-profile");
+		} catch (Exception $e) {
+			throw new Exception("Error ao salvar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
+	}
+
+	/**
+	*@When adiciono um novo perfil com os seguintes dados:
+	*/
 	public function addNewProfile(TableNode $table)
 	{
 		try {
@@ -83,8 +111,8 @@ class MiniProductContext extends PersonareContext implements Context
 					$this->selectOption("DateDay", $row['dia']);
 					$this->fillField("DateMonth", $row['mes']);
 					$this->fillField("DateYear", $row['ano']);
-					$this->fillField("Gender", $row['sexo']);
-					if(!$row['possuiHoraNascimento']){
+					$this->fillField("Gender", $row['sexoValor']);
+					if($row['possuiHoraNascimento'] !== "sim"){
 						$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
 						$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
 					}

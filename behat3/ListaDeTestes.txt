@@ -16,6 +16,8 @@ IDS A SEREM ACRESCENTADOS EM PRODUÇÃO
 	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile-yii" ao link "Selecionar" na pop de seleção do perfil Yii. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:SaveProfileNumerologyAnalisysYearYii('')"><span></span>SELECIONAR</a>"
  
 
+	- TESTE ADD NEW PROFILE : Acrescentar id "psr-mini-add-profile" ao link "Salvar" na pop de adicionar novo perfil. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:CheckProfile()"><span></span>SALVAR</a>" 	
+
 TÓPICOS A SEREM REFATORADOS
 	Refatorar chamadas dos botões.(FAZENDO)
 	Olhar o PhantomJS (FAZENDO)
