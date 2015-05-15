@@ -30,6 +30,18 @@ class MiniProductContext extends PersonareContext implements Context
     }
 
     /**
+	*@Then clico em "Selecionar"
+	*/
+	public function selectProfileClick()
+	{
+		try {
+			$this->clickLink("psr-mini-mna-select-profile");
+		} catch (Exception $e) {
+			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+		}
+	}
+
+    /**
 	*@When seleciono a opção “Adicionar novo perfil”
 	*/
 	public function selectAddNewProfile()

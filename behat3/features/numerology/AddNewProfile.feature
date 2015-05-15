@@ -10,4 +10,5 @@ Funcionalidade: Adicionar novo perfil a partir do mini do MNA
             | nome       | sexoValor  | dia | mes | ano  | possuiHoraNascimento      |  hora  | minuto |  cidade          |
             | Novo Teste | 1      	  | 25  | 03  | 1996 |       sim                 |  12	  |   30   | Rio de Janeiro   |  
         Então clico em “Salvar”
+        E clico em "Selecionar"
         E o teste está finalizado
