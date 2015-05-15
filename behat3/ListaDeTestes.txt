@@ -7,16 +7,16 @@ LISTA DE TESTES FEITOS.
 
 
 IDS A SEREM ACRESCENTADOS EM PRODUÇÃO
-	- TESTE COMPRA CARRINHO: Acrescentar o id "psr-cart-form-credit-card-payment" ao formulário de compra de produto completo. Trecho HTML para indentificá-lo "<form name="FormCreditCardPayment">"
+	- TESTE COMPRA CARRINHO: Acrescentar o id "psr-cart-form-credit-card-payment" ao formulário de compra de produto completo. Trecho HTML para indentificá-lo "<form name="FormCreditCardPayment">" - FEITO!
 
-	- TESTE COMPRA CARRINHO: Acrescentar id "psr-cart-feedback-payment" a DIV que sinaliza que a compra foi efetuada com sucesso. Trecho HTML para identificá-lo "<div class="success">", acessar "seu-perfil/analises/completas?FeedbackPayment=1"
+	- TESTE COMPRA CARRINHO: Acrescentar id "psr-cart-feedback-payment" a DIV que sinaliza que a compra foi efetuada com sucesso. Trecho HTML para identificá-lo "<div class="success">", acessar "seu-perfil/analises/completas?FeedbackPayment=1" - FEITO!
 	
-	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile" ao link "Selecionar", na pop de seleção de perfil para jogar o Mapa do Ano 2015. Trecho HTML para identificá-lo "<a class="clearfix button" href="javascript:RefreshNumerologyAnalisysForm('')"><span></span>SELECIONAR</a>"
+	- TESTE MNA : Acrescentar id "psr-mini-select-profile" ao link "Selecionar", na pop de seleção de perfil para jogar o Mapa do Ano 2015. Trecho HTML para identificá-lo "<a class="clearfix button" href="javascript:RefreshNumerologyAnalisysForm('')"><span></span>SELECIONAR</a>" - FEITO!
 
-	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile-yii" ao link "Selecionar" na pop de seleção do perfil Yii. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:SaveProfileNumerologyAnalisysYearYii('')"><span></span>SELECIONAR</a>"
+	- TESTE MNA : Acrescentar id "psr-mini-mna-select-profile-yii" ao link "Selecionar" na pop de seleção do perfil Yii. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:SaveProfileNumerologyAnalisysYearYii('')"><span></span>SELECIONAR</a>" - FEITO!
  
 
-	- TESTE ADD NEW PROFILE : Acrescentar id "psr-mini-add-profile" ao link "Salvar" na pop de adicionar novo perfil. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:CheckProfile()"><span></span>SALVAR</a>" 	
+	- TESTE ADD NEW PROFILE : Acrescentar id "psr-mini-add-profile" ao link "Salvar" na pop de adicionar novo perfil. Trecho HTML para identificá-lo: "<a class="clearfix button" href="javascript:CheckProfile()"><span></span>SALVAR</a>" - FEITO!
 
 TÓPICOS A SEREM REFATORADOS
 	Refatorar chamadas dos botões.(FAZENDO)
