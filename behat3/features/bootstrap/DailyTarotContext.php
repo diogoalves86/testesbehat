@@ -15,6 +15,7 @@ use Behat\Behat\Context\Step;
  */
 class DailyTarotContext extends PersonareContext implements Context
 {
+
     /**
     * Embaralha as cartas para o jogo
     * @Then embaralho as cartas do jogo
@@ -23,8 +24,6 @@ class DailyTarotContext extends PersonareContext implements Context
     {
         try {
             $this->clickLink("daily-tarot-start-game");
-            //Aguarda a animação do deck para finalizar o processo de embaralhamento.
-            $this->waitForAct(15);
 
         } catch (Exception $e) {
             throw new Exception("Erro ao embaralhar as cartas.\n ".$e->getMessage());
@@ -38,11 +37,8 @@ class DailyTarotContext extends PersonareContext implements Context
     public function saveGame()
     {
         try {
-            $this->clickLink("daily-tarot-close-game");
-            
-            //Aguarda até que os dados sejam postados e seja trazida a resposta.
-            $this->waitForAct(15);
-            
+            if($this->isReadyElementByCssSelector(".tarot-baralho.desativado"))
+                $this->clickLink("daily-tarot-close-game");
         } catch (Exception $e) {
             throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());
         }
@@ -71,6 +67,38 @@ class DailyTarotContext extends PersonareContext implements Context
             $this->fillField("tarot-nome-jogador", $playerName);
         } catch (Exception $e) {
             throw new Exception('Erro ao alterar o nome do jogador para iniciar o jogo.\n '.$e->getMessage());   
+        }
+    }
+
+    public function isReadyToSelectCard()
+    {
+        try {
+            $this->waitForLoad(function(){
+                $result = $this->getSession()->getDriver()->evaluateScript("document.getElementsByClassName('tarot-carta-hover')[0] != undefined");
+                return $result;
+             });
+                // if($this->getSession()->getDriver()->evaluateScript("function() { return document.getElementsByClassName('tarot-carta-hover')[0] != undefined; }")){
+                //     return true;
+                // }
+                // else{ return false; }
+        } catch (Exception $e) {
+            throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());   
+        }
+    }
+
+    /**
+    *@When clico em "carta:arg1"
+    */
+    public function selectCard($cardNumber)
+    {
+        try {
+            // if($this->isReadyElementById("carta-".$cardNumber))
+            // if ($this->getSession()->wait(5000, "document.getElementsByClassName('tarot-carta-hover')[0] != undefined")) 
+            if ($this->isReadyToSelectCard() == true){
+                $this->clickLink("carta-".$cardNumber);
+            }
+        } catch (Exception $e) {
+            throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());   
         }
     }
 }

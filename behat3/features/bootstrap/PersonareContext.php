@@ -21,43 +21,52 @@ class PersonareContext extends MinkContext implements Context
     
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function)
+    public function waitForLoad($function, $sleep=2)
     {
-        while (true)
-        {
+        while(true){
             try {
-                if ($function($this) == true) {
+                if ($function($this) === true) {
                     return true;
                 }
-                
             } catch (Exception $e) {
-                throw new Exception("Erro ao verificar se o elemento de seletor é visível. \n".$e->getMessage());                
+                throw new Exception("Erro ao executar a função. \n Informações detalhadas: \n".$e->getMessage());
             }
-            sleep(1);
         }
+        sleep($sleep);
     }   
 
-    public function isReadyElementById($elementID, $callBackValue = 1000)
+    public function isReadyElementById($elementID, $callBackLimit = 10000)
     {
-         $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
-            $this->getSession()->wait($callBackValue, 'document.getElementById("'.$elementID.'") != null');
-            return true;
+         $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
+            if($this->getSession()->getDriver()->evaluateScript('document.getElementById("'.$elementID.'") != null'))
+                return true;
+            else
+                return false;
         });
     }
 
-    public function isReadyElementByCssSelector($cssSelector, $callBackValue)
+    public function isReadyElementByCssSelector($cssSelector, $callBackLimit = 10000)
     {
-         $this->waitForLoad(function() use(&$cssSelector, &$callBackValue) {
-            $this->getSession()->wait($callBackValue, 'document.querySelector("'.$cssSelector.'") != null');
-            return true;
+         $this->waitForLoad(function() use(&$cssSelector, &$callBackLimit) {
+            if($this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null'))
+                return true;
+            else
+                return false;
         });
     }
 
-    public function isVisibleElement($elementID, $callBackValue = 1000)
+    public function isVisibleElement($elementID, $callBackLimit=10000)
     {
-        $this->waitForLoad(function() use(&$elementID, &$callBackValue) {
-            $isVisible = $this->getSession()->wait($callBackValue, 'document.getElementById("'.$elementID.'").offsetParent != null');
-            return $isVisible == true ? true:false;
+        // $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
+        //     $isVisible = $this->getSession()->wait($callBackLimit, 'document.getElementById("'.$elementID.'").offsetParent != null');
+        //     return $isVisible == true ? true:false;
+        // });
+        $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
+            $page = $this->getSession()->getPage();
+            if($page->find('css', '#'.$elementID)->isVisible())
+                return true;
+            else
+                return false;
         });
     }
 
