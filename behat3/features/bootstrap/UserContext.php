@@ -77,7 +77,8 @@ class UserContext extends PersonareContext implements Context
             ");*/
             $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1) > a";
             $this->fillField($cityField, $cityName);
-            if($this->isReadyElementByCssSelector($cssSelector, 4000)){
+            $this->proccessElementByCssSelector($cssSelector);
+            if($this->isReadyProcessedElement){
                 $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
                 foreach ($elements as $element) {
                     $element->clickLink();
@@ -96,7 +97,6 @@ class UserContext extends PersonareContext implements Context
     public function doLogin(TableNode $table)
     {
         try {
-            
             foreach ($table as $row) 
                 $this->userLogged($row['email'], $row['senha']);
 

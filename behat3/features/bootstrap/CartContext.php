@@ -26,8 +26,9 @@ class CartContext extends PersonareContext implements Context
 				$this->visit("/carrinho");
 				$this->clickLink("psr-cart-step-2");
 				$this->clickLink("psr-cart-payment-option-".$row['codigoTipoPagamento']);
-				
-				if($this->isReadyElementById('psr-cart-form-credit-card-payment', 2000)){
+				$this->processElementVisibility('psr-cart-form-credit-card-payment');
+
+				if($this->isVisibleProcessedElement){
 					$this->selectOption("rbPaymentTimes", $row['codigoNumeroParcelas']);
 					$this->fillField("nome_cartao", $row['nome']);
 					$this->fillField("numero_cartao", $row['numeroCartao']);
@@ -36,8 +37,12 @@ class CartContext extends PersonareContext implements Context
 					$this->selectOption("ddValidityYear", $row['anoValidadeCartao']);
 					$this->checkOption("cbDataIsOK");
 					$this->pressButton("save-credit-cart-button");
-					if ($this->isReadyElementById("psr-cart-feedback-payment", 2000))
-						return true;
+
+					$this->processElementVisibility('psr-cart-feedback-payment');
+					
+					if(!$this->isVisibleProcessedElement)
+						throw new Exception("Erro ao processar elemento");
+						
 				}
 			}
 		} catch (Exception $e) {

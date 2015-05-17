@@ -16,58 +16,74 @@ use Behat\Behat\Context\Context;
 */
 class PersonareContext extends MinkContext implements Context
 {
-    public $cssID, $currentElement;
-
-    
+    public $isVisibleProcessedElement = false;
+    public $isReadyProcessedElement = false;
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function, $sleep=2)
+    public function waitForLoad($function, $sleep, $callBackLimit)
     {
-        while(true){
+        $counter = 0;
+        while (true)
+        {
+            if($counter >= $callBackLimit)
+                throw new Exception("O tempo limite definido foi atingido!");
+                
             try {
-                if ($function($this) === true) {
+                if ($function($this)) {
                     return true;
                 }
             } catch (Exception $e) {
-                throw new Exception("Erro ao executar a função. \n Informações detalhadas: \n".$e->getMessage());
+                throw new Exception("Erro ao acessar função de callback. Informações detalhadas: \n".$e->getMessage());
+                
             }
+
+            sleep($sleep);
+            $counter++;
         }
-        sleep($sleep);
-    }   
+    }  
 
-    public function isReadyElementById($elementID, $callBackLimit = 10000)
+    public function proccessElementById($elementID, $sleep = 2, $callBackLimit = 10)
     {
-         $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
-            if($this->getSession()->getDriver()->evaluateScript('document.getElementById("'.$elementID.'") != null'))
-                return true;
-            else
-                return false;
-        });
-    }
-
-    public function isReadyElementByCssSelector($cssSelector, $callBackLimit = 10000)
-    {
-         $this->waitForLoad(function() use(&$cssSelector, &$callBackLimit) {
-            if($this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null'))
-                return true;
-            else
-                return false;
-        });
-    }
-
-    public function isVisibleElement($elementID, $callBackLimit=10000)
-    {
-        // $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
-        //     $isVisible = $this->getSession()->wait($callBackLimit, 'document.getElementById("'.$elementID.'").offsetParent != null');
-        //     return $isVisible == true ? true:false;
-        // });
+        $this->isReadyProcessedElement = false;
         $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
-            $page = $this->getSession()->getPage();
-            if($page->find('css', '#'.$elementID)->isVisible())
+        $isReady = $this->getSession()->getDriver()->evaluateScript('document.getElementById("'.$elementID.'") != null');
+        if($isReady === true){
+            $this->isReadyProcessedElement = true;
+            return true;
+        }
+        else
+            return false;
+        }, $sleep, $callBackLimit);
+    }
+
+    public function proccessElementByCssSelector($cssSelector, $sleep = 2, $callBackLimit = 10)
+    {
+        $this->isReadyProcessedElement = false;
+        $this->waitForLoad(function() use(&$cssSelector, &$callBackLimit) {
+            $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
+            if($isReady === true){
+                $this->isReadyProcessedElement = true;
                 return true;
+            }
             else
                 return false;
-        });
+        }, $sleep, $callBackLimit);
+    }
+
+    public function processElementVisibility($elementID, $sleep = 2, $callBackLimit=10)
+    {
+        $this->isVisibleProcessedElement = false;
+        $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
+            $elements = $this->getSession()->getPage()->findAll('css', '#'.$elementID);
+            if($elements !== null){
+                foreach ($elements as $element)
+                    if ($element->isVisible()){
+                        $this->isVisibleProcessedElement = true;
+                        return true;
+                    }
+                return false;
+            }
+        }, $sleep, $callBackLimit);
     }
 
 	/**
@@ -93,8 +109,11 @@ class PersonareContext extends MinkContext implements Context
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
             $this->pressButton("psr-user-login");
-            if($this->isReadyElementById("psr-user-navbar-logged", 2000))
-                return true;
+            $this->processElementVisibility('psr-user-navbar-logged');
+            
+            if(!$this->isVisibleProcessedElement)
+                throw new Exception("Erro ao processar elemento!");
+                
         } catch (Exception $e) {
             throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
         }
