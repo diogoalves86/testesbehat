@@ -12,9 +12,8 @@ use Behat\Behat\Context\Context;
 
 class AstrologyChartContext extends MiniProductContext implements Context
 {
-	
 	/**
-	*@When clico em "Selecionar"
+	*@When clico em "Selecionar" no yii
 	*/
 	public function selectProfileClick()
 	{

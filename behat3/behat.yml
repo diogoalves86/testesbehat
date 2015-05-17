@@ -22,4 +22,4 @@ default:
       contexts: [NumerologyAnalisysTarotContext]
     astrologyChart:
       features: %paths.base%/features/astrology/
-      contexts: [AstrologyChartTarotContext]
+      contexts: [AstrologyChartContext]

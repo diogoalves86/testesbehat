@@ -63,7 +63,7 @@ class MiniProductContext extends PersonareContext implements Context
 			$userDescription = "%s - %s/%s/%s";
 			foreach ($table as $row) {
 				$userProfile = sprintf($userDescription, $row['nome'], $row['dia'], $row['mes'], $row['ano']);
-				$this->selectOption($userProfile);
+				$this->selectOption('ddProfile', $userProfile);
 			}
 		} catch (Exception $e) {
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
