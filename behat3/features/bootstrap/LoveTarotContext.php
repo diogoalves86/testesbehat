@@ -47,6 +47,10 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function saveGame()
 	{
 		try {	
+			$this->processElementVisibility("ta-close-game");
+			if (!$this->isVisibleProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+				
 			$this->pressButton('ta-close-game');
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
@@ -59,7 +63,11 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function startGame()
 	{
 		try {
-           	$this->clickLink("ta-avancar-pt1");
+			$this->proccessElementById("psr-usurio-assinatura");
+			if ($this->isReadyProcessedElement)
+       			$this->pressButton("psr-signature-separate-play");
+
+       		$this->clickLink("ta-avancar-pt1");
         } catch (Exception $e) {
             throw new Exception('Erro ao iniciar o jogo.\n'.$e->getMessage());
         }
@@ -70,8 +78,11 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			if ($this->isVisibleElement("psr-ta-load-phrases", 3000))
-				$this->clickLink("psr-ta-load-phrases");
+			$this->processElementVisibility("psr-ta-load-phrases");
+			if (!$this->isVisibleProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+				
+			$this->clickLink("psr-ta-load-phrases");
 			
 		} catch (Exception $e) {
 			throw new Exception("Erro ao carregar as frases para o novo produto. \n".$e->getMessage());
@@ -84,24 +95,37 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function sortCards()
 	{
 		try {
-			for ($i=1; $i <= 6; $i++){
-				if ($this->isVisibleElement($this->cssID, 3000))
-					$this->clickLink("carta-2".$i);
-				
+			$this->processElementVisibility("carta-78");
+			if (!$this->isVisibleProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+			for ($i=1; $i <= 6; $i++){					
+				$this->clickLink("carta-2".$i);
 			}
 		} catch (Exception $e) {
 			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
 		}
 	}
 
+	public function isCardsSorted()
+	{
+		try {
+			
+		} catch (Exception $e) {
+			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
+		}
+	}
+
 	/**
-	* @When embaralho as cartas
+	* @When clico em "Embaralhar"
 	*/
 	public function prepareGame()
 	{
 		try {
-			if ($this->isVisibleElement("psr-ta-sort-cards", 3000))
-				$this->clickLink("psr-ta-sort-cards");
+			$this->processElementVisibility("psr-ta-sort-cards");
+			if (!$this->isVisibleProcessedElement)
+					throw new Exception("Erro ao processar elemento!");
+			
+			$this->clickLink("psr-ta-sort-cards");
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
 		}
@@ -113,8 +137,11 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function checkTAPhrases()
 	{
 		try {
-			if ($this->isVisibleElement("psr-ta-choice-option-1", 2000))
-				$this->checkRadioButton("psr-ta-choice-option-1");
+			$this->processElementVisibility("psr-ta-choice-option-1");
+			if (!$this->isVisibleProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+				
+			$this->checkRadioButton("psr-ta-choice-option-1");
 		}
 		catch (Exception $e) {
 			throw new Exception("Erro ao selecionar a pessoa para o futuro afetivo. \n ".$e->getMessage());

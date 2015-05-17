@@ -112,67 +112,10 @@
 	"buffers":
 	[
 		{
-			"file": "features/bootstrap/PersonareContext.php",
-			"settings":
-			{
-				"buffer_size": 3556,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/bootstrap/NumerologyMapOfYearContext.php",
-			"settings":
-			{
-				"buffer_size": 1083,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
-			"settings":
-			{
-				"buffer_size": 674,
-				"line_ending": "Unix",
-				"name": "#language: pt"
-			}
-		},
-		{
-			"file": "features/bootstrap/UserContext.php",
-			"settings":
-			{
-				"buffer_size": 4384,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "features/loveTarot/PlayMiniLoveTarot.feature",
 			"settings":
 			{
-				"buffer_size": 591,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-			"settings":
-			{
-				"buffer_size": 14588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ListaDeTestes.txt",
-			"settings":
-			{
-				"buffer_size": 1298,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "behat.yml",
-			"settings":
-			{
-				"buffer_size": 511,
+				"buffer_size": 581,
 				"line_ending": "Unix"
 			}
 		},
@@ -180,7 +123,15 @@
 			"file": "features/bootstrap/LoveTarotContext.php",
 			"settings":
 			{
-				"buffer_size": 3258,
+				"buffer_size": 2993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/bootstrap/DailyTarotContext.php",
+			"settings":
+			{
+				"buffer_size": 3266,
 				"line_ending": "Unix"
 			}
 		}
@@ -209,20 +160,32 @@
 	},
 	"file_history":
 	[
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
+		"/home/administrator/Documents/Repositorios/workcopy/nef/Deprecated/SitePersonare/config.inc",
+		"/home/administrator/Documents/Repositorios/workcopy/yii/protected/config/init.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
+		"/home/administrator/Documents/Repositorios/workcopy/yii/protected/config/main.php",
+		"/home/administrator/Documents/Repositorios/Portal/yii/index.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/MiniProductContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerology/AddNewProfile.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/NumerologyAnalisysContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/AstrologyChartContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/astrologyChart/PlayMiniAstrologyChart.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/NumerologyAnalisys.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerologyAnalisys/PlayMiniNumerologyAnalisys.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/CadastroUsuarioAntigo.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProductAntigo.feature",
@@ -284,6 +247,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"psr-mini-mna-selec-profile-yii",
+			"clico em \"ler uma amostra grátis da análise\"",
 			"isReadyElementById",
 			"isVisible",
 			"E aguardo",
@@ -387,245 +352,50 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "features/bootstrap/PersonareContext.php",
+					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
 					"settings":
 					{
-						"buffer_size": 3556,
+						"buffer_size": 581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1307,
-								1307
+								345,
+								345
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 50.0,
-						"translation.y": 516.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "features/bootstrap/NumerologyMapOfYearContext.php",
-					"settings":
-					{
-						"buffer_size": 1083,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								879,
-								879
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 208.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
-					"settings":
-					{
-						"buffer_size": 674,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								402,
-								402
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#language: pt",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 44.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "features/bootstrap/UserContext.php",
-					"settings":
-					{
-						"buffer_size": 4384,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								442,
-								442
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
-					"settings":
-					{
-						"buffer_size": 591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								288,
-								288
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php",
-					"settings":
-					{
-						"buffer_size": 14588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3131,
-								3131
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2552.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "ListaDeTestes.txt",
-					"settings":
-					{
-						"buffer_size": 1298,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								364,
-								364
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "behat.yml",
-					"settings":
-					{
-						"buffer_size": 511,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								132,
-								132
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "features/bootstrap/LoveTarotContext.php",
 					"settings":
 					{
-						"buffer_size": 3258,
+						"buffer_size": 2993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2025,
-								2025
+								1814,
+								1814
 							]
 						],
 						"settings":
@@ -633,7 +403,35 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 660.0,
+						"translation.y": 1254.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "features/bootstrap/DailyTarotContext.php",
+					"settings":
+					{
+						"buffer_size": 3266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1122.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -683,12 +481,20 @@
 		"selected_items":
 		[
 			[
-				"lovet",
-				"features/bootstrap/LoveTarotContext.php"
+				"init.",
+				"yii/protected/config/init.php"
+			],
+			[
+				"config.inc",
+				"nef/Deprecated/SitePersonare/config.inc"
 			],
 			[
 				"mink",
 				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
+			],
+			[
+				"lovet",
+				"features/bootstrap/LoveTarotContext.php"
 			],
 			[
 				"lis",
