@@ -34,6 +34,10 @@ class LoveTarotContext extends MiniProductContext implements Context
     public function seeGameResult()
     {
         try {
+        	$this->proccessElementById("psr-widget-pr-header");
+        	if (!$this->isReadyProcessedElement)
+        		throw new Exception("Erro ao processar elemento!");
+
             $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
             
         } catch (Exception $e) {
@@ -63,11 +67,11 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function startGame()
 	{
 		try {
-			$this->proccessElementById("psr-usurio-assinatura");
+			$this->proccessElementById("psr-usurio-assinatura", true);
 			if ($this->isReadyProcessedElement)
        			$this->pressButton("psr-signature-separate-play");
 
-       		$this->clickLink("ta-avancar-pt1");
+			$this->clickLink("ta-avancar-pt1");
         } catch (Exception $e) {
             throw new Exception('Erro ao iniciar o jogo.\n'.$e->getMessage());
         }
@@ -95,21 +99,16 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function sortCards()
 	{
 		try {
-			$this->processElementVisibility("carta-78");
-			if (!$this->isVisibleProcessedElement)
+			$this->proccessElementByCssSelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
+			if (!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
-			for ($i=1; $i <= 6; $i++){					
+			for ($i=1; $i <= 6; $i++){
 				$this->clickLink("carta-2".$i);
+				// Verifica se a carta foi realmente clicada
+				$this->proccessElementByCssSelector("#carta-flip.hide");
+				if(!$this->isReadyProcessedElement)
+					throw new Exception("Erro ao processar elemento!");
 			}
-		} catch (Exception $e) {
-			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
-		}
-	}
-
-	public function isCardsSorted()
-	{
-		try {
-			
 		} catch (Exception $e) {
 			throw new Exception("Erro ao sortear as cartas. \n ".$e->getMessage());
 		}

@@ -42,29 +42,37 @@ class PersonareContext extends MinkContext implements Context
         }
     }  
 
-    public function proccessElementById($elementID, $sleep = 2, $callBackLimit = 10)
+    public function proccessElementById($elementID, $canElementNotExist = false, $sleep = 2, $callBackLimit = 10)
     {
         $this->isReadyProcessedElement = false;
-        $this->waitForLoad(function() use(&$elementID, &$callBackLimit) {
+        $this->waitForLoad(function() use(&$elementID, &$canElementNotExist , &$callBackLimit) {
         $isReady = $this->getSession()->getDriver()->evaluateScript('document.getElementById("'.$elementID.'") != null');
-        if($isReady === true){
+        if($isReady === true && $canElementNotExist == false){
             $this->isReadyProcessedElement = true;
             return true;
         }
+        
+        else if($isReady !== true && $canElementNotExist == true)
+            return true;
+
         else
             return false;
         }, $sleep, $callBackLimit);
     }
 
-    public function proccessElementByCssSelector($cssSelector, $sleep = 2, $callBackLimit = 10)
+    public function proccessElementByCssSelector($cssSelector, $canElementNotExist = false, $sleep = 2, $callBackLimit = 10)
     {
         $this->isReadyProcessedElement = false;
-        $this->waitForLoad(function() use(&$cssSelector, &$callBackLimit) {
+        $this->waitForLoad(function() use(&$cssSelector, &$canElementNotExist , &$callBackLimit) {
             $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
             if($isReady === true){
                 $this->isReadyProcessedElement = true;
                 return true;
             }
+
+            else if($isReady !== true && $canElementNotExist == true)
+              return true;
+
             else
                 return false;
         }, $sleep, $callBackLimit);
