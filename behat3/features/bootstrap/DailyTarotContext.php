@@ -85,7 +85,7 @@ class DailyTarotContext extends PersonareContext implements Context
         try {
             // if($this->isReadyElementById("carta-".$cardNumber))
             // if ($this->getSession()->wait(5000, "document.getElementsByClassName('tarot-carta-hover')[0] != undefined")) 
-            $this->proccessElementByCssSelector(".tarot-baralho.tarot-carta-hover");
+            $this->proccessElementByCssSelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
             if (!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
             $this->clickLink("carta-".$cardNumber);
