@@ -15,6 +15,7 @@ class NumerologyAnalisysContext extends MiniProductContext implements Context
 	/**
 	*@When clico em "Selecionar"
 	*/
+	/*
 	public function selectProfileClick()
 	{
 		try {
@@ -23,4 +24,5 @@ class NumerologyAnalisysContext extends MiniProductContext implements Context
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
+	*/
 }

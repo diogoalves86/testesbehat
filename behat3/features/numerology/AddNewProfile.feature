@@ -2,7 +2,7 @@
 Funcionalidade: Adicionar novo perfil a partir do mini do MNA
 	@javascript
 	Cenário: Usuário logado quer adicionar novo perfil a partir do mini do MNA
-    	Dados estou logado no sistema com o usuário "behattestedecadastro@hotmail.com" e a senha "1234"
+    	Dados estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
     	E vou para "/numerologia/mapa-do-ano"
     	Quando clico em "ler uma amostra grátis da análise"
     	E seleciono a opção “Adicionar novo perfil”
