@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"process",
+				"processElementVisibility"
+			],
+			[
+				"isRe",
+				"isReadyProcessedElement"
+			],
+			[
+				"isVisi",
+				"isVisibleProcessedElement"
+			],
+			[
+				"wait",
+				"waitForLoad"
+			],
+			[
+				"codi",
+				"codigoNumeroParcelas"
+			],
+			[
+				"eleme",
+				"elements"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"is",
+				"isReady"
+			],
+			[
 				"user",
 				"userProfile"
 			],
@@ -24,20 +56,8 @@
 				"callBackLimit"
 			],
 			[
-				"wait",
-				"waitForAct"
-			],
-			[
 				"css",
 				"cssSelector"
-			],
-			[
-				"isVisi",
-				"isVisibleElement"
-			],
-			[
-				"eleme",
-				"elementID"
 			],
 			[
 				"Persona",
@@ -112,26 +132,42 @@
 	"buffers":
 	[
 		{
-			"file": "features/loveTarot/PlayMiniLoveTarot.feature",
+			"file": "behat.yml",
 			"settings":
 			{
-				"buffer_size": 581,
+				"buffer_size": 745,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/bootstrap/LoveTarotContext.php",
+			"file": "features/bootstrap/PersonareContext.php",
 			"settings":
 			{
-				"buffer_size": 2993,
+				"buffer_size": 4703,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "features/bootstrap/DailyTarotContext.php",
+			"file": "features/astrology/PlayMiniAstrologyChart.feature",
 			"settings":
 			{
-				"buffer_size": 3266,
+				"buffer_size": 541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/bootstrap/MiniProductContext.php",
+			"settings":
+			{
+				"buffer_size": 3958,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "features/bootstrap/AstrologyChartContext.php",
+			"settings":
+			{
+				"buffer_size": 755,
 				"line_ending": "Unix"
 			}
 		}
@@ -160,6 +196,21 @@
 	},
 	"file_history":
 	[
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink/src/Driver/CoreDriver.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-selenium2-driver/src/Behat/Mink/Driver/Selenium2Driver.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/src/Behat/MinkExtension/ServiceContainer/Driver/Selenium2Factory.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-selenium2-driver/tests/Selenium2Config.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-selenium2-driver/tests/Custom/WebDriverTest.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink/src/Session.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink/src/Driver/DriverInterface.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/instaclick/php-webdriver/lib/WebDriver/WebDriver.php",
+		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/workcopy/nef/Deprecated/SitePersonare/config.inc",
 		"/home/administrator/Documents/Repositorios/workcopy/yii/protected/config/init.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/behat.yml",
@@ -170,20 +221,13 @@
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerology/AddNewProfile.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/ListaDeTestes.txt",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/NumerologyAnalisysContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/PersonareContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/AstrologyChartContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/astrologyChart/PlayMiniAstrologyChart.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/LoveTarotContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/loveTarot/PlayMiniLoveTarot.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/cart/BuyNewProduct.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/NumerologyAnalisys.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerologyMapOfYear/PlayMiniNumerologyMapOfYear.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/numerologyAnalisys/PlayMiniNumerologyAnalisys.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/UserContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/LoginUser.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/user/NewUser.feature",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/CartContext.php",
-		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/DailyTarotContext.php",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/dailyTarot/PlayDailyTarot.feature",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/vendor/behat/mink-extension/i18n/pt.xliff",
 		"/home/administrator/Documents/Repositorios/testesbehat/behat3/features/bootstrap/JavascriptContext.php",
@@ -235,7 +279,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
 			"",
@@ -247,6 +291,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"isReadyProcessedElement",
+			"isVisibleElement",
+			"isReadyElementById",
+			"lambda",
+			"isReadyElementById",
+			"isReadyElementByCssSelector",
+			"isReadyElementById",
+			"isCurrentElementVisible",
+			"isVisibleElement",
+			"extends CoreDriver",
+			"public function setValue(",
+			"public function setValue",
+			"Behat\\Mink\\Driver\\Selenium2Driver",
+			"implements DriverInterface",
+			"private driver",
+			"public driver",
+			"driver",
+			"getDriver",
+			"public function getDriver(",
+			"var_dump",
+			"clico em",
 			"psr-mini-mna-selec-profile-yii",
 			"clico em \"ler uma amostra grátis da análise\"",
 			"isReadyElementById",
@@ -331,6 +396,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"processElementVisibility",
+			"proccessElementById",
+			"proccessElementByCssSelector",
+			"proccessElementById",
+			"isVisibleProcessedElement",
+			"processElementVisibility",
 			"callBackValue",
 			"$isVisible",
 			"$this->cssID",
@@ -352,29 +423,30 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "features/loveTarot/PlayMiniLoveTarot.feature",
+					"file": "behat.yml",
 					"settings":
 					{
-						"buffer_size": 581,
+						"buffer_size": 745,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								345,
-								345
+								744,
+								744
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -384,44 +456,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "features/bootstrap/LoveTarotContext.php",
+					"file": "features/bootstrap/PersonareContext.php",
 					"settings":
 					{
-						"buffer_size": 2993,
+						"buffer_size": 4703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1814,
-								1814
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1254.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "features/bootstrap/DailyTarotContext.php",
-					"settings":
-					{
-						"buffer_size": 3266,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								1924,
+								1924
 							]
 						],
 						"settings":
@@ -431,7 +477,88 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1122.0,
+						"translation.y": 1329.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "features/astrology/PlayMiniAstrologyChart.feature",
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								444,
+								444
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "features/bootstrap/MiniProductContext.php",
+					"settings":
+					{
+						"buffer_size": 3958,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1824,
+								1824
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 995.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "features/bootstrap/AstrologyChartContext.php",
+					"settings":
+					{
+						"buffer_size": 755,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								490,
+								490
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -481,6 +608,50 @@
 		"selected_items":
 		[
 			[
+				"love",
+				"features/loveTarot/PlayMiniLoveTarot.feature"
+			],
+			[
+				"cart",
+				"features/bootstrap/CartContext.php"
+			],
+			[
+				"perso",
+				"features/bootstrap/PersonareContext.php"
+			],
+			[
+				"beha",
+				"behat.yml"
+			],
+			[
+				"coredriver",
+				"vendor/behat/mink/src/Driver/CoreDriver.php"
+			],
+			[
+				"driverinter",
+				"vendor/behat/mink/src/Driver/DriverInterface.php"
+			],
+			[
+				"driver",
+				"vendor/behat/mink-selenium2-driver/src/Behat/Mink/Driver/Selenium2Driver.php"
+			],
+			[
+				"buy",
+				"features/cart/BuyNewProduct.feature"
+			],
+			[
+				"session",
+				"vendor/behat/mink/src/Session.php"
+			],
+			[
+				"webdriver",
+				"vendor/instaclick/php-webdriver/lib/WebDriver/WebDriver.php"
+			],
+			[
+				"persona",
+				"features/bootstrap/PersonareContext.php"
+			],
+			[
 				"init.",
 				"yii/protected/config/init.php"
 			],
@@ -501,10 +672,6 @@
 				"ListaDeTestes.txt"
 			],
 			[
-				"love",
-				"features/loveTarot/PlayMiniLoveTarot.feature"
-			],
-			[
 				"us",
 				"features/bootstrap/UserContext.php"
 			],
@@ -515,10 +682,6 @@
 			[
 				"bu",
 				"features/cart/BuyNewProduct.feature"
-			],
-			[
-				"cart",
-				"features/bootstrap/CartContext.php"
 			],
 			[
 				"b",
@@ -543,10 +706,6 @@
 			[
 				"dail",
 				"features/bootstrap/DailyTarotContext.php"
-			],
-			[
-				"buy",
-				"features/cart/BuyNewProduct.feature"
 			],
 			[
 				"per",
@@ -575,10 +734,6 @@
 			[
 				"mincon",
 				"vendor/behat/mink-extension/src/Behat/MinkExtension/Context/MinkContext.php"
-			],
-			[
-				"persona",
-				"features/bootstrap/PersonareContext.php"
 			],
 			[
 				"snippetacceptingcontext",

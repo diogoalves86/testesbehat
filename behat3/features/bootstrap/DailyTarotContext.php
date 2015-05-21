@@ -37,8 +37,11 @@ class DailyTarotContext extends PersonareContext implements Context
     public function saveGame()
     {
         try {
-            if($this->isReadyElementByCssSelector(".tarot-baralho.desativado"))
-                $this->clickLink("daily-tarot-close-game");
+            $this->proccessElementByCssSelector(".tarot-baralho.desativado");
+            if(!$this->isReadyProcessedElement)
+                throw new Exception("O elemento não processado corretamente!");
+                
+            $this->clickLink("daily-tarot-close-game");
         } catch (Exception $e) {
             throw new Exception("Erro ao jogar Tarot.\n ".$e->getMessage());
         }
@@ -51,6 +54,10 @@ class DailyTarotContext extends PersonareContext implements Context
     public function seeGameResult($playerName)
     {
         try {
+            $this->proccessElementById("explicacao-td");
+            if (!$this->isReadyProcessedElement) 
+                throw new Exception("Erro ao processar elemento!");
+                
             $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
             
         } catch (Exception $e) {
@@ -70,22 +77,6 @@ class DailyTarotContext extends PersonareContext implements Context
         }
     }
 
-    public function isReadyToSelectCard()
-    {
-        try {
-            $this->waitForLoad(function(){
-                $result = $this->getSession()->getDriver()->evaluateScript("document.getElementsByClassName('tarot-carta-hover')[0] != undefined");
-                return $result;
-             });
-                // if($this->getSession()->getDriver()->evaluateScript("function() { return document.getElementsByClassName('tarot-carta-hover')[0] != undefined; }")){
-                //     return true;
-                // }
-                // else{ return false; }
-        } catch (Exception $e) {
-            throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());   
-        }
-    }
-
     /**
     *@When clico em "carta:arg1"
     */
@@ -94,9 +85,11 @@ class DailyTarotContext extends PersonareContext implements Context
         try {
             // if($this->isReadyElementById("carta-".$cardNumber))
             // if ($this->getSession()->wait(5000, "document.getElementsByClassName('tarot-carta-hover')[0] != undefined")) 
-            if ($this->isReadyToSelectCard() == true){
-                $this->clickLink("carta-".$cardNumber);
-            }
+            $this->proccessElementByCssSelector(".tarot-baralho.tarot-carta-hover");
+            if (!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao processar elemento!");
+            $this->clickLink("carta-".$cardNumber);
+            
         } catch (Exception $e) {
             throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());   
         }

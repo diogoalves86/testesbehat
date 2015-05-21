@@ -20,7 +20,7 @@ class PersonareContext extends MinkContext implements Context
     public $isReadyProcessedElement = false;
 
     // Espera o elemento estar visível para então poder interagir com ele.
-    public function waitForLoad($function, $sleep, $callBackLimit)
+    public function waitForLoad($function, $sleep = 1, $callBackLimit = 10)
     {
         $counter = 0;
         while (true)
