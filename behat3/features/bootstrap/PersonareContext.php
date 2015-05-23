@@ -137,6 +137,26 @@ class PersonareContext extends MinkContext implements Context
         }
     }
 
+    public function prepareCity($cityField, $cityName)
+    {
+        try {
+            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1) > a";
+            $this->fillField($cityField, $cityName);
+            $this->waitForAct(2);
+            $this->proccessElementByCssSelector($cssSelector);
+            
+            if(!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao processar elemento!");
+                
+            $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
+            foreach ($elements as $element) {
+                $element->click();
+            }
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
+        }
+    }
+
     /**
     *@Then o teste está finalizado
     */

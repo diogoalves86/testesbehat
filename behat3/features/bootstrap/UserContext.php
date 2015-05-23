@@ -66,30 +66,6 @@ class UserContext extends PersonareContext implements Context
         }
     }
 
-    public function prepareCity($cityField, $cityName)
-    {
-        try {
-            /*$this->getSession()->getDriver()->executeScript("
-                var cityObject = PatternForm.autocompleteOfCities.loadList('".$cityName."','txCityName','');
-                setTimeout(function(){
-                    PatternForm.autocompleteOfCities.setCityData('".$cityName."',cityObject[0].CityID,cityObject[0].EstateID,cityObject[0].CountryID);
-                }, 9000);
-            ");*/
-            $cssSelector = ".ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all > li:nth-child(1) > a";
-            $this->fillField($cityField, $cityName);
-            $this->proccessElementByCssSelector($cssSelector);
-            if($this->isReadyProcessedElement){
-                $elements = $this->getSession()->getPage()->findAll('css', $cssSelector);
-                foreach ($elements as $element) {
-                    $element->clickLink();
-                }
-            }
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
-        }
-    }
-
-
     /**
      * Efetua login do usuário.
      * @Then faço login com os seguintes dados:

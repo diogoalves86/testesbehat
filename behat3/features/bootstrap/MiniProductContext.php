@@ -87,14 +87,16 @@ class MiniProductContext extends PersonareContext implements Context
 	*/
 	public function fillFormToSaveProfile(TableNode $table)
 	{
-		if($this->isReadyElementById("Name", 2000)){
-			foreach ($table as $row) {
-				$this->fillField("Name", $row['nome']);
-				$this->selectOption("MapaNum_dataDay", $row['dia']);
-				$this->fillField("MapaNum_dataMonth", $row['mes']);
-				$this->fillField("MapaNum_dataYear", $row['ano']);
-				$this->fillField("MapaYear_data", $row['anoAnalisado']);
-			}
+		$this->proccessElementById("Name");
+		if(!$this->isReadyProcessedElement)
+			throw new Exception("Erro ao processar elemento!");
+			
+		foreach ($table as $row) {
+			$this->fillField("Name", $row['nome']);
+			$this->selectOption("MapaNum_dataDay", $row['dia']);
+			$this->fillField("MapaNum_dataMonth", $row['mes']);
+			$this->fillField("MapaNum_dataYear", $row['ano']);
+			$this->fillField("MapaYear_data", $row['anoAnalisado']);
 		}
 	}
 
@@ -131,20 +133,25 @@ class MiniProductContext extends PersonareContext implements Context
 	public function addNewProfile(TableNode $table)
 	{
 		try {
-			if($this->isReadyElementById("Name", 2000)){
-				foreach ($table as $row) {
-					$this->fillField("Name", $row['nome']);
-					$this->selectOption("DateDay", $row['dia']);
-					$this->fillField("DateMonth", $row['mes']);
-					$this->fillField("DateYear", $row['ano']);
-					$this->fillField("Gender", $row['sexoValor']);
-					if($row['possuiHoraNascimento'] !== "sim"){
-						$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
-						$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
-					}
-					else
-						$this->checkOption("cbDontKnowBirthTime");
+			$this->proccessElementById("Name");
+			if(!$this->isReadyProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+			
+			foreach ($table as $row) {
+				$this->fillField("Name", $row['nome']);
+				$this->selectOption("DateDay", $row['dia']);
+				$this->fillField("DateMonth", $row['mes']);
+				$this->fillField("DateYear", $row['ano']);
+				$this->fillField("Gender", $row['sexoValor']);
+				
+				if($row['possuiHoraNascimento'] !== "sim"){
+					$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
+					$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
 				}
+				else
+					$this->checkOption("cbDontKnowBirthTime");
+				
+				$this->prepareCity("txCityName", $row['cidade']);
 			}
 		} catch (Exception $e) {
 			throw new Exception("Error ao adicionar o perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
