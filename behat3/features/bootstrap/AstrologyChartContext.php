@@ -15,7 +15,7 @@ class AstrologyChartContext extends MiniProductContext implements Context
 	/**
 	*@When clico em "Selecionar" no yii
 	*/
-	public function selectProfileClick()
+	/*public function selectProfileClick()
 	{
 		try {
 			$this->clickLink("psr-mini-mna-select-profile-yii");
@@ -23,4 +23,5 @@ class AstrologyChartContext extends MiniProductContext implements Context
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
+	*/
 }

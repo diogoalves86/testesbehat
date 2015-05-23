@@ -32,10 +32,14 @@ class MiniProductContext extends PersonareContext implements Context
     /**
 	*@Then clico em "Selecionar"
 	*/
-	public function selectProfileClick()
+	public function selectProfile()
 	{
 		try {
-			$this->clickLink("psr-mini-mna-select-profile");
+			$this->proccessElementById("psr-mini-select-profile");
+			if(!$this->isReadyProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+
+			$this->clickLink("psr-mini-select-profile");
 		} catch (Exception $e) {
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
@@ -47,6 +51,10 @@ class MiniProductContext extends PersonareContext implements Context
 	public function selectAddNewProfile()
 	{
 		try {
+			$this->proccessElementById("ddProfile");
+			if(!$this->isReadyProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+				
 			$this->selectOption("ddProfile", "AddProfile");
 		} catch (Exception $e) {
 			throw new Exception("Error ao adicionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
@@ -57,9 +65,13 @@ class MiniProductContext extends PersonareContext implements Context
 	/**
 	*@Then seleciono o perfil com os seguintes dados:
 	*/
-	public function selectProfile(TableNode $table)
+	public function selectComboProfile(TableNode $table)
 	{
 		try {
+			$this->proccessElementById("ddProfile");
+			if(!$this->isReadyProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+
 			$userDescription = "%s - %s/%s/%s";
 			foreach ($table as $row) {
 				$userProfile = sprintf($userDescription, $row['nome'], $row['dia'], $row['mes'], $row['ano']);
@@ -92,8 +104,10 @@ class MiniProductContext extends PersonareContext implements Context
 	public function checkGameResult()
 	{
 		try {
-			if($this->isReadyElementById("psr-widget-pr-header", 2000))
-				return true;
+			$this->proccessElementById("psr-widget-pr-header");
+			if(!$this->isReadyProcessedElement)
+				throw new Exception("Erro ao processar elemento!");
+				
 		} catch (Exception $e) {
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}

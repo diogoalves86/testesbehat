@@ -8,7 +8,8 @@ LISTA DE TESTES FEITOS.
 
 LISTA DE TESTES A FAZER:
 
-	- Funcionalidade: Fazer o mini do MA (QUASE FINALIZADO)
+	- Funcionalidade: Fazer o mini do MA (VERIFICAR EM LATEST). PS: Não esquecer de alterar os dados do perfil selecionado quando for testar em Latest.
+	
 	- Funcionalidade: Adicionar novo perfil a partir do mini do MNA (FALTA FAZER)
 	- Funcionalidade: Usuário logado quer fazer o mini do MNA (FALTA FAZER)
 	- Funcionalidade: Cadastrar usuário (VERIFICAR EM LATEST)
