@@ -2,13 +2,13 @@ LISTA DE TESTES FEITOS.
 	- Funcionalidade: Usuário jogar Tarot do Dia(FINALIZADO)
 	- Funcionalidade: Fazer o mini do TA (FINALIZADO)
 	- Funcionalidade: Login (FINALIZADO)
+	- Funcionalidade: Comprar produto completo (FINALIZADO)
 	
 
 
 LISTA DE TESTES A FAZER:
 
 	- Funcionalidade: Fazer o mini do MA (QUASE FINALIZADO)
-	- Funcionalidade: Comprar produto completo (FALTA FAZER)
 	- Funcionalidade: Adicionar novo perfil a partir do mini do MNA (FALTA FAZER)
 	- Funcionalidade: Usuário logado quer fazer o mini do MNA (FALTA FAZER)
 	- Funcionalidade: Cadastrar usuário (VERIFICAR EM LATEST)
