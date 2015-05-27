@@ -59,7 +59,7 @@ class UserContext extends PersonareContext implements Context
                 $this->fillField("pwPassword", $row["senha"]);
                 $this->fillField("Confirm_pwPassword", $row["confirmacaoSenha"]);
                 
-                $this->prepareCity("txCityName", $row["cidade"]);
+                $this->autoCompleteField("txCityName", "psr-widget-autocompletefield", $row["cidade"], "psr-widget-autocompletefield-link-1");
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao preencher o formulário de cadastro do usuário. \n".$e->getMessage());
