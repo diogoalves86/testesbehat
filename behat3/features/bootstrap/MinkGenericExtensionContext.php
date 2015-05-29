@@ -55,6 +55,21 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }, $sleep);
     }
 
+    public function fillAutocompleteField($autocompleteFieldId, $valueToFill)
+    {
+        try {
+            $newValueToFill = strtolower(substr($valueToFill,0,4));
+            $element = $this->getSession()->getPage()->find('css', '#'.$autocompleteFieldId);
+            $this->getSession()->getDriver()->executeScript("
+                var element = $('#".$autocompleteFieldId."');
+                element.val('".$newValueToFill."');
+                element.keydown();
+            ");
+        } catch (Exception $e) {
+            throw new Exception("Erro ao preencher o campo de autocomplete que possui o id '".$autocompleteFieldId."'");
+        }
+    }
+
     public function proccessElementByCssSelector($cssSelector, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
@@ -118,11 +133,6 @@ class MinkGenericExtensionContext extends MinkContext implements Context
     public function resetSession()
     {
         $this->getSession()->reset();
-    }
-
-    /** @AfterFeature */
-    public static function teardownFeature(AfterFeatureScope $scope){
-        var_dump($scope); exit;
     }
 	
 }

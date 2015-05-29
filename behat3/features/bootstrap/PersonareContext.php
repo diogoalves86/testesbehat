@@ -48,7 +48,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
             
-            $this->fillField($fieldID, $fieldValue);
+            $this->fillAutocompleteField($fieldID, $fieldValue);
             $this->proccessElementById($optionToSelectId);
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
@@ -57,5 +57,5 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
         }
-    }
+    }    
 }

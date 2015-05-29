@@ -32,6 +32,6 @@ TÓPICOS A SEREM REFATORADOS
 	Olhar o PhantomJS (FAZENDO)
 
 OBSERVAÇÕES SOBRE O DESENVOLVIMENTO DOS TESTES
-	Autocomplete de cidades: Devido ao meu não conhecimento sobre a complexidade da lógica desta funcionalidade, foi utilizado o seletor CSS para pegar o elemento
+	Autocomplete de cidades: Como a função 'fillField' do Mink preenche o campo e tira o foco (quebra o evento do autocomplete), para preencher esse campo foi criada uma função em específico para fazer isso. 
 
 	PhantomJS: O phantomjs por padrão mantém as sessões entre os testes executados, portanto é preciso finalizar manualmente a sessão ao final de cada teste executado. http://stackoverflow.com/questions/17279478/when-running-a-behat-login-test-through-phantomjs-it-only-passes-on-the-first-ru
