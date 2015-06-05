@@ -2,10 +2,10 @@
 Funcionalidade: Fazer o mini do TA
 	@javascript
 	Cenário: Usuário logado quer fazer o mini do TA
-		Dados estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
+		Dados que estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando clico em "ler uma amostra grátis da análise"
-		Então o nome preenchido no formulário deverá ser "aaaa"
+		Então o nome preenchido no formulário deverá ser "AAA"
 		Quando clico em "Iniciar"
 		Então seleciono revelar meu futuro afetivo
 		E clico em "Continuar"
