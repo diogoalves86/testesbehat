@@ -9,8 +9,8 @@ LISTA DE TESTES FEITOS.
 
 LISTA DE TESTES A FAZER:
 
-	- Funcionalidade: Adicionar novo perfil a partir do mini do MNA (FAZENDO)
-	- Funcionalidade: Cadastrar usuário (VERIFICAR EM LATEST)
+	- Funcionalidade: Adicionar novo perfil a partir do mini do MNA (A FAZER)
+	- Funcionalidade: Cadastrar usuário (FAZENDO)
 
 
 IDS A SEREM ACRESCENTADOS EM PRODUÇÃO
