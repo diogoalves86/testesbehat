@@ -13,16 +13,14 @@ class NumerologyAnalisysContext extends MiniProductContext implements Context
 {
 
 	/**
-	*@When clico em "Selecionar"
+	*@When clico em "Selecionar" no "MNA"
 	*/
-	/*
 	public function selectProfileClick()
 	{
 		try {
-			$this->clickLink("psr-mini-select-profile");
+			$this->clickLink("psr-mini-mna-select-profile");
 		} catch (Exception $e) {
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
-	*/
 }

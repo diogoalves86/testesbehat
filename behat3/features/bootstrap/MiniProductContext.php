@@ -96,7 +96,7 @@ class MiniProductContext extends PersonareContext implements Context
 			$this->selectOption("MapaNum_dataDay", $row['dia']);
 			$this->fillField("MapaNum_dataMonth", $row['mes']);
 			$this->fillField("MapaNum_dataYear", $row['ano']);
-			$this->fillField("MapaYear_data", $row['anoAnalisado']);
+			$this->selectOption("MapaYear_data", $row['anoAnalisado']);
 		}
 	}
 

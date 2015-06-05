@@ -4,12 +4,12 @@ LISTA DE TESTES FEITOS.
 	- Funcionalidade: Login (FINALIZADO)
 	- Funcionalidade: Comprar produto completo (FINALIZADO)
 	- Funcionalidade: Fazer o mini do MA (FINALIZADO). PS: Não esquecer de alterar os dados do perfil selecionado quando for testar em Latest.	
+	- Funcionalidade: Usuário logado quer fazer o mini do MNA (FINALIZADO)
 
 
 LISTA DE TESTES A FAZER:
 
 	- Funcionalidade: Adicionar novo perfil a partir do mini do MNA (FAZENDO)
-	- Funcionalidade: Usuário logado quer fazer o mini do MNA (FALTA FAZER)
 	- Funcionalidade: Cadastrar usuário (VERIFICAR EM LATEST)
 
 
