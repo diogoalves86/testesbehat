@@ -35,11 +35,11 @@ class MiniProductContext extends PersonareContext implements Context
 	public function selectProfile()
 	{
 		try {
-			$this->proccessElementById("psr-mini-select-profile");
+			$this->proccessElementById("psr-mini-mna-select-profile");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 
-			$this->clickLink("psr-mini-select-profile");
+			$this->clickLink("psr-mini-mna-select-profile");
 		} catch (Exception $e) {
 			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
