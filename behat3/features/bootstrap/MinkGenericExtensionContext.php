@@ -88,6 +88,24 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }, $sleep);
     }
 
+    public function processElementByJquerySelector($jquerySelector, $canElementNotExist = false, $sleep = 2)
+    {
+        $this->isReadyProcessedElement = false;
+        $this->waitForLoad(function() use(&$jquerySelector, &$canElementNotExist) {
+            $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
+            if($isReady === true){
+                $this->isReadyProcessedElement = true;
+                return true;
+            }
+
+            else if($isReady !== true && $canElementNotExist == true)
+              return true;
+
+            else
+                return false;
+        }, $sleep);
+    }
+
     public function processElementVisibility($elementID, $sleep = 2)
     {
         $this->isVisibleProcessedElement = false;

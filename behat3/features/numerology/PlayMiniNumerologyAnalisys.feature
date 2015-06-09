@@ -7,7 +7,7 @@ Funcionalidade: Fazer o mini do MNA
 		Quando clico em "ler uma amostra grátis da análise" 
 		Então seleciono o perfil com os seguintes dados: 
 		| nome        | dia | mes | ano  |
-		| AAA         | 02  | 03  | 1973 | 
+		| AAA         | 25  | 03  | 1996 | 
 		E clico em "Selecionar" no "MNA"
 		Quando preencho a pessoa ser analisada com os seguintes dados:
 		| nome       | dia | mes | ano       | anoAnalisado | 
