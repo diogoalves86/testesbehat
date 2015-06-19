@@ -1,0 +1,29 @@
+1 - COMO O TESTE SERÁ INCLUÍDO NO PROCESSO DE DEPLOY?
+	. O teste será incluído da mesma forma que ocorre atualmente, mas de forma automatizada.
+
+2 - COMO SERÁ A ESTRUTURA DE DIRETÓRIOS DA APLICAÇÃO DE TESTES?
+	. Estrutura de diretórios da aplicação "testesbehat" atual, separadamente a aplicação Personare.
+
+3 - QUAL SERÁ O FLUXO DE DESENVOLVIMENTO DOS TESTES: PRIMEIRO PENSAR NA FUNCIONALIDADE COMO UM CASO DE USO OU PROGRAMAR E DEPOIS ESCREVER O CASO DE USO?
+	. Primeiro pensar na funcionalidade como um caso de uso. A partir deste pensamento, o teste de comportamento virá como consequência. Depois do caso de uso feito, desenvolver na prática a funcionalidade desejada.
+
+4 - COMO DESACOPLAR AS DUAS APLICAÇÕES (PERSONARE E TESTES DE COMPORTAMENTO)?
+	. Evitar ao máximo que a aplicação "Personare" haja, ou seja alterada, em função da aplicação de testes.
+
+5 - POR QUE O DESENVOLVEDOR VAI QUERER USAR O BEHAT?
+	. A maior automatização e flexibilização do desenvolvimento da aplicação será imediato; 
+	. Registro periódico dos logs de erros na aplicação;
+	. Documentação da aplicação; 
+
+6 - ONDE COMEÇA O BDD E ONDE COMEÇA O TDD?
+	. Acho mais válido para conversas futuras.
+
+7 - ONDE CENTRALIZAR RELATÓRIOS DOS TESTES DE COMPORTAMENTO?
+	. No local onde ficará reservado para a aplicação de testes.
+
+
+NOTAS PARA PRÓXIMA CONVERSA:
+
+- ATRIBUIR "IDs" HTML AOS ELEMENTOS SERIA ALTERAR A APLICAÇÃO EM FUNÇÃO DO TESTE? SE SIM, POR QUE? COMO RESOLVER? PEGAR POR HIERARQUIA CSS?
+- A APLICAÇÃO DE TESTE DEVE INSERIR E RETIRAR SEUS DADOS PARA EXECUÇÃO DE SEUS RESPECTIVOS TESTES?
+	. Por exemplo, no teste de login, antes de realizá-lo, deve ser incluído um usuário manualmente e depois excluído?
