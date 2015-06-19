@@ -1,0 +1,39 @@
+PASSO A PASSO PARA CONFIGURAR AMBIENTE:
+
+1 - INSTALAÇÃO DO JAVA DEFAULT-JRE.
+	"sudo apt-get install default-jre"
+2 - GERAR UMA CHAVE SSH (https://help.github.com/articles/generating-ssh-keys/).
+3 - CLONAR O REPOSITÓRIO "TESTESBEHAT"
+	"git clone git@github.com:diogoalves86/testesbehat.git"
+4 - INSTALAR O COMPOSER GLOBALMENTE (http://askubuntu.com/questions/116960/global-installation-of-composer-manual)
+	4.1 - CASO PRECISO, INSTALAR CURL
+		- "sudo apt-get install curl && sudo apt-get install php5-curl"
+
+	"curl -sS https://getcomposer.org/installer | php"
+	"sudo mv composer.phar /usr/local/bin/composer"
+		
+5 - ATUALIZANDO DEPENDÊNCIAS DO COMPOSER: 
+	"rm -R vendor/"
+	"composer clear-cache"
+	"composer install"
+
+6 - CONFIGURAR ARQUIVO DE CONFIGURAÇÃO DO PHP (PHP.INI) "/etc/php5/apache2/php.ini"
+	ACRESCENTAR ESTAS LINHAS AO ARQUIVO: 
+		"; XDebug special configuration for Behat
+		xdebug.max_nesting_level = 1000"
+
+7 - FAZER DOWNLOAD E EXECUTAR O SELENIUM 
+	- Link do Download: https://drive.google.com/file/d/0B-xs7iiEiUwqSkdUOWNEZ2xZaUU/view?usp=sharing
+	- "java -jar nomeDoArquivo"
+
+8 - RODAR O TESTE
+
+
+
+EXCLUSIVO AO DOCKER:
+ - INSTALAÇÃO DO APACHE.
+	"apt-get install apache2"
+ - INSTALAR PACOTES ESSENCIAIS: 
+	"apt-get install python-software-properties" 
+	"apt-get install software-properties-common"
+ - INSTALAR A VERSÃO 5.4 DO PHP: (http://www.dev-metal.com/how-to-install-latest-php-5-4-x-on-ubuntu-12-04-lts-precise-pangolin/).
