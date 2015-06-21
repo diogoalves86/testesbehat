@@ -22,8 +22,7 @@
 	. No local onde ficará reservado para a aplicação de testes.
 
 
-NOTAS PARA PRÓXIMA CONVERSA:
-
-- ATRIBUIR "IDs" HTML AOS ELEMENTOS SERIA ALTERAR A APLICAÇÃO EM FUNÇÃO DO TESTE? SE SIM, POR QUE? COMO RESOLVER? PEGAR POR HIERARQUIA CSS?
-- A APLICAÇÃO DE TESTE DEVE INSERIR E RETIRAR SEUS DADOS PARA EXECUÇÃO DE SEUS RESPECTIVOS TESTES?
-	. Por exemplo, no teste de login, antes de realizá-lo, deve ser incluído um usuário manualmente e depois excluído?
+NOTAS CONVERSA:
+	- ATRIBUIR "IDs" HTML AOS ELEMENTOS SERIA ALTERAR A APLICAÇÃO EM FUNÇÃO DO TESTE? SE SIM, POR QUE? COMO RESOLVER? PEGAR POR HIERARQUIA CSS?
+	- A APLICAÇÃO DE TESTE DEVE INSERIR E RETIRAR SEUS DADOS PARA EXECUÇÃO DE SEUS RESPECTIVOS TESTES?
+		. Por exemplo, no teste de login, antes de realizá-lo, deve ser incluído um usuário manualmente e depois excluído?

@@ -1,0 +1,8 @@
+NOTAS PARA CONVERSA LEVANTADAS PELO TIME:
+	- AngularJS e o Behat
+	- Interface gráfica X Fluxo usuário
+
+NOTAS PARA CONVERSA LEVANTADA POR MIM:
+	- Utilizar a biblioteca pronta do MINK:
+		- Alguns elementos, como radiobutton, não possuem "label" associadas... sendo necessário pegá-lo pelo "ID/name" do elemento.
+			Problema: Alguns elementos são pegos pelo texto e outros pelo id.
