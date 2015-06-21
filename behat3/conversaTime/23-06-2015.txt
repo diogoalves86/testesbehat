@@ -4,5 +4,7 @@ NOTAS PARA CONVERSA LEVANTADAS PELO TIME:
 
 NOTAS PARA CONVERSA LEVANTADA POR MIM:
 	- Utilizar a biblioteca pronta do MINK:
-		- Alguns elementos, como radiobutton, não possuem "label" associadas... sendo necessário pegá-lo pelo "ID/name" do elemento.
+		- Elementos, como o "a", conseguem ser pegos pela string associada a ele.
+		- Alguns elementos, como radiobutton, não conseguem ser pegos pela string associada a ele, além disso, não possuem "label" associadas... sendo necessário pegá-lo pelo "ID/name" do elemento.
 			Problema: Alguns elementos são pegos pelo texto e outros pelo id.
+

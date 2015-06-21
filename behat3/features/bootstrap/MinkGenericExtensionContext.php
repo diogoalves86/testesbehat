@@ -69,11 +69,11 @@ class MinkGenericExtensionContext extends MinkContext implements Context
             throw new Exception("Erro ao preencher o campo de autocomplete que possui o id '".$autocompleteFieldId."'");
         }
     }
-
-    public function proccessElementByCssSelector($cssSelector, $canElementNotExist = false, $sleep = 2)
+    
+    public function assertElementIsOnPageByQuerySelector($querySelector, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
-        $this->waitForLoad(function() use(&$cssSelector, &$canElementNotExist) {
+        $this->waitForLoad(function() use(&$querySelector, &$canElementNotExist) {
             $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
             if($isReady === true){
                 $this->isReadyProcessedElement = true;
@@ -88,25 +88,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }, $sleep);
     }
 
-    public function processElementByJquerySelector($jquerySelector, $canElementNotExist = false, $sleep = 2)
-    {
-        $this->isReadyProcessedElement = false;
-        $this->waitForLoad(function() use(&$jquerySelector, &$canElementNotExist) {
-            $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
-            if($isReady === true){
-                $this->isReadyProcessedElement = true;
-                return true;
-            }
-
-            else if($isReady !== true && $canElementNotExist == true)
-              return true;
-
-            else
-                return false;
-        }, $sleep);
-    }
-
-    public function processElementVisibility($elementID, $sleep = 2)
+    public function assertElementIsOnPageById($elementID, $sleep = 2)
     {
         $this->isVisibleProcessedElement = false;
         $this->waitForLoad(function() use(&$elementID) {
@@ -135,6 +117,9 @@ class MinkGenericExtensionContext extends MinkContext implements Context
 		}
 	}
 
+    /**
+    * @Then marco o radiobutton ":arg1"
+    */
 	public function checkRadioButton($elementID)
     {
         try {

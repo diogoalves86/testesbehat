@@ -51,7 +51,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function saveGame()
 	{
 		try {	
-			$this->processElementVisibility("ta-close-game");
+			$this->assertElementIsOnPageById("ta-close-game");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -82,7 +82,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			$this->processElementVisibility("psr-ta-load-phrases");
+			$this->assertElementIsOnPageById("psr-ta-load-phrases");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -120,7 +120,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function prepareGame()
 	{
 		try {
-			$this->processElementVisibility("psr-ta-sort-cards");
+			$this->assertElementIsOnPageById("psr-ta-sort-cards");
 			if (!$this->isVisibleProcessedElement)
 					throw new Exception("Erro ao processar elemento!");
 			
@@ -136,7 +136,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function checkTAPhrases()
 	{
 		try {
-			$this->processElementVisibility("psr-ta-choice-option-1");
+			$this->assertElementIsOnPageById("psr-ta-choice-option-1");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				

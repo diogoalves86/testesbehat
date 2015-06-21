@@ -30,7 +30,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
             $this->pressButton("psr-user-login");
-            $this->processElementVisibility('psr-user-navbar-logged');
+            $this->assertElementIsOnPageById('psr-user-navbar-logged');
             
             if(!$this->isVisibleProcessedElement)
                 throw new Exception("Erro ao processar elemento!");

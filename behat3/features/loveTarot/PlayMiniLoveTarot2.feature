@@ -8,7 +8,7 @@ Funcionalidade: Fazer o mini do TA
 		Então o campo "tarot-nome-jogador" deve conter "AAA"
 		Quando sigo o link "Iniciar"
 		Então marco o radiobutton "psr-ta-choice-option-1"
-		E clico em "Continuar"
+		E sigo o link "Continuar"
 		Quando clico em "Embaralhar"
 		E sorteio as cartas
 		E clico em "Leia o resultado"
