@@ -30,7 +30,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
             $this->fillField("txEmail", $username);
             $this->fillField("pwPassword", $password);
             $this->pressButton("psr-user-login");
-            $this->assertElementIsOnPageById('psr-user-navbar-logged');
+            $this->assertElementIsVisibleOnPageById('psr-user-navbar-logged');
             
             if(!$this->isVisibleProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
@@ -44,12 +44,12 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
     {
         try {
 
-            $this->proccessElementById($widgetID);
+            $this->assertElementIsOnPageById($widgetID);
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
             
             $this->fillAutocompleteField($fieldID, $fieldValue);
-            $this->proccessElementById($optionToSelectId);
+            $this->assertElementIsOnPageById($optionToSelectId);
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
 

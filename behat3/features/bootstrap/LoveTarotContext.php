@@ -34,7 +34,7 @@ class LoveTarotContext extends MiniProductContext implements Context
     public function seeGameResult()
     {
         try {
-        	$this->proccessElementById("psr-widget-pr-header");
+        	$this->assertElementIsOnPageById("psr-widget-pr-header");
         	if (!$this->isReadyProcessedElement)
         		throw new Exception("Erro ao processar elemento!");
 
@@ -51,7 +51,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function saveGame()
 	{
 		try {	
-			$this->assertElementIsOnPageById("ta-close-game");
+			$this->assertElementIsVisibleOnPageById("ta-close-game");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -67,7 +67,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function startGame()
 	{
 		try {
-			$this->proccessElementById("psr-usurio-assinatura", true);
+			$this->assertElementIsOnPageById("psr-usurio-assinatura", true);
 			if ($this->isReadyProcessedElement)
        			$this->pressButton("psr-signature-separate-play");
 
@@ -82,7 +82,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function loadPhrases()
 	{
 		try {
-			$this->assertElementIsOnPageById("psr-ta-load-phrases");
+			$this->assertElementIsVisibleOnPageById("psr-ta-load-phrases");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -120,7 +120,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function prepareGame()
 	{
 		try {
-			$this->assertElementIsOnPageById("psr-ta-sort-cards");
+			$this->assertElementIsVisibleOnPageById("psr-ta-sort-cards");
 			if (!$this->isVisibleProcessedElement)
 					throw new Exception("Erro ao processar elemento!");
 			
@@ -136,7 +136,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function checkTAPhrases()
 	{
 		try {
-			$this->assertElementIsOnPageById("psr-ta-choice-option-1");
+			$this->assertElementIsVisibleOnPageById("psr-ta-choice-option-1");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				

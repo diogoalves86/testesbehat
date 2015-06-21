@@ -35,7 +35,7 @@ class MiniProductContext extends PersonareContext implements Context
 	public function selectProfile()
 	{
 		try {
-			$this->proccessElementById("psr-mini-mna-select-profile");
+			$this->assertElementIsOnPageById("psr-mini-mna-select-profile");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 
@@ -51,7 +51,7 @@ class MiniProductContext extends PersonareContext implements Context
 	public function selectAddNewProfile()
 	{
 		try {
-			$this->proccessElementById("ddProfile");
+			$this->assertElementIsOnPageById("ddProfile");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -68,7 +68,7 @@ class MiniProductContext extends PersonareContext implements Context
 	public function selectComboProfile(TableNode $table)
 	{
 		try {
-			$this->proccessElementById("ddProfile");
+			$this->assertElementIsOnPageById("ddProfile");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 
@@ -87,7 +87,7 @@ class MiniProductContext extends PersonareContext implements Context
 	*/
 	public function fillFormToSaveProfile(TableNode $table)
 	{
-		$this->proccessElementById("Name");
+		$this->assertElementIsOnPageById("Name");
 		if(!$this->isReadyProcessedElement)
 			throw new Exception("Erro ao processar elemento!");
 			
@@ -106,7 +106,7 @@ class MiniProductContext extends PersonareContext implements Context
 	public function checkGameResult()
 	{
 		try {
-			$this->proccessElementById("psr-widget-pr-header");
+			$this->assertElementIsOnPageById("psr-widget-pr-header");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 				
@@ -133,7 +133,7 @@ class MiniProductContext extends PersonareContext implements Context
 	public function addNewProfile(TableNode $table)
 	{
 		try {
-			$this->proccessElementById("Name");
+			$this->assertElementIsOnPageById("Name");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 			

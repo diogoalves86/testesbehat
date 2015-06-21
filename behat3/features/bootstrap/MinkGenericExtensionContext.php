@@ -37,7 +37,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }
     }  
 
-    public function proccessElementById($elementID, $canElementNotExist = false, $sleep = 2)
+    public function assertElementIsOnPageById($elementID, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
         $this->waitForLoad(function() use(&$elementID, &$canElementNotExist) {
@@ -88,7 +88,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }, $sleep);
     }
 
-    public function assertElementIsOnPageById($elementID, $sleep = 2)
+    public function assertElementIsVisibleOnPageById($elementID, $sleep = 2)
     {
         $this->isVisibleProcessedElement = false;
         $this->waitForLoad(function() use(&$elementID) {

@@ -54,7 +54,7 @@ class DailyTarotContext extends PersonareContext implements Context
     public function seeGameResult($playerName)
     {
         try {
-            $this->proccessElementById("explicacao-td");
+            $this->assertElementIsOnPageById("explicacao-td");
             if (!$this->isReadyProcessedElement) 
                 throw new Exception("Erro ao processar elemento!");
                 
