@@ -3,8 +3,16 @@ NOTAS PARA CONVERSA LEVANTADAS PELO TIME:
 	- Interface gráfica X Fluxo usuário
 
 NOTAS PARA CONVERSA LEVANTADA POR MIM:
+	- AngularJS e os testes de comportamento:
+		- Solução encontrada utilizando o Behat foi o uso do conceito de "spin", que são as funções anônimas que esperam o elemento existir para processá-lo.
 	- Utilizar a biblioteca pronta do MINK:
 		- Elementos, como o "a", conseguem ser pegos pela string associada a ele.
-		- Alguns elementos, como radiobutton, não conseguem ser pegos pela string associada a ele, além disso, não possuem "label" associadas... sendo necessário pegá-lo pelo "ID/name" do elemento.
+		- Alguns elementos, como radiobutton, ou textbox, não conseguem ser pegos pela string associada a ele, além disso, não possuem "label" associadas... sendo necessário pegá-lo pelo "ID/name" do elemento.
 			Problema: Alguns elementos são pegos pelo texto e outros pelo id.
 
+	- DEFINIR UM PADRÃO PARA ESCREVER O GHERKIN E TRATAR NO PHP.
+
+LINKS VÁLIDOS PARA ESTUDOS:
+http://www.gizra.com/content/behat-the-right-way/
+https://www.lullabot.com/blog/article/testing-front-end-casperjs
+http://www.ngroutes.com/questions/AUuAEtXqa5vEqxqlLBNj/how-to-make-behat-wait-for-angular-ajax-calls.html

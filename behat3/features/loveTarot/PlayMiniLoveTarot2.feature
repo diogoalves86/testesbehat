@@ -6,9 +6,9 @@ Funcionalidade: Fazer o mini do TA
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando clico em "ler uma amostra grátis da análise"
 		Então o campo "tarot-nome-jogador" deve conter "AAA"
-		Quando sigo o link "Iniciar"
+		Quando clico no link "Iniciar"
 		Então marco o radiobutton "psr-ta-choice-option-1"
-		E sigo o link "Continuar"
+		E clico no link "psr-ta-load-phrases"
 		Quando clico em "Embaralhar"
 		E sorteio as cartas
 		E clico em "Leia o resultado"

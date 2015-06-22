@@ -37,6 +37,21 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }
     }  
 
+    /**
+    *@When clico no link ":arg1"
+    */
+    public function clickElement($element)
+    {
+        $this->waitForLoad(function() use (&$element){
+            try {
+                $this->clickLink($element);
+                return true;
+            } catch (Exception $e) {
+                return false;
+            }
+        });
+    }
+
     public function assertElementIsOnPageById($elementID, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
