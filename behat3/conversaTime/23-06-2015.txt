@@ -1,6 +1,6 @@
 NOTAS PARA CONVERSA LEVANTADAS PELO TIME:
 	- AngularJS e o Behat
-	- Interface gráfica X Fluxo usuário
+	- Interface gráfica X Comportamento usuário
 
 NOTAS PARA CONVERSA LEVANTADA POR MIM:
 	- AngularJS e os testes de comportamento:
