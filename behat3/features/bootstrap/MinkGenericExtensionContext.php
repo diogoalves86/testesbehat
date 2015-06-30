@@ -132,16 +132,30 @@ class MinkGenericExtensionContext extends MinkContext implements Context
 		}
 	}
 
+
+    /**
+    *@Then a caixa de texto ":arg1" deve conter ":arg2"
+    */
+    public function assertTextboxContainsText($labelForTextbox, $labelTextToVerify)
+    {
+        $elements = $this->getElementsByLabelText($labelTextToVerify);
+        var_dump($elements[0]); exit;
+    }
+
     public function getElementsByLabelText($labelForElement)
     {
         $elements = [];
         $page = $this->getSession()->getPage();
-        foreach ($page->findAll('css', 'label') as $label) {
+        $labelElements = $page->findAll('css', 'label');
+        foreach ($labelElements as $label) {
             if ($labelForElement == $label->getText()) {
                 $forAttribute = $label->getAttribute('for');
                 array_push($page->findById($forAttribute), $elements);
             }
         }
+        if(!isset($elements[0]))
+            throw new Exception('Erro ao processar a "label" '.$labelForElement);
+            
         return $elements;
     }
 
@@ -159,7 +173,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
                     $isRadioButton = true;
                     return true;
                 }
-                throw new Exception('Erro ao selecionar o Radio Button que possui o texto {{$labelForRadioButton}}');
+                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
                 
             }
         }
