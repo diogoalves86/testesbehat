@@ -132,16 +132,36 @@ class MinkGenericExtensionContext extends MinkContext implements Context
 		}
 	}
 
+    public function getElementsByLabelText($labelForElement)
+    {
+        $elements = [];
+        $page = $this->getSession()->getPage();
+        foreach ($page->findAll('css', 'label') as $label) {
+            if ($labelForElement == $label->getText()) {
+                $forAttribute = $label->getAttribute('for');
+                array_push($page->findById($forAttribute), $elements);
+            }
+        }
+        return $elements;
+    }
+
     /**
     * @Then marco o radiobutton ":arg1"
     */
-	public function checkRadioButton($elementID)
+	public function checkRadioButton($labelForRadioButton)
     {
-        try {
-            $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
-            $radioButton->click();
-        } catch (Exception $e) {
-            throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());   
+        $elements = $this->getElementsByLabelText($labelForRadioButton);
+        $isRadioButton = false;
+        foreach ($elements as $element) {
+            if ($element) {
+                $type = $element->getAttribute('type');
+                if ($type and $type === 'radio'){
+                    $isRadioButton = true;
+                    return true;
+                }
+                throw new Exception('Erro ao selecionar o Radio Button que possui o texto {{$labelForRadioButton}}');
+                
+            }
         }
     }
 

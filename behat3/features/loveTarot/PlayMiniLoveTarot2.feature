@@ -7,7 +7,7 @@ Funcionalidade: Fazer o mini do TA
 		Quando clico no link "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
 		Então o campo "tarot-nome-jogador" deve conter "AAA"
 		Quando clico no link "Iniciar >>"
-		Então marco o radiobutton "psr-ta-choice-option-1"
+		Então marco o radiobutton "Revele meu futuro afetivo com:"
 		E clico no link "Continuar >>"
 		Quando clico no link "Embaralhar >>"
 		E sorteio as cartas
