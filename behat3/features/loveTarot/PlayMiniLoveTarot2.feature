@@ -5,7 +5,7 @@ Funcionalidade: Fazer o mini do TA
 		Dado que estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando clico no link "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
-		Então o campo "tarot-nome-jogador" deve conter "AAA"
+		Então a caixa de texto "Como gostaria de ser chamado?" deve conter "AAA"
 		Quando clico no link "Iniciar >>"
 		Então marco o radiobutton "psr-ta-choice-option-1"
 		E clico no link "Continuar >>"

@@ -11,7 +11,7 @@ use Behat\Behat\Hook\Scope\BeforeStepScope;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
 use Behat\Behat\Context\Step;
 use Behat\Behat\Context\Context;
-class MinkGenericExtensionContext extends MinkContext implements Context
+class MinkGenericExtensionContext extends AssertationsContext implements Context
 {
 
 	// Espera o elemento estar visível para então poder interagir com ele.
@@ -85,11 +85,29 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }
     }
 
-    public function assertElementIsOnPageByQuerySelector($querySelector, $canElementNotExist = false, $sleep = 2)
+    public function assertElementIsOnPageByQuerySelector($tagName, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
         $this->waitForLoad(function() use(&$querySelector, &$canElementNotExist) {
             $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$querySelector.'") != null');
+            if($isReady === true){
+                $this->isReadyProcessedElement = true;
+                return true;
+            }
+
+            else if($isReady !== true && $canElementNotExist == true)
+              return true;
+
+            else
+                return false;
+        }, $sleep);
+    }
+
+    public function assertElementIsOnPageByTagName($tagName, $canElementNotExist = false, $sleep = 2)
+    {
+        $this->isReadyProcessedElement = false;
+        $this->waitForLoad(function() use(&$tagName, &$canElementNotExist) {
+            $isReady = $this->getSession()->getDriver()->evaluateScript('document.getElementsByTagName("'.$tagName.'") != null');
             if($isReady === true){
                 $this->isReadyProcessedElement = true;
                 return true;
@@ -138,63 +156,70 @@ class MinkGenericExtensionContext extends MinkContext implements Context
     */
     public function assertTextboxContainsText($labelForTextbox, $labelTextToVerify)
     {
-        $elements = $this->getElementsByLabelText($labelTextToVerify);
-        var_dump($elements[0]); exit;
+        $elements = $this->getElementsByLabelText($labelForTextbox);
+        // var_dump($elements); exit;
     }
 
     public function getElementsByLabelText($labelForElement)
     {
         $elements = [];
-        $page = $this->getSession()->getPage();
-        $labelElements = $page->findAll('css', 'label');
+        $this->assertElementIsOnPageByTagName('label', $this->getSession()->getPage()->findAll('css', 'label'));
+        
+        if (!$this->isReadyProcessedElement)
+            throw new Exception("Erro ao processar elemento!");
+            
+        $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
+
         foreach ($labelElements as $label) {
-            if ($labelForElement == $label->getText()) {
+            if ($label->getText() == $labelForElement) {
                 $forAttribute = $label->getAttribute('for');
-                array_push($page->findById($forAttribute), $elements);
+                $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
+                var_dump($element); exit;
+            // $elements[$label->getText()] = $element;
             }
         }
-        if(!isset($elements[0]))
-            throw new Exception('Erro ao processar a "label" '.$labelForElement);
+        // if(!isset($elements[0]))
+        //     throw new Exception('Erro ao processar a "label" '.$labelForElement);
 
-        return $elements;
+        // return $elements;
     }
 
     /**
     * @Then marco o radiobutton ":arg1"
     */
-	// public function checkRadioButton($labelForRadioButton)
- //    {
- //        $elements = $this->getElementsByLabelText($labelForRadioButton);
- //        $isRadioButton = false;
- //        foreach ($elements as $element) {
- //            if ($element) {
- //                $type = $element->getAttribute('type');
- //                if ($type and $type === 'radio'){
- //                    $isRadioButton = true;
- //                    return true;
- //                }
- //                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
-
- //            }
- //        }
- //    }
-
-    /**
-    * @Then marco o radiobutton ":arg1"
-    */
-    public function checkRadioButton($elementID)
+	public function checkRadioButton($labelForRadioButton)
     {
-         try {
-            $this->assertElementIsOnPageById($elementID);
-            if(!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento");
+        // $elements = $this->getElementsByLabelText($labelForRadioButton);
+        $isRadioButton = false;
+        foreach ($elements as $element) {
+            if ($element) {
+                $type = $element->getAttribute('type');
+                if ($type and $type === 'radio'){
+                    $isRadioButton = true;
+                    return true;
+                }
+                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
 
-            $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
-            $radioButton->click();
-        } catch (Exception $e) {
-            throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());
+            }
         }
     }
+
+    // /**
+    // * @Then marco o radiobutton ":arg1"
+    // */
+    // public function checkRadioButton($elementID)
+    // {
+    //      try {
+    //         $this->assertElementIsOnPageById($elementID);
+    //         if(!$this->isReadyProcessedElement)
+    //             throw new Exception("Erro ao processar elemento");
+
+    //         $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
+    //         $radioButton->click();
+    //     } catch (Exception $e) {
+    //         throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());
+    //     }
+    // }
 
     /**
     *@Then o teste está finalizado
