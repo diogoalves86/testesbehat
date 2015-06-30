@@ -5,7 +5,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
- 
+
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Hook\Scope\BeforeStepScope;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
@@ -22,20 +22,20 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         {
             if($counter >= ProjectConfig::CALLBACKTIMEOUT)
                 throw new Exception("O tempo limite definido foi atingido!");
-                
+
             try {
                 if ($function($this)) {
                     return true;
                 }
             } catch (Exception $e) {
                 throw new Exception("Erro ao acessar função de callback. Informações detalhadas: \n".$e->getMessage());
-                
+
             }
 
             sleep($sleep);
             $counter++;
         }
-    }  
+    }
 
     /**
     *@When clico no link ":arg1"
@@ -61,7 +61,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
             $this->isReadyProcessedElement = true;
             return true;
         }
-        
+
         else if($isReady !== true && $canElementNotExist == true)
             return true;
 
@@ -84,7 +84,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
             throw new Exception("Erro ao preencher o campo de autocomplete que possui o id '".$autocompleteFieldId."'");
         }
     }
-    
+
     public function assertElementIsOnPageByQuerySelector($querySelector, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
@@ -155,27 +155,44 @@ class MinkGenericExtensionContext extends MinkContext implements Context
         }
         if(!isset($elements[0]))
             throw new Exception('Erro ao processar a "label" '.$labelForElement);
-            
+
         return $elements;
     }
 
     /**
     * @Then marco o radiobutton ":arg1"
     */
-	public function checkRadioButton($labelForRadioButton)
+	// public function checkRadioButton($labelForRadioButton)
+ //    {
+ //        $elements = $this->getElementsByLabelText($labelForRadioButton);
+ //        $isRadioButton = false;
+ //        foreach ($elements as $element) {
+ //            if ($element) {
+ //                $type = $element->getAttribute('type');
+ //                if ($type and $type === 'radio'){
+ //                    $isRadioButton = true;
+ //                    return true;
+ //                }
+ //                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
+
+ //            }
+ //        }
+ //    }
+
+    /**
+    * @Then marco o radiobutton ":arg1"
+    */
+    public function checkRadioButton($elementID)
     {
-        $elements = $this->getElementsByLabelText($labelForRadioButton);
-        $isRadioButton = false;
-        foreach ($elements as $element) {
-            if ($element) {
-                $type = $element->getAttribute('type');
-                if ($type and $type === 'radio'){
-                    $isRadioButton = true;
-                    return true;
-                }
-                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
-                
-            }
+         try {
+            $this->assertElementIsOnPageById($elementID);
+            if(!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao processar elemento");
+
+            $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
+            $radioButton->click();
+        } catch (Exception $e) {
+            throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());
         }
     }
 
@@ -186,5 +203,5 @@ class MinkGenericExtensionContext extends MinkContext implements Context
     {
         $this->getSession()->reset();
     }
-	
+
 }
