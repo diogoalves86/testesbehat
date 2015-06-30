@@ -89,10 +89,31 @@ class AssertationsContext extends MinkContext
     /**
     *@Then a caixa de texto ":arg1" deve conter ":arg2"
     */
-    public function assertTextboxContainsText($labelForTextbox, $labelTextToVerify)
+    public function assertTextboxContainsText($labelForTextbox, $textToVerify)
     {
-        $elements = $this->getElementsByLabelText($labelForTextbox);
-        // var_dump($elements); exit;
+        $textbox = $this->getElementByLabelText($labelForTextbox);
+        $textboxId = $textbox->getAttribute('id');
+        $this->assertFieldContains($textboxId, $textToVerify);
+        	
+    }
+
+    public function getElementByLabelText($labelForElement)
+    {
+        $this->assertElementIsOnPageByTagName('label', $this->getSession()->getPage()->findAll('css', 'label'));
+        
+        if (!$this->isReadyProcessedElement)
+            throw new Exception("Erro ao processar elemento!");
+            
+        $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
+
+        foreach ($labelElements as $label) {
+            if ($label->getText() == $labelForElement) {
+                $forAttribute = $label->getAttribute('for');
+                $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
+                return $element;
+            }
+        }
+        throw new Exception('Erro ao processar a "label" '.$labelForElement);
     }
 
 }
