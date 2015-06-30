@@ -4,13 +4,13 @@ Funcionalidade: Fazer o mini do TA
 	Cenário: Usuário logado quer fazer o mini do TA
 		Dados que estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
 		E vou para "/tarot/tarot-e-o-amor"
-		Quando clico em "ler uma amostra grátis da análise"
+		Quando clico no link "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
 		Então o campo "tarot-nome-jogador" deve conter "AAA"
-		Quando clico no link "Iniciar"
+		Quando clico no link "Iniciar >>"
 		Então marco o radiobutton "psr-ta-choice-option-1"
-		E clico no link "psr-ta-load-phrases"
-		Quando clico em "Embaralhar"
+		E clico no link "Continuar >>"
+		Quando clico no link "Embaralhar >>"
 		E sorteio as cartas
-		E clico em "Leia o resultado"
+		E pressiono "Leia o Resultado >>"
 		Então vou para meu jogo
 		E o teste está finalizado

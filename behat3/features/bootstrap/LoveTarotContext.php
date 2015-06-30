@@ -99,13 +99,13 @@ class LoveTarotContext extends MiniProductContext implements Context
 	public function sortCards()
 	{
 		try {
-			$this->proccessElementByCssSelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
+			$this->assertElementIsOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
 			if (!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 			for ($i=1; $i <= 6; $i++){
 				$this->clickLink("carta-2".$i);
 				// Verifica se a carta foi realmente clicada
-				$this->proccessElementByCssSelector("#carta-flip.hide");
+				$this->assertElementIsOnPageByQuerySelector("#carta-flip.hide");
 				if(!$this->isReadyProcessedElement)
 					throw new Exception("Erro ao processar elemento!");
 			}

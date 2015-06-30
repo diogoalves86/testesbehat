@@ -89,7 +89,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context
     {
         $this->isReadyProcessedElement = false;
         $this->waitForLoad(function() use(&$querySelector, &$canElementNotExist) {
-            $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$cssSelector.'") != null');
+            $isReady = $this->getSession()->getDriver()->evaluateScript('document.querySelector("'.$querySelector.'") != null');
             if($isReady === true){
                 $this->isReadyProcessedElement = true;
                 return true;

@@ -1,0 +1,4 @@
+NOTAS PARA PRÓXIMA CONVERSA:
+
+	- UTILIZAR LABELS PARA PEGAR ELEMENTOS:
+		- Alguns elementos como o "RadioButton", a "Textbox" e outros podem ser facilmente pegos através de uma "Label" associada a eles.
