@@ -69,6 +69,16 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
         }
     }
 
+    /**
+    *@When digito ":arg1" na caixa de texto ":arg2"
+    */
+    public function fillFieldByLabel($valueToFill, $labelText)
+    {
+        $textbox = $this->getElementByLabelText($labelText);
+        $textboxId = $textbox->getAttribute('id');
+        $this->fillField($textboxId, $valueToFill);
+    }
+
 	/**
 	* @Given aguardo :arg1 segundos
 	*/
