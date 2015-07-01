@@ -88,18 +88,18 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 	public function checkRadioButton($labelForRadioButton)
     {
         $radioButton = $this->getElementByLabelText($labelForRadioButton);
-        var_dump($radioButton); exit;
-        $isRadioButton = false;
-        foreach ($radioButtons as $radioButton) {
-            if ($radioButton) {
-                $type = $radioButton->getAttribute('type');
-                if ($type and $type === 'radio'){
-                    $radioButton->click();
-                }
-                throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
-
+        //var_dump($radioButton); exit;
+        //foreach ($radioButtons as $radioButton) {
+        if ($radioButton) {
+            $type = $radioButton->getAttribute('type');
+            if ($type && $type === 'radio'){
+                $radioButton->click();
+                return true;
             }
+            throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
+
         }
+        //}
     }
 
     // /**

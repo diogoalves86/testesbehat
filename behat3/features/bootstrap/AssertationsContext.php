@@ -70,6 +70,24 @@ class AssertationsContext extends MinkContext
         }, $sleep);
     }
 
+    public function assertElementIsOnPageByXpath($xpath, $canElementNotExist = false, $sleep = 2)
+    {
+        $this->isReadyProcessedElement = false;
+        $this->waitForLoad(function() use(&$xpath, &$canElementNotExist) {
+            $isReady = $this->getSession()->getDriver()->evaluateScript("document.evaluate('".$xpath."', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue != null");
+            if($isReady === true){
+                $this->isReadyProcessedElement = true;
+                return true;
+            }
+
+            else if($isReady !== true && $canElementNotExist == true)
+              return true;
+
+            else
+                return false;
+        }, $sleep);
+    }    
+
     public function assertElementIsVisibleOnPageById($elementID, $sleep = 2)
     {
         $this->isVisibleProcessedElement = false;
@@ -105,9 +123,13 @@ class AssertationsContext extends MinkContext
             throw new Exception("Erro ao processar elemento!");
             
         $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
-
         foreach ($labelElements as $label) {
-            if ($label->getText() == $labelForElement) {
+            $this->assertElementIsOnPageByXpath($label->getXpath());
+
+            if(!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao processar elemento!");
+            
+            if ($labelForElement == $label->getText()) {
                 $forAttribute = $label->getAttribute('for');
                 $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
                 return $element;
