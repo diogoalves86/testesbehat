@@ -88,8 +88,10 @@ class UserContext extends PersonareContext implements Context
     public function verifyLogin()
     {
         try {
-            $this->visit("/astrologia/horoscopo");    
-            $this->assertResponseContains('<a href="/logout">Sair</a>');
+            $this->assertElementIsOnPageById("psr-user-navbar-logged");
+            if(!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao autenticar o usuário");
+                
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
         }
