@@ -54,18 +54,18 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 
     
 
-    public function fillAutocompleteField($autocompleteFieldId, $valueToFill)
+    public function fillAutocompleteField($autocompleteFieldXpath, $valueToFill)
     {
         try {
             $newValueToFill = strtolower(substr($valueToFill,0,4));
-            $element = $this->getSession()->getPage()->find('css', '#'.$autocompleteFieldId);
+            $element = $this->getSession()->getPage()->find('xpath', '#'.$autocompleteFieldXpath);
             $this->getSession()->getDriver()->executeScript("
-                var element = $('#".$autocompleteFieldId."');
+                var element = $('#".$autocompleteFieldXpath."');
                 element.val('".$newValueToFill."');
                 element.keydown();
             ");
         } catch (Exception $e) {
-            throw new Exception("Erro ao preencher o campo de autocomplete que possui o id '".$autocompleteFieldId."'");
+            throw new Exception("Erro ao preencher o campo de autocomplete que possui o id '".$autocompleteFieldXpath."'");
         }
     }
 
