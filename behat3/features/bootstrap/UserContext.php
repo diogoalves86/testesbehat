@@ -6,7 +6,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
- 
+
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
 
@@ -59,7 +59,7 @@ class UserContext extends PersonareContext implements Context
                 $this->fillField("pwPassword", $row["senha"]);
                 $this->fillField("Confirm_pwPassword", $row["confirmacaoSenha"]);
                 $this->autoCompleteField("txCityName", "psr-widget-autocompletefield", $row["cidade"], "psr-widget-autocompletefield-link-0");
-                
+
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao preencher o formulário de cadastro do usuário. \n".$e->getMessage());
@@ -73,7 +73,7 @@ class UserContext extends PersonareContext implements Context
     public function doLogin(TableNode $table)
     {
         try {
-            foreach ($table as $row) 
+            foreach ($table as $row)
                 $this->userLogged($row['email'], $row['senha']);
 
         } catch (Exception $e) {
@@ -83,7 +83,7 @@ class UserContext extends PersonareContext implements Context
 
     /**
     * Verifica se o usuário atual está logado.
-    * @Then verifico se estou logado
+    * @Then visualizo minha barra de usuario
     */
     public function verifyLogin()
     {
@@ -91,9 +91,9 @@ class UserContext extends PersonareContext implements Context
             $this->assertElementIsOnPageById("psr-user-navbar-logged");
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao autenticar o usuário");
-                
+
         } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");   
+            throw new Exception("Ocorreu um erro fatal ao verificar o login.\nInformações detalhadas do erro: ".$e->getMessage()."\n");
         }
     }
 }
