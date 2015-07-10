@@ -1,0 +1,4 @@
+Elementos que tiveram seu estilo alterado com a inclusão da "Label"
+	-Tarot do Dia:
+		. Elemento passou a ter o "font-weight" como "bold":
+			<label for="tarot-nome-jogador">Como gostaria de ser chamado?</label>
