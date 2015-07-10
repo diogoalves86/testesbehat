@@ -33,7 +33,7 @@ class AssertationsContext extends MinkContext
         }, $sleep);
     }
 
-    public function assertElementIsOnPageByQuerySelector($tagName, $canElementNotExist = false, $sleep = 2)
+    public function assertElementIsOnPageByQuerySelector($querySelector, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
         $this->waitForLoad(function() use(&$querySelector, &$canElementNotExist) {
@@ -117,7 +117,8 @@ class AssertationsContext extends MinkContext
 
     public function getElementByLabelText($labelForElement)
     {
-        $this->waitForLoad(function() use (&$labelForElement){
+        $element = false;
+        $this->waitForLoad(function() use (&$labelForElement, &$element){
             $this->assertElementIsOnPageByTagName('label', $this->getSession()->getPage()->findAll('css', 'label'));
 
             if (!$this->isReadyProcessedElement)
@@ -126,8 +127,6 @@ class AssertationsContext extends MinkContext
             $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
             foreach ($labelElements as $label) {
                 $this->assertElementIsOnPageByXpath($label->getXpath());
-                // var_dump($label->getText());
-                // var_dump($label->getAttribute('for'));
 
                 if(!$this->isReadyProcessedElement)
                     throw new Exception("Erro ao processar elemento!");
@@ -135,11 +134,14 @@ class AssertationsContext extends MinkContext
                 if ($labelForElement == $label->getText()) {
                     $forAttribute = $label->getAttribute('for');
                     $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
-                    return $element;
+                    return true;
                 }
             }
+            return false;
         });
-        throw new Exception('Erro ao processar a "label" '.$labelForElement);
+        if(!$element)
+            throw new Exception("Erro ao processar a label '".$labelForElement."'");
+        return $element;
     }
 
 }

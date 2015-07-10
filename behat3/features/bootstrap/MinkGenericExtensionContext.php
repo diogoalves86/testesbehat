@@ -40,11 +40,26 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     /**
     *@When clico no link ":arg1"
     */
-    public function clickElement($element)
+    public function clickElementWithInterval($element)
     {
         $this->waitForLoad(function() use (&$element){
             try {
                 $this->clickLink($element);
+                return true;
+            } catch (Exception $e) {
+                return false;
+            }
+        });
+    }
+
+    /**
+    *@When pressiono o botão ":arg1"
+    */
+    public function pressButtonWithInterval($textForButton)
+    {
+        $this->waitForLoad(function() use (&$textForButton){
+            try {
+                $this->pressButton($textForButton);
                 return true;
             } catch (Exception $e) {
                 return false;
@@ -98,7 +113,6 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 	public function checkRadioButton($labelForRadioButton)
     {
         $radioButton = $this->getElementByLabelText($labelForRadioButton);
-        //var_dump($radioButton); exit;
         //foreach ($radioButtons as $radioButton) {
         if ($radioButton) {
             $type = $radioButton->getAttribute('type');
