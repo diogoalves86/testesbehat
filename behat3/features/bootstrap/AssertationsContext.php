@@ -14,7 +14,7 @@ use Behat\Behat\Context\Context;
 
 class AssertationsContext extends MinkContext
 {
-	
+
 	public function assertElementIsOnPageById($elementID, $canElementNotExist = false, $sleep = 2)
     {
         $this->isReadyProcessedElement = false;
@@ -86,7 +86,7 @@ class AssertationsContext extends MinkContext
             else
                 return false;
         }, $sleep);
-    }    
+    }
 
     public function assertElementIsVisibleOnPageById($elementID, $sleep = 2)
     {
@@ -112,29 +112,33 @@ class AssertationsContext extends MinkContext
         $textbox = $this->getElementByLabelText($labelForTextbox);
         $textboxId = $textbox->getAttribute('id');
         $this->assertFieldContains($textboxId, $textToVerify);
-        	
+
     }
 
     public function getElementByLabelText($labelForElement)
     {
-        $this->assertElementIsOnPageByTagName('label', $this->getSession()->getPage()->findAll('css', 'label'));
-        
-        if (!$this->isReadyProcessedElement)
-            throw new Exception("Erro ao processar elemento!");
-            
-        $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
-        foreach ($labelElements as $label) {
-            $this->assertElementIsOnPageByXpath($label->getXpath());
+        $this->waitForLoad(function() use (&$labelForElement){
+            $this->assertElementIsOnPageByTagName('label', $this->getSession()->getPage()->findAll('css', 'label'));
 
-            if(!$this->isReadyProcessedElement)
+            if (!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
-            
-            if ($labelForElement == $label->getText()) {
-                $forAttribute = $label->getAttribute('for');
-                $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
-                return $element;
+
+            $labelElements = $this->getSession()->getPage()->findAll('css', 'label');
+            foreach ($labelElements as $label) {
+                $this->assertElementIsOnPageByXpath($label->getXpath());
+                // var_dump($label->getText());
+                // var_dump($label->getAttribute('for'));
+
+                if(!$this->isReadyProcessedElement)
+                    throw new Exception("Erro ao processar elemento!");
+
+                if ($labelForElement == $label->getText()) {
+                    $forAttribute = $label->getAttribute('for');
+                    $element = $this->getSession()->getPage()->find('css', '#'.$forAttribute);
+                    return $element;
+                }
             }
-        }
+        });
         throw new Exception('Erro ao processar a "label" '.$labelForElement);
     }
 
