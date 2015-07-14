@@ -11,26 +11,23 @@ use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
 
 /**
- * TarotDoDia context.
+ * Tarot context.
  */
-class DailyTarotContext extends TarotContext implements Context
+class TarotContext extends PersonareContext implements Context
 {
-
     /**
-    * Verifica se o usuário jogou o tarot com sucesso.
-    * @Then vou para o jogo de :arg1
+    *@When clico na carta ":arg1"
     */
-    public function seeGameResult($playerName)
+    public function selectCard($cardNumber)
     {
         try {
-            $this->assertElementIsOnPageById("explicacao-td");
+            $this->assertElementIsOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
             if (!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
-
-            $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
+            $this->clickLink("carta-".$cardNumber);
 
         } catch (Exception $e) {
-            throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
+            throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());
         }
     }
 }

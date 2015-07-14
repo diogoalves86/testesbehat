@@ -3,8 +3,7 @@ default:
     Behat\MinkExtension:
       base_url: 'http://workcopy.personare.com.br/'
       goutte: ~
-      selenium2:
-        wd_host: "http://localhost:8643/wd/hub"
+      selenium2: ~
   suites:
     user:
       features: %paths.base%/features/user/

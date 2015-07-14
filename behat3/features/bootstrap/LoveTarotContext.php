@@ -5,19 +5,19 @@ use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
- 
+
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Context\Step;
 use Behat\Behat\Context\Context;
- 
+
 /**
  * TarotAmor context.
  */
-class LoveTarotContext extends MiniProductContext implements Context
+class LoveTarotContext extends TarotContext implements Context
 {
 	/**
     * Verifica se o usuário jogou o tarot com sucesso.
-    * @Then vou para meu jogo 
+    * @Then vou para meu jogo
     */
     public function seeGameResult()
     {
@@ -27,7 +27,7 @@ class LoveTarotContext extends MiniProductContext implements Context
         		throw new Exception("Erro ao processar elemento!");
 
             $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
-            
+
         } catch (Exception $e) {
             throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
         }
@@ -38,11 +38,11 @@ class LoveTarotContext extends MiniProductContext implements Context
 	*/
 	public function saveGame()
 	{
-		try {	
+		try {
 			$this->assertElementIsVisibleOnPageById("ta-close-game");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
-				
+
 			$this->pressButton('ta-close-game');
 		} catch (Exception $e) {
 			throw new Exception("Erro ao salvar o produto. \n".$e->getMessage());
@@ -50,7 +50,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 	}
 
 	/**
-	* @When sorteio as cartas
+	* @When clico nas cartas
 	*/
 	public function sortCards()
 	{
@@ -79,7 +79,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 			$this->assertElementIsVisibleOnPageById("psr-ta-sort-cards");
 			if (!$this->isVisibleProcessedElement)
 					throw new Exception("Erro ao processar elemento!");
-			
+
 			$this->clickLink("psr-ta-sort-cards");
 		} catch (Exception $e) {
 			throw new Exception("Erro ao embaralhar as cartas. \n ".$e->getMessage());
@@ -95,7 +95,7 @@ class LoveTarotContext extends MiniProductContext implements Context
 			$this->assertElementIsVisibleOnPageById("psr-ta-choice-option-1");
 			if (!$this->isVisibleProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
-				
+
 			$this->checkRadioButton("psr-ta-choice-option-1");
 		}
 		catch (Exception $e) {

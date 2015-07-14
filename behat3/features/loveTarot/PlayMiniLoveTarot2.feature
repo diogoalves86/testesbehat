@@ -10,7 +10,12 @@ Funcionalidade: Fazer o mini do TA
 		Então marco o radiobutton "Revele meu futuro afetivo"
 		E pressiono o botão "Continuar >>"
 		Quando pressiono o botão "Embaralhar >>"
-		E sorteio as cartas
+		E clico na carta "12"
+		E clico na carta "20"
+		E clico na carta "33"
+		E clico na carta "5"
+		E clico na carta "2"
+		E clico na carta "19"
 		E pressiono o botão "Leia o Resultado >>"
 		Então vou para meu jogo
 		E o teste está finalizado
