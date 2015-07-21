@@ -60,46 +60,7 @@ class MiniProductContext extends PersonareContext implements Context
 			throw new Exception("Error ao adicionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
 		}
 	}
-
-
-	/**
-	*@Then seleciono o perfil com os seguintes dados:
-	*/
-	public function selectComboProfile(TableNode $table)
-	{
-		try {
-			$this->assertElementIsOnPageById("ddProfile");
-			if(!$this->isReadyProcessedElement)
-				throw new Exception("Erro ao processar elemento!");
-
-			$userDescription = "%s - %s/%s/%s";
-			foreach ($table as $row) {
-				$userProfile = sprintf($userDescription, $row['nome'], $row['dia'], $row['mes'], $row['ano']);
-				$this->selectOption('ddProfile', $userProfile);
-			}
-		} catch (Exception $e) {
-			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
-
-	/**
-	*@When preencho a pessoa ser analisada com os seguintes dados:
-	*/
-	public function fillFormToSaveProfile(TableNode $table)
-	{
-		$this->assertElementIsOnPageById("Name");
-		if(!$this->isReadyProcessedElement)
-			throw new Exception("Erro ao processar elemento!");
-
-		foreach ($table as $row) {
-			$this->fillField("Name", $row['nome']);
-			$this->selectOption("MapaNum_dataDay", $row['dia']);
-			$this->fillField("MapaNum_dataMonth", $row['mes']);
-			$this->fillField("MapaNum_dataYear", $row['ano']);
-			$this->selectOption("MapaYear_data", $row['anoAnalisado']);
-		}
-	}
-
+	
 	/**
 	*@Then vou para meu mapa
 	*/
@@ -116,45 +77,33 @@ class MiniProductContext extends PersonareContext implements Context
 	}
 
 	/**
-	*@Then clico em “Salvar”
-	*/
-	public function saveNewProfile()
-	{
-		try {
-			$this->clickLink("psr-mini-add-profile");
-		} catch (Exception $e) {
-			throw new Exception("Error ao salvar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
-
-	/**
 	*@When adiciono um novo perfil com os seguintes dados:
 	*/
-	public function addNewProfile(TableNode $table)
-	{
-		try {
-			$this->assertElementIsOnPageById("Name");
-			if(!$this->isReadyProcessedElement)
-				throw new Exception("Erro ao processar elemento!");
+	// public function addNewProfile(TableNode $table)
+	// {
+	// 	try {
+	// 		$this->assertElementIsOnPageById("Name");
+	// 		if(!$this->isReadyProcessedElement)
+	// 			throw new Exception("Erro ao processar elemento!");
 
-			foreach ($table as $row) {
-				$this->fillField("Name", $row['nome']);
-				$this->selectOption("DateDay", $row['dia']);
-				$this->fillField("DateMonth", $row['mes']);
-				$this->fillField("DateYear", $row['ano']);
-				$this->fillField("Gender", $row['sexoValor']);
+	// 		foreach ($table as $row) {
+	// 			$this->fillField("Name", $row['nome']);
+	// 			$this->selectOption("DateDay", $row['dia']);
+	// 			$this->fillField("DateMonth", $row['mes']);
+	// 			$this->fillField("DateYear", $row['ano']);
+	// 			$this->fillField("Gender", $row['sexoValor']);
 
-				if($row['possuiHoraNascimento'] !== "sim"){
-					$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
-					$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
-				}
-				else
-					$this->checkOption("cbDontKnowBirthTime");
+	// 			if($row['possuiHoraNascimento'] !== "sim"){
+	// 				$this->fillField("ddBirthTimeHour", $row['horaNascimento']);
+	// 				$this->fillField("ddBirthTimeMinute", $row['minutoNascimento']);
+	// 			}
+	// 			else
+	// 				$this->checkOption("cbDontKnowBirthTime");
 
-				$this->prepareCity("txCityName", $row['cidade']);
-			}
-		} catch (Exception $e) {
-			throw new Exception("Error ao adicionar o perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
+	// 			$this->prepareCity("txCityName", $row['cidade']);
+	// 		}
+	// 	} catch (Exception $e) {
+	// 		throw new Exception("Error ao adicionar o perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
+	// 	}
+	// }
 }
