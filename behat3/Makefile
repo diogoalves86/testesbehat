@@ -1,5 +1,5 @@
 up:
-	docker run -d -i -t  --name="behat"  --add-host=workcopy.personare.com.br:0.0.0.0 -v `pwd`:/home/behat   --link nef:nef php-behat-composer-git-phantomjs /bin/bash;
+	docker run -d -i -t  --name="behat"  --add-host=workcopy.personare.com.br:0.0.0.0 -v `pwd`:/home/behat   --link nef:nef delermando/php5.4-behat3 /bin/bash;
 
 down:
 	docker rm  behat;
