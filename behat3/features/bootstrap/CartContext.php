@@ -51,11 +51,16 @@ class CartContext extends PersonareContext implements Context
   }
 
   /**
-  *@And verifico se o produto :arg1 foi adicionado
+  *@Then verifico se o produto :arg1 foi adicionado
   */
-  public function checkProductOnCart($productName)
+  public function checkFirstProductOnCartByName($productName)
   {
-        $this->assertElementIsOnPageById("");
+        $element = $this->getSession()->getPage()->find("css", "#psr-lista-produtos tr td.text_product h3");
+        if ( !is_object($element ) )
+          throw new Exception("Nao existe nenhum  produto  no carrinho");
+        else if ($element->getText() !== $productName)
+            throw new Exception("O produto {$productName} nao foi encontrado como primeiro item do carrinho \n O produto {$element->getText()} foi encontrado");
+
   }
 
   /**

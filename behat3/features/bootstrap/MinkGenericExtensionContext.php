@@ -14,7 +14,7 @@ use Behat\Behat\Context\Context;
 class MinkGenericExtensionContext extends AssertationsContext implements Context
 {
 
-	// Espera o elemento estar visível para então poder interagir com ele.
+// Espera o elemento estar visível para então poder interagir com ele.
     public function waitForLoad($function, $sleep = 1)
     {
         $counter = 0;
@@ -67,7 +67,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
         });
     }
 
-    
+
 
     public function fillAutocompleteField($autocompleteFieldXpath, $valueToFill)
     {
