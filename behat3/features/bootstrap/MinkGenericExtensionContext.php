@@ -108,7 +108,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 	}
 
     /**
-    * @Then marco o radiobutton ":arg1"
+    * @Then aguardo o radiobutton ":arg1" e marco
     */
 	public function checkRadioButton($labelForRadioButton)
     {
@@ -124,6 +124,36 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 
         }
         //}
+    }
+
+    /**
+    * @Then marco o radiobutton ":arg1"
+    */
+    public function iCheckTheRadioButton($label)
+    {
+        $this->clickElementByLabelText($label, "Radio Button");
+    }
+
+    /**
+    * @Then marco o checkbox ":arg1"
+    */
+    public function iCheckTheCheckBox($label)
+    {
+        $this->clickElementByLabelText($label, "Check Box");
+    }
+
+    /**
+     * @When seleciono ":arg1" da caixa de seleção ":arg2"
+     */
+    public function selectState($option, $name) {
+        $page          = $this->getSession()->getPage();
+        $selectElement = $page->find('xpath', '//select[@data-name = "' . $name . '"]');
+
+        if (null === $selectElement) {
+            throw new Exception("Erro ao selecionar a caixa de seleção ".$name);
+        }
+
+        $selectElement->selectOption($option);
     }
 
     // /**

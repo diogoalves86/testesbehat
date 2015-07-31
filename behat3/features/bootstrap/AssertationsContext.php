@@ -144,4 +144,16 @@ class AssertationsContext extends MinkContext
         return $element;
     }
 
+    public function clickElementByLabelText($label, $typeLabel)
+    {
+        $element = $this->getSession()->getPage()->findField($label);
+        
+        if (null === $element) {
+            throw new Exception("Erro ao encontrar o elemento o $typeLabel que possui o texto ".$label);
+        }
+        
+        $value = $element->getAttribute('value');
+        $this->getSession()->getDriver()->click($element->getXPath());
+    }
+
 }

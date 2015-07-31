@@ -3,5 +3,5 @@
 class ProjectConfig
 {
 	//Definindo constantes no projeto...
-	const CALLBACKTIMEOUT = 10;
+	const CALLBACKTIMEOUT = 5;
 }
