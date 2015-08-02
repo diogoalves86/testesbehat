@@ -7,7 +7,7 @@ Funcionalidade: Fazer o mini do TA
 		Quando pressiono "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
 		Então a caixa de texto "Como gostaria de ser chamado?" deve conter "AAA"
 		Quando pressiono "Iniciar >>"
-		Então marco o radiobutton "Revele meu futuro afetivo"
+		Então aguardo e marco o radiobutton "Revele meu futuro afetivo"
 		E aguardo e pressiono "Continuar >>"
 		Quando aguardo e pressiono "Embaralhar >>"
 		E clico na carta "12"
