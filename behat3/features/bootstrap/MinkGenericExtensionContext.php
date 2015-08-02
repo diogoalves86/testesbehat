@@ -40,7 +40,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     /**
     *@When aguardo e sigo o link ":arg1"
     */
-    public function clickElementWithInterval($element)
+    public function waitForLinkAndClick($element)
     {
         $this->waitForLoad(function() use (&$element){
             try {
@@ -55,7 +55,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     /**
     *@When aguardo e pressiono ":arg1"
     */
-    public function pressButtonWithInterval($textForButton)
+    public function waitForButtonAndClick($textForButton)
     {
         $this->waitForLoad(function() use (&$textForButton){
             try {
@@ -108,7 +108,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 	}
 
     /**
-    * @Then aguardo o radiobutton ":arg1" e marco
+    * @Then aguardo e marco o radiobutton ":arg1"
     */
 	public function checkRadioButton($labelForRadioButton)
     {
