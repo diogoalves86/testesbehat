@@ -66,9 +66,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
             }
         });
     }
-
-
-
+    
     public function fillAutocompleteField($autocompleteFieldXpath, $valueToFill)
     {
         try {
@@ -155,23 +153,6 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
 
         $selectElement->selectOption($option);
     }
-
-    // /**
-    // * @Then marco o radiobutton ":arg1"
-    // */
-    // public function checkRadioButton($elementID)
-    // {
-    //      try {
-    //         $this->assertElementIsOnPageById($elementID);
-    //         if(!$this->isReadyProcessedElement)
-    //             throw new Exception("Erro ao processar elemento");
-
-    //         $radioButton = $this->getSession()->getPage()->find('css', '#'.$elementID);
-    //         $radioButton->click();
-    //     } catch (Exception $e) {
-    //         throw new Exception("Não foi clicar no elemento de ID ".$elementID."\nInformações detalhadas do erro: ".$e->getMessage());
-    //     }
-    // }
 
     /**
     *@Then o teste está finalizado
