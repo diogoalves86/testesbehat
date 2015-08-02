@@ -38,7 +38,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     }
 
     /**
-    *@When clico no link ":arg1"
+    *@When aguardo e sigo o link ":arg1"
     */
     public function clickElementWithInterval($element)
     {
@@ -53,7 +53,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     }
 
     /**
-    *@When pressiono o botão ":arg1"
+    *@When aguardo e pressiono ":arg1"
     */
     public function pressButtonWithInterval($textForButton)
     {
