@@ -8,9 +8,9 @@ Funcionalidade: Fazer o mini do MNA
 		Então seleciono na combobox "SELECIONE O PERFIL" a opção com os dados: 
 		| nome        | dia | mes | ano  |
 		| AAA         | 25  | 03  | 1996 | 
-		E clico no link "SELECIONAR"
+		E aguardo e sigo o link "SELECIONAR"
 		Quando digito "Novo Teste" na caixa de texto "Nome completo, como na certidão de nascimento"
 
-		E clico no link "SELECIONAR"
+		E aguardo e sigo o link "SELECIONAR"
 		Então vou para meu mapa 
 		E o teste está finalizado
