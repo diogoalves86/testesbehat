@@ -66,7 +66,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
             }
         });
     }
-    
+
     public function fillAutocompleteField($autocompleteFieldXpath, $valueToFill)
     {
         try {
@@ -108,20 +108,15 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
     /**
     * @Then aguardo e marco o radiobutton ":arg1"
     */
-	public function checkRadioButton($labelForRadioButton)
+    public function waitAndCheckRadioButton($labelForRadioButton)
     {
-        $radioButton = $this->getElementByLabelText($labelForRadioButton);
-        //foreach ($radioButtons as $radioButton) {
-        if ($radioButton) {
-            $type = $radioButton->getAttribute('type');
-            if ($type && $type === 'radio'){
-                $radioButton->click();
-                return true;
-            }
-            throw new Exception('Erro ao selecionar o Radio Button que possui o texto '.$labelForRadioButton);
-
-        }
-        //}
+            $this->waitForLoad(function() use(&$labelForRadioButton){
+                try {
+                    return $this->clickElementByLabelText($labelForRadioButton, "Radio Button");
+                } catch (Exception $e) {
+                        return false;
+                }
+            });
     }
 
     /**
