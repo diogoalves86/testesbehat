@@ -1,11 +1,11 @@
-<?php 
+<?php
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
     Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
- 
+
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Behat\Hook\Scope\BeforeStepScope;
 use Behat\Behat\Hook\Scope\AfterFeatureScope;
@@ -19,7 +19,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
 {
     public $isVisibleProcessedElement = false;
     public $isReadyProcessedElement = false;
-	
+
     /**
     * @Given que estou logado no sistema com o usuário :arg1 e a senha :arg2
     */
@@ -31,13 +31,21 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
             $this->fillField("pwPassword", $password);
             $this->pressButton("psr-user-login");
             $this->assertElementIsVisibleOnPageById('psr-user-navbar-logged');
-            
+
             if(!$this->isVisibleProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
-                
+
         } catch (Exception $e) {
-            throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());   
+            throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());
         }
+    }
+
+    /**
+    * @Given que estou no Desktop
+    */
+    public function runTestOnDesktop()
+    {
+        $this->getSession()->maximizeWindow();
     }
 
     public function autoCompleteField($fieldID, $widgetID, $fieldValue, $optionToSelectId)
@@ -47,7 +55,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
             $this->assertElementIsOnPageById($widgetID);
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao processar elemento!");
-            
+
             $this->fillAutocompleteField($fieldID, $fieldValue);
             $this->assertElementIsOnPageById($optionToSelectId);
             if(!$this->isReadyProcessedElement)
@@ -55,7 +63,7 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
 
             $this->clickLink($optionToSelectId);
         } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());   
+            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());
         }
-    }    
+    }
 }
