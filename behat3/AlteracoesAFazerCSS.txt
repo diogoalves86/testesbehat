@@ -2,3 +2,18 @@ Elementos que tiveram seu estilo alterado com a inclusão da "Label"
 	-Tarot do Dia:
 		. Elemento passou a ter o "font-weight" como "bold":
 			<label for="tarot-nome-jogador">Como gostaria de ser chamado?</label>
+
+	-Box de seleção de Perfil(Revolução Solar):
+		. Os select de "Estado" está com tamanho pequeno
+			. <? $Pattern->Form->select(
+    	           array(
+    	             'Name' => 'ddEstate',
+    	             'Label' => 'Estado',
+    	             'ID' => 'ddEstate',
+    	             'OptionLabelKey' => 'EstateSign',
+    	             'OptionValueKey' => 'EstateID',
+    	             'SelectedValue' => $InfoVet['EstateID'],
+    	             'Options' => $InfoVet['EstateList'],
+    	             'FirstOption' => array('MainLabel' => 'Selecione o estado', 'Code' => '')
+    	           )
+    	         );
