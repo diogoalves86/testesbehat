@@ -2,7 +2,8 @@
 Funcionalidade: Fazer o mini do TA
 	@javascript
 	Cenário: Usuário logado quer fazer o mini do TA
-		Dado que estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
+		Dado que estou no Desktop
+		E que estou logado no sistema com o usuário "aaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaa.com" e a senha "1234"
 		E vou para "/tarot/tarot-e-o-amor"
 		Quando pressiono "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
 		Então a caixa de texto "Como gostaria de ser chamado?" deve conter "AAA"
