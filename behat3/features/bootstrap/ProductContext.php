@@ -14,60 +14,16 @@ use Behat\Behat\Context\Context;
 /**
 * Classe responsável pelo contexto geral do Personare
 */
-class MiniProductContext extends PersonareContext implements Context
+class ProductContext extends PersonareContext implements Context
 {
-	/**
-    *@When clico em "ler uma amostra grátis da análise"
-    */
-    public function generateNewMini()
-    {
-        try {
-            $this->clickLink("psr-product-new-mini");
-        } catch (Exception $e) {
-            throw new Exception("Erro ao clicar para ler análise Mini. \n".$e->getMessage());
-
-        }
-    }
-
-    /**
-	*@Then clico em "Selecionar"
-	*/
-	public function selectProfile()
-	{
-		try {
-			$this->assertElementIsOnPageById("psr-mini-mna-select-profile");
-			if(!$this->isReadyProcessedElement)
-				throw new Exception("Erro ao processar elemento!");
-
-			$this->clickLink("psr-mini-mna-select-profile");
-		} catch (Exception $e) {
-			throw new Exception("Error ao selecionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
-
-    /**
-	*@When seleciono a opção “Adicionar novo perfil”
-	*/
-	public function selectAddNewProfile()
-	{
-		try {
-			$this->assertElementIsOnPageById("ddProfile");
-			if(!$this->isReadyProcessedElement)
-				throw new Exception("Erro ao processar elemento!");
-
-			$this->selectOption("ddProfile", "AddProfile");
-		} catch (Exception $e) {
-			throw new Exception("Error ao adicionar perfil do usuário. \n Informações detalhadas do erro:\n".$e->getMessage());
-		}
-	}
 	
 	/**
-	*@Then vou para meu mapa
+	*@Then verifico resultado do :arg1
 	*/
-	public function checkGameResult()
+	public function checkGameResult($productName)
 	{
 		try {
-			$this->assertElementIsOnPageById("psr-widget-pr-header");
+			$this->assertElementIsOnPageByQuerySelector("#psr-widget-header h1");
 			if(!$this->isReadyProcessedElement)
 				throw new Exception("Erro ao processar elemento!");
 

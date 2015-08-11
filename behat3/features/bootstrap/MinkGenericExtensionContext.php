@@ -28,8 +28,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
                     return true;
                 }
             } catch (Exception $e) {
-                throw new Exception("Erro ao acessar função de callback. Informações detalhadas: \n".$e->getMessage());
-
+                throw new Exception("Erro ao processar a função.");
             }
 
             sleep($sleep);
@@ -119,6 +118,21 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
             });
     }
 
+
+    /**
+    * @When aguardo e seleciono :arg1 da caixa de seleção :arg2 
+    */
+    public function waitAndSelectOption($option, $name)
+    {
+        $this->waitForLoad(function() use(&$option, &$name){
+            try {
+                return $this->selectState($option, $name);
+            } catch (Exception $e) {
+                return false;
+            }
+        });
+    }
+
     /**
     * @Then marco o radiobutton ":arg1"
     */
@@ -147,6 +161,7 @@ class MinkGenericExtensionContext extends AssertationsContext implements Context
         }
 
         $selectElement->selectOption($option);
+        return true;
     }
 
     /**
