@@ -1,4 +1,4 @@
-default:
+default: 
   extensions:
     Behat\MinkExtension:
       base_url: 'http://workcopy.personare.com.br/'
@@ -22,5 +22,8 @@ default:
       features: %paths.base%/features/numerology/
       contexts: [NumerologyAnalisysContext]
     astrologyChart:
-      features: %paths.base%/features/astrology/
-      contexts: [AstrologyChartContext]
+      features: %paths.base%/features/astrology/astrologyChart/
+      contexts: [PersonareContext]
+    astrologySolarRevolution:
+      features: %paths.base%/features/astrology/astrologySolarRevolution/
+      contexts: [PersonareContext]
