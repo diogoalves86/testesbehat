@@ -4,7 +4,7 @@ default:
       base_url: 'http://workcopy.personare.com.br/'
       goutte: ~
       selenium2:
-        wd_host: 'http://192.168.0.207:4444/wd/hub'
+        wd_host: 'http://192.168.0.195:4444/wd/hub'
   suites:
     user:
       features: %paths.base%/features/user/
@@ -17,7 +17,7 @@ default:
       contexts: [CartContext]
     loveTarot:
       features: %paths.base%/features/loveTarot/
-      contexts: [LoveTarotContext]
+      contexts: [TarotContext]
     numerologyAnalisys:
       features: %paths.base%/features/numerology/
       contexts: [NumerologyAnalisysContext]

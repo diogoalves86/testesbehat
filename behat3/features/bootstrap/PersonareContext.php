@@ -15,11 +15,8 @@ use Behat\Behat\Context\Context;
 /**
 * Classe responsável pelo contexto geral do Personare
 */
-class PersonareContext extends MinkGenericExtensionContext implements Context
+class PersonareContext extends MinkGenericExtensionContext
 {
-    public $isVisibleProcessedElement = false;
-    public $isReadyProcessedElement = false;
-
     /**
     * @Given que estou logado no sistema com o usuário :arg1 e a senha :arg2
     */
@@ -37,33 +34,6 @@ class PersonareContext extends MinkGenericExtensionContext implements Context
 
         } catch (Exception $e) {
             throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());
-        }
-    }
-
-    /**
-    * @Given que estou no Desktop
-    */
-    public function runTestOnDesktop()
-    {
-        $this->getSession()->maximizeWindow();
-    }
-
-    public function autoCompleteField($fieldID, $widgetID, $fieldValue, $optionToSelectId)
-    {
-        try {
-
-            $this->assertElementIsOnPageById($widgetID);
-            if(!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-
-            $this->fillAutocompleteField($fieldID, $fieldValue);
-            $this->assertElementIsOnPageById($optionToSelectId);
-            if(!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-
-            $this->clickLink($optionToSelectId);
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao escolher a cidade do cadastro. \n".$e->getMessage());
         }
     }
 }

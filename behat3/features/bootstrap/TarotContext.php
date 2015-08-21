@@ -13,8 +13,27 @@ use Behat\Behat\Context\Step;
 /**
  * Tarot context.
  */
-class TarotContext extends PersonareContext implements Context
+class TarotContext extends PersonareContext
 {
+
+    /**
+    * Verifica se o usuário jogou o tarot com sucesso.
+    * @Then vou para meu jogo
+    */
+    public function seeGameResult()
+    {
+        try {
+            $this->assertElementIsOnPageById("psr-widget-pr-header");
+            if (!$this->isReadyProcessedElement)
+                throw new Exception("Erro ao processar elemento!");
+
+            $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
+
+        } catch (Exception $e) {
+            throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
+        }
+    }
+
     /**
     *@When clico na carta ":arg1"
     */
