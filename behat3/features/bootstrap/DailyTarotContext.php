@@ -13,7 +13,7 @@ use Behat\Behat\Context\Step;
 /**
  * TarotDoDia context.
  */
-class DailyTarotContext extends TarotContext implements Context
+class DailyTarotContext extends TarotContext
 {
 
     /**
