@@ -15,32 +15,6 @@ use Behat\Behat\Context\Step;
  */
 class UserContext extends PersonareContext implements Context
 {
-
-    /**
-    * @Then marco para receber dicas e horóscopo via e-mail
-    */
-    public function checkUserReceiveEmail()
-    {
-        try {
-            $this->checkOption("cbReceiveAlerts_1");
-            $this->checkOption("cbReceiveNews_1");
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao marcar para receber dicas e horóscopo via e-mail. \n".$e->getMessage());
-        }
-    }
-
-    /**
-    * @Then clico em "Finalizar"
-    */
-    public function submitFormUser()
-    {
-        try {
-            $this->pressButton("psr-form-submit");
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro ao finalizar o cadastro do usuário. \n".$e->getMessage());
-        }
-    }
-
     /**
     * @When preencho o formulário de cadastro com os seguintes dados:
     */
@@ -63,21 +37,6 @@ class UserContext extends PersonareContext implements Context
             }
         } catch (Exception $e) {
             throw new Exception("Ocorreu um erro ao preencher o formulário de cadastro do usuário. \n".$e->getMessage());
-        }
-    }
-
-    /**
-     * Efetua login do usuário.
-     * @Then faço login com os seguintes dados:
-    */
-    public function doLogin(TableNode $table)
-    {
-        try {
-            foreach ($table as $row)
-                $this->userLogged($row['email'], $row['senha']);
-
-        } catch (Exception $e) {
-            throw new Exception("Ocorreu um erro fatal ao efetuar o login.\n\n\n Informações detalhadas do erro: ".$e->getMessage()."\n\n\n");
         }
     }
 
