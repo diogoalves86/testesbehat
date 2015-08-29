@@ -2,12 +2,11 @@
 Funcionalidade: Fazer o mini do MA
     @javascript
     Cenário: Usuário logado quer fazer o mini do MA
-        Dado que estou logado no sistema com o usuário "rtancman@gmail.com" e a senha "1234"
+        Dados que estou no Desktop 
+        E que estou logado no sistema com o usuário "rtancman@gmail.com" e a senha "1234"
     	E vou para "/astrologia/mapa-astral"
-    	Quando clico em "ler uma amostra grátis da análise"
-    	Então seleciono o perfil com os seguintes dados: 
-        | nome           | dia | mes | ano  |
-        | Ju Paes        | 01  | 10  | 1985 | 
-     	E clico em "Selecionar"
+    	Quando pressiono "LEIA UMA AMOSTRA GRÁTIS DA ANÁLISE"
+    	Então seleciono "AAA - 02/03/1973" da caixa de seleção "Selecione"
+     	E sigo o link "SELECIONAR"
      	Então vou para meu mapa
         E o teste está finalizado
