@@ -22,9 +22,9 @@ class CartContext extends PersonareContext
   {
         $element = $this->getSession()->getPage()->find("css", "#psr-lista-produtos tr td.text_product h3");
         if ( !is_object($element ) )
-          throw new Exception("Nao existe nenhum  produto  no carrinho");
+        	throw new Exception("Nao existe nenhum  produto  no carrinho");
         else if ($element->getText() !== $productName)
-            throw new Exception("O produto {$productName} nao foi encontrado como primeiro item do carrinho \n O produto {$element->getText()} foi encontrado");
+        	throw new Exception("O produto {$productName} nao foi encontrado como primeiro item do carrinho \n O produto {$element->getText()} foi encontrado");
 
   }
   /**
