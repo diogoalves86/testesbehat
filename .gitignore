@@ -1,6 +1,6 @@
 # Arquivos de dependência do composer
 vendor/
-
+behat.yml
 .DS_Store
 .AppleDouble
 .LSOverride
