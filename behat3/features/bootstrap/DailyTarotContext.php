@@ -22,15 +22,7 @@ class DailyTarotContext extends TarotContext
     */
     public function seeGameResult($playerName)
     {
-        try {
-            $this->assertElementIsOnPageById("explicacao-td");
-            if (!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-
-            $this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
-
-        } catch (Exception $e) {
-            throw new Exception('Erro ao verificar o jogo do "'.$playerName.'".\n '.$e->getMessage());
-        }
+    	$this->assertElementOnPageById("explicacao-td");
+    	$this->assertResponseContains("<strong>Jogo de ".$playerName."</strong>");
     }
 }
