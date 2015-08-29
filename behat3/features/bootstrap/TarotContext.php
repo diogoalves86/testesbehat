@@ -22,16 +22,8 @@ class TarotContext extends PersonareContext
     */
     public function seeGameResult()
     {
-        try {
-            $this->assertElementIsOnPageById("psr-widget-pr-header");
-            if (!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-
-            $this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
-
-        } catch (Exception $e) {
-            throw new Exception('Erro ao verificar o jogo.\n '.$e->getMessage());
-        }
+    	$this->assertElementOnPageById("psr-widget-pr-header"); 
+    	$this->assertResponseContains('<p class="periodo-do-jogo">Período do Jogo: <span class="data">');
     }
 
     /**
@@ -39,14 +31,7 @@ class TarotContext extends PersonareContext
     */
     public function selectCard($cardNumber)
     {
-        try {
-            $this->assertElementIsOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover");
-            if (!$this->isReadyProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-            $this->clickLink("carta-".$cardNumber);
-
-        } catch (Exception $e) {
-            throw new Exception('Erro ao selecionar carta.\n '.$e->getMessage());
-        }
+    	$this->assertElementIsOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover"); 
+    	$this->clickLink("carta-".$cardNumber);
     }
 }
