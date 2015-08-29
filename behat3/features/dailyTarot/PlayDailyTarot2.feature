@@ -1,7 +1,7 @@
 #language: pt
-Funcionalidade: Usuário jogar Tarot
+Funcionalidade: Usuário jogar Tarot do dia
 	@javascript
-	Cenário: Usuário deslogado 
+	Cenário: Usuário joga Tarot do dia deslogado 
 		Dados que estou no Desktop
         E estou em "/tarot/tarot-do-dia/jogar"
 		Quando digito "TesteTarotDoDia" na caixa de texto "COMO GOSTARIA DE SER CHAMADO?"

@@ -31,7 +31,7 @@ class TarotContext extends PersonareContext
     */
     public function selectCard($cardNumber)
     {
-    	$this->assertElementIsOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover"); 
+    	$this->assertElementOnPageByQuerySelector("#tarot-deck.tarot-baralho.tarot-carta-hover"); 
     	$this->clickLink("carta-".$cardNumber);
     }
 }
