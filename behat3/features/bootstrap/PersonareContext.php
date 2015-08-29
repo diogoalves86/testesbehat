@@ -22,18 +22,10 @@ class PersonareContext extends MinkGenericExtensionContext
     */
     public function userLogged($username, $password)
     {
-        try {
-            $this->visit("/login?ReturnToURL=L2FzdHJvbG9naWEvaG9yb3Njb3Bv");
-            $this->fillField("txEmail", $username);
-            $this->fillField("pwPassword", $password);
-            $this->pressButton("psr-user-login");
-            $this->assertElementIsVisibleOnPageById('psr-user-navbar-logged');
-
-            if(!$this->isVisibleProcessedElement)
-                throw new Exception("Erro ao processar elemento!");
-
-        } catch (Exception $e) {
-            throw new Exception("Não foi possível realizar o login do usuário ".$username.".\nInformações detalhadas do erro: ".$e->getMessage());
-        }
+    	$this->visit("/login?ReturnToURL=L2FzdHJvbG9naWEvaG9yb3Njb3Bv"); 
+    	$this->fillField("txEmail", $username);
+    	$this->fillField("pwPassword", $password);
+    	$this->pressButton("psr-user-login");
+    	$this->assertElementIsVisibleOnPageById('psr-user-navbar-logged');
     }
 }
