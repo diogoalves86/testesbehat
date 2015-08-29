@@ -125,7 +125,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context {
 	}
 	
 	// Espera o elemento estar visível para então poder interagir com ele.
-	private function waitForLoad($function, $sleep = 1) {
+	public function waitForLoad($function, $sleep = 1) {
 		$counter = 0;
 		while ( true ) {
 			if ($counter >= ProjectConfig::CALLBACKTIMEOUT)
@@ -155,15 +155,15 @@ class MinkGenericExtensionContext extends MinkContext implements Context {
 		$condition = sprintf ( "document.getElementById('%s') != null", $elementId );
 		$this->assertElementOnPage ( $condition );
 	}
-	public function assertElementIsOnPageByQuerySelector($querySelector) {
+	public function assertElementOnPageByQuerySelector($querySelector) {
 		$condition = sprintf ( "document.querySelector('%s') != null", $querySelector );
 		$this->assertElementOnPage ( $condition );
 	}
-	public function assertElementIsOnPageByTagName($elementTagName) {
+	public function assertElementOnPageByTagName($elementTagName) {
 		$condition = sprintf ( "document.getElementsByTagName('%s') != null", $elementTagName );
 		$this->assertElementOnPage ( $condition );
 	}
-	public function assertElementIsOnPageByXpath($elementXpath) {
+	public function assertElementOnPageByXpath($elementXpath) {
 		$condition = sprintf ( "document.evaluate('%s', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue != null", $elementXpath );
 		$this->assertElementOnPage ( $condition );
 	}
@@ -190,10 +190,10 @@ class MinkGenericExtensionContext extends MinkContext implements Context {
 	public function getElementByLabelText($labelForElement) {
 		$element = false;
 		$this->waitForLoad ( function () use(&$labelForElement, &$element) {
-			$this->assertElementIsOnPageByTagName ( 'label' );
+			$this->assertElementOnPageByTagName ( 'label' );
 			$labelElements = $this->getSession ()->getPage ()->findAll ( 'css', 'label' );
 			foreach ( $labelElements as $label ) {
-				$this->assertElementIsOnPageByXpath ( $label->getXpath () );
+				$this->assertElementOnPageByXpath ( $label->getXpath () );
 				if ($labelForElement == $label->getText ()) {
 					$forAttribute = $label->getAttribute ( 'for' );
 					$element = $this->getSession ()->getPage ()->find ( 'css', '#' . $forAttribute );
