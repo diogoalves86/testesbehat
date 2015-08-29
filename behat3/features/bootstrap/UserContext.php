@@ -47,7 +47,7 @@ class UserContext extends PersonareContext implements Context
     public function verifyLogin()
     {
         try {
-            $this->assertElementIsOnPageById("psr-user-navbar-logged");
+            $this->assertElementOnPageById("psr-user-navbar-logged");
             if(!$this->isReadyProcessedElement)
                 throw new Exception("Erro ao autenticar o usuário");
 
