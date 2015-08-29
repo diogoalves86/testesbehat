@@ -132,7 +132,7 @@ class MinkGenericExtensionContext extends MinkContext implements Context {
 				throw new Exception ( "O tempo limite definido foi atingido!" );
 			
 			if ($function ( $this ))
-				return true;
+				var_dump($function); exit;
 			sleep ( $sleep );
 			$counter ++;
 		}

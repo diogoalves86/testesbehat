@@ -1,0 +1,28 @@
+default: 
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://workcopy.personare.com.br/'
+      goutte: ~
+      selenium2: ~
+  suites:
+    user:
+      features: %paths.base%/features/user/
+      contexts: [UserContext]
+    dailyTarot:
+      features: %paths.base%/features/dailyTarot/
+      contexts: [DailyTarotContext]
+    cart:
+      features: %paths.base%/features/cart/
+      contexts: [CartContext]
+    loveTarot:
+      features: %paths.base%/features/loveTarot/
+      contexts: [TarotContext]
+    numerologyAnalisys:
+      features: %paths.base%/features/numerology/
+      contexts: [NumerologyAnalisysContext]
+    astrologyChart:
+      features: %paths.base%/features/astrology/astrologyChart/
+      contexts: [PersonareContext]
+    astrologySolarRevolution:
+      features: %paths.base%/features/astrology/astrologySolarRevolution/
+      contexts: [PersonareContext]
