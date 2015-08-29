@@ -132,21 +132,19 @@ class MinkGenericExtensionContext extends MinkContext implements Context {
 				throw new Exception ( "O tempo limite definido foi atingido!" );
 			
 			if ($function ( $this ))
-				var_dump($function); exit;
+				return $function ( $this );
 			sleep ( $sleep );
 			$counter ++;
 		}
 	}
-	public function assertElementOnPage($condition, $canElementNotExist = false, $sleep = 2) {
+	public function assertElementOnPage($condition, $canElementNotExist = false) {
 		$this->waitForLoad ( function () use(&$canElementNotExist, &$condition) {
 			$isReady = $this->evaluateElementByCondition ( $condition );
-			if ($isReady === true && $canElementNotExist == false)
-				return true;
-			else if ($isReady !== true && $canElementNotExist == true)
+			if (($isReady === true && $canElementNotExist == false) || $isReady !== true && $canElementNotExist == true)
 				return true;
 			else
 				return false;
-		}, $sleep );
+		} );
 	}
 	public function evaluateElementByCondition($condition) {
 		return $this->getSession ()->getDriver ()->evaluateScript ( $condition );
