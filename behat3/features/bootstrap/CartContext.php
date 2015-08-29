@@ -27,15 +27,38 @@ class CartContext extends PersonareContext
         	throw new Exception("O produto {$productName} nao foi encontrado como primeiro item do carrinho \n O produto {$element->getText()} foi encontrado");
 
   }
+  
+  /**
+   *@Given que estou sem produtos no carrinho
+   */
+  public function clearCart()
+  {
+  	$cartItems = $this->getLinksToDeleteAllProducts ();
+
+  	$this->assertElementOnPageByXpath($cartItems[0]->getXpath());
+  	foreach($cartItems as $cartItem)
+  	{
+  		var_dump($cartItem->getText());
+  		$cartItem->click();
+  		$this->assertElementOnPageByXpath($cartItem->getXpath());
+  	}
+  }
+/**
+	 * 
+	 */private function getLinksToDeleteAllProducts() {
+		$cartItems = $this->waitForLoad(function(){
+			return $this->getSession()->getPage()->findAll("css", "#psr-lista-produtos .td_remove a");
+		});
+		var_dump($cartItems->getText()); exit;
+		return $cartItems;
+	}
+
+  
   /**
   * @When adiciono o produto de código :arg1 ao carrinho
   */
   public function addProductToCart($productCode)
   {
-    try {
       $this->visit("/carrinho/adicionar/".$productCode);
-    } catch (Exception $e) {
-      throw new Exception('Erro ao adicionar produto ao carrinho. \n '.$e->getMessage());
-    }
   }
 }
